@@ -1,0 +1,12 @@
+
+app_name = "P2P Knowledge Hub"
+
+[logs]
+log_to_file = false
+log_level = "debug"
+log_to_console = true
+capturewarnings = true
+rich_tracebacks = false
+
+[exceptions]
+default_error_message = "An unexpected error occured."

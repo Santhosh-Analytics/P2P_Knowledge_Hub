@@ -1,7 +1,6 @@
 import logging
 from logging.handlers import RotatingFileHandler
 from rich.logging import RichHandler
-from p2p_knowledge_hub import settings
 from p2p_knowledge_hub.settings import LogSettings
 
 
@@ -15,13 +14,13 @@ class AppLogger:
         _handlers = RotatingFileHandler(
             filename=self.settings.log_file_name,
             maxBytes=self.settings.log_max_bytes,
-            backupCount=LogSettings.log_backupCount,
+            backupCount=self.settings.log_backup_count,
             encoding=LogSettings.log_encoding,
         )
         fmt = logging.Formatter(
             self.settings.log_file_fmt, datefmt=self.settings.log_date_fmt
         )
-        _handlers.format(fmt)
+        _handlers.setFormatter(fmt)
         _handlers.setLevel(self.settings.log_level)
 
         return _handlers
@@ -52,4 +51,4 @@ class AppLogger:
 
 if __name__ == "__main__":
     p2p_logger = AppLogger(settings=LogSettings())
-    p2p_logger.get_logger("San")
+    p2p_logger.get_logger(__name__)
