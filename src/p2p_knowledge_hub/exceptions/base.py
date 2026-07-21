@@ -4,7 +4,7 @@ from pathlib import Path
 from p2p_knowledge_hub.settings.exceptions import ExceptionSettings
 
 
-class P2P_HubException(Exception):
+class P2PHubException(Exception):
     settings = ExceptionSettings()
 
     def __init__(
@@ -41,5 +41,27 @@ class P2P_HubException(Exception):
         return f"{self.message}"
 
 
-class DocumentException(P2P_HubException):
+class DocumentException(P2PHubException):
+    pass
+
+class FileOperationError(P2PHubException):
+    pass
+
+class FileMissingError(FileOperationError):
+    pass
+
+class FilePermissionError(FileOperationError):
+    pass
+
+class InvalidPathError(FileOperationError):
+    pass
+
+class DirectoryError(FileOperationError):
+    pass
+
+
+class FileReadError(FileOperationError):
+    pass
+
+class HashingError(P2PHubException):
     pass

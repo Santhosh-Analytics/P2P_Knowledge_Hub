@@ -15,7 +15,7 @@ class AppLogger:
             filename=self.settings.log_file_name,
             maxBytes=self.settings.log_max_bytes,
             backupCount=self.settings.log_backup_count,
-            encoding=LogSettings.log_encoding,
+            encoding=self.settings.log_encoding
         )
         fmt = logging.Formatter(
             self.settings.log_file_fmt, datefmt=self.settings.log_date_fmt
