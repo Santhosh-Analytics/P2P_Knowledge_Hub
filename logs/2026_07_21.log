@@ -1,0 +1,5 @@
+2026-07-21 16:06:17 | ERROR    | Path does not exist: /home/san/.config/ggVG
+2026-07-21 16:07:36 | ERROR    | Expected a file path, but got a directory: /home/san/.config/alacritty
+2026-07-21 16:09:28 | ERROR    | Expected a file path, but got a directory: /home/san/.config/alacritty
+2026-07-21 16:13:25 | ERROR    | __main__:compute_sha256:23 | Expected a file path, but got a directory: /home/san/.config/alacritty
+2026-07-21 16:14:40 | ERROR    | __main__:compute_sha256:23 | Expected a file path, but got a directory: /home/san/.config/alacritty

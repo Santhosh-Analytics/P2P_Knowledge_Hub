@@ -1,7 +1,6 @@
 from functools import lru_cache
 from p2p_knowledge_hub.settings import ExceptionSettings, LogSettings, RunTimeDir
-
-
+from p2p_knowledge_hub.settings.db import DBConfig
 from pathlib import Path
 from pydantic import Field
 from pydantic_settings import (
@@ -19,10 +18,12 @@ class Settings(BaseSettings):
     runtime_dir: RunTimeDir = Field(default_factory=RunTimeDir)
     logs: LogSettings = Field(default_factory=LogSettings)
     exceptions: ExceptionSettings = Field(default_factory=ExceptionSettings)
+    db: DBConfig = Field(default_factory=DBConfig)
     # chunks
     model_config = SettingsConfigDict(
         toml_file=_base_dir / "config.toml",
         env_prefix="p2p_",
+        env_nested_delimiter="__",
         case_sensitive=False,
         extra="ignore",
     )

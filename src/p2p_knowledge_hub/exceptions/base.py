@@ -44,17 +44,22 @@ class P2PHubException(Exception):
 class DocumentException(P2PHubException):
     pass
 
+
 class FileOperationError(P2PHubException):
     pass
+
 
 class FileMissingError(FileOperationError):
     pass
 
+
 class FilePermissionError(FileOperationError):
     pass
 
+
 class InvalidPathError(FileOperationError):
     pass
+
 
 class DirectoryError(FileOperationError):
     pass
@@ -63,5 +68,10 @@ class DirectoryError(FileOperationError):
 class FileReadError(FileOperationError):
     pass
 
+
 class HashingError(P2PHubException):
+    pass
+
+
+class DBSessionError(P2PHubException):
     pass

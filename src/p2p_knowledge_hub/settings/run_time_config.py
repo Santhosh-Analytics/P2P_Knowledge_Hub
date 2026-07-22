@@ -8,7 +8,6 @@ class RunTimeDir(BaseSettings):
         env_prefix="p2p_", env_file=".env", extra="ignore"
     )
     base_dir: Path = Field(default_factory=lambda: Path(__file__).absolute().parents[3])
-    print(base_dir)
 
     logs_dir: Path | None = Field(default=None)
     artifacts_dir: Path | None = Field(default=None)
@@ -57,4 +56,3 @@ class RunTimeDir(BaseSettings):
 if __name__ == "__main__":
     s = RunTimeDir()
     print(s.model_dump())
-    print(s)

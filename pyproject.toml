@@ -14,9 +14,19 @@ classifiers = [
 ]
 
 
-dependencies = ["pydantic>=2.13.4", "pydantic-settings>=2.14.2", "rich>=15.0.0"]
+dependencies = [
+    "alembic>=1.18.5",
+    "psycopg>=3.3.4",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.14.2",
+    "rich>=15.0.0",
+    "sqlalchemy>=2.0.51",
+]
 [project.scripts]
 p2p-hub = "p2p_knowledge_hub.__main__:main"
+
+[tool.uv]
+package = true
 
 [build-system]
 requires = ["hatchling >= 1.26"]

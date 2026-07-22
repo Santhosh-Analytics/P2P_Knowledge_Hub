@@ -2,7 +2,8 @@
 app_name = "P2P Knowledge Hub"
 
 [logs]
-log_to_file = false
+log_file_fmt = "%(asctime)s | %(levelname)-8s | %(name)s:%(funcName)s:%(lineno)d | %(message)s"
+log_to_file = true
 log_level = "debug"
 log_to_console = true
 capturewarnings = true

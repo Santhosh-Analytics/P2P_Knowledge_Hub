@@ -8,11 +8,24 @@ def tz_aware_time() -> datetime:
     return datetime.now(timezone.utc)
 
 
+class SourceSystem(str, Enum):
+    SAP = "SAP"
+    ORACLE = "ORACLE"
+    TALLY = "TALLY"
+
+
 class DocumentStatus(str, Enum):
     UPLOADED = "uploaded"
     PROCESSING = "processing"
     INDEXED = "indexed"
     FAILED = "failed"
+
+
+class BusinessProcess(str, Enum):
+    SUPPLIER = "SUPPLIER"
+    INVOICE = "INVOICE"
+    PURCHASEORDER = "PURCHASEORDER"
+    PAYMENT = "PAYMENT"
 
 
 class MimeType(str, Enum):

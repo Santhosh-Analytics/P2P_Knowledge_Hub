@@ -15,19 +15,19 @@ class AppLogger:
             filename=self.settings.log_file_name,
             maxBytes=self.settings.log_max_bytes,
             backupCount=self.settings.log_backup_count,
-            encoding=self.settings.log_encoding
+            encoding=self.settings.log_encoding,
         )
         fmt = logging.Formatter(
             self.settings.log_file_fmt, datefmt=self.settings.log_date_fmt
         )
         _handlers.setFormatter(fmt)
-        _handlers.setLevel(self.settings.log_level)
+        _handlers.setLevel(self.settings.log_level.upper())
 
         return _handlers
 
     def make_console_handler(self):
         _handlers = RichHandler(
-            level=self.settings.log_level,
+            level=self.settings.log_level.upper(),
             show_level=True,
             show_time=True,
             show_path=True,
@@ -39,7 +39,7 @@ class AppLogger:
         logger = logging.getLogger(name)
         if logger.handlers:
             return logger
-        logger.setLevel(self.settings.log_level)
+        logger.setLevel(self.settings.log_level.upper())
         logger.propagate = False
         if self.settings.log_to_console:
             logger.addHandler(self.make_console_handler())
