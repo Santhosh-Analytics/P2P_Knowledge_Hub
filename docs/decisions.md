@@ -1,4 +1,4 @@
-
+<!-- ADR = Architecture Decision Record. -->
 
 <!-- toc -->
 
@@ -14,7 +14,7 @@
     * [Decision](#decision-2)
     * [Reason](#reason-2)
     * [Future Consideration](#future-consideration-2)
-- [ADR-004: Pydantic Database](#adr-004-pydantic-database)
+- [ADR-004: ORM Layer](#adr-004-orm-layer)
     * [Decision](#decision-3)
     * [Reason](#reason-3)
     * [Future Consideration](#future-consideration-3)
@@ -77,7 +77,7 @@ If an identical document already exists, the ingestion service rejects the uploa
 V1 assumes one primary business process per document. Multi-process document mapping may be added later.
 V2 will support explicit re-indexing for embedding upgrades, chunking changes, or document versioning.
 
-# ADR-004: Pydantic Database
+# ADR-004: ORM Layer
 
 ## Decision
 
@@ -86,9 +86,6 @@ database. In this project i use this database to store the file metadata
 and file hash. So we can use it to avoid duplication.
 
 ## Reason
-
-SQL Alchemy is a Object-Relational Mapper, meaning it maps python classes
-to db tables and handles db operations.
 
 ## Future Consideration
 

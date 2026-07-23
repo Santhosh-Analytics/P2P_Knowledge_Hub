@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from p2p_knowledge_hub.settings.main import get_settings
 from sqlalchemy.orm import Session, sessionmaker
-from p2p_knowledge_hub.exceptions.base import DBSessionError
 from collections.abc import Generator
 
 settings = get_settings()

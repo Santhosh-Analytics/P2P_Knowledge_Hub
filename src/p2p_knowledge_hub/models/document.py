@@ -21,6 +21,14 @@ class DocumentStatus(str, Enum):
     FAILED = "failed"
 
 
+class Department(str, Enum):
+    CONTRACT = "CONTRACT"
+    VMF = "VMF"
+    PURCHASE_ORDER = "PURCHASE_ORDER"
+    INVOICE = "INVOICE"
+    PAYMENT = "PAYMENT"
+
+
 class BusinessProcess(str, Enum):
     SUPPLIER = "SUPPLIER"
     INVOICE = "INVOICE"
@@ -34,13 +42,15 @@ class MimeType(str, Enum):
 
 class Document(BaseModel):
     document_id: UUID = Field(default_factory=uuid4, frozen=True)
+    document_group_id: UUID
     document_name: str
-    document_type: str | None = None
     document_status: DocumentStatus = DocumentStatus.UPLOADED
     document_version: int = Field(default=1, ge=1)
+    source_system: SourceSystem
+    business_process: BusinessProcess
     uploaded_at: datetime = Field(default_factory=tz_aware_time)
     uploaded_by: str
-    department: str
+    department: Department
     source_uri: str
     file_hash: str = Field(min_length=64, max_length=64)
     file_size_bytes: int = Field(gt=0)
@@ -54,17 +64,8 @@ class Document(BaseModel):
 
 
 if __name__ == "__main__":
-    data = Document(
-        document_name="test",
-        document_type="test_type",
-        # document_version=1,
-        # document_version="2",
-        uploaded_by="test_uploadedby",
-        department="p2p",
-        source_uri="source_uri",
-        file_hash="a" * 64,
-        file_size_bytes=32,
-    )
+    data = Document()
+    data.document_id = uuid4()
     print(data)
     print(data.model_dump())
     print(data.model_dump_json(indent=2))

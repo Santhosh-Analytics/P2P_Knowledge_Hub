@@ -1,4 +1,5 @@
 from datetime import datetime
+from os import name
 from uuid import UUID
 
 from sqlalchemy import (
@@ -16,6 +17,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from p2p_knowledge_hub.models.db.base import Base
 from p2p_knowledge_hub.models.document import (
     BusinessProcess,
+    Department,
     DocumentStatus,
     MimeType,
     SourceSystem,
@@ -25,10 +27,15 @@ from p2p_knowledge_hub.models.document import (
 class DocumentRecord(Base):
     __tablename__ = "documents"
     document_id: Mapped[UUID] = mapped_column(Uuid, primary_key=True)
+    document_group_id: Mapped[UUID] = mapped_column(Uuid, nullable=False)
     document_name: Mapped[str] = mapped_column(String(255), nullable=False)
+    department: Mapped[Department] = mapped_column(
+        Enum(Department, name="department_enum"), nullable=False
+    )
     source_system: Mapped[SourceSystem] = mapped_column(
         Enum(SourceSystem, name="source_system_enum"), nullable=False
     )
+    source_document_key: Mapped[str] = mapped_column(String(100), nullable=False)
     business_process: Mapped[BusinessProcess] = mapped_column(
         Enum(BusinessProcess, name="business_process_enum"), nullable=False
     )
@@ -40,6 +47,8 @@ class DocumentRecord(Base):
     uploaded_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False
     )
+    file_size_bytes: Mapped[int] = mapped_column(Integer, nullable=False)
+
     uploaded_by: Mapped[str] = mapped_column(String(255), nullable=False)
     mime_type: Mapped[MimeType] = mapped_column(
         Enum(MimeType, name="mime_type_enum"), nullable=False
@@ -56,5 +65,10 @@ class DocumentRecord(Base):
             "business_process",
             "file_hash",
             name="uq_documents_source_process_hash",
+        ),
+        UniqueConstraint(
+            "document_group_id",
+            "document_version",
+            name="uq_documents_group_version",
         ),
     )

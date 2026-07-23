@@ -1,6 +1,7 @@
 from types import TracebackType
 import traceback
 from pathlib import Path
+from p2p_knowledge_hub.models.db.document import DocumentRecord
 from p2p_knowledge_hub.settings.exceptions import ExceptionSettings
 
 
@@ -42,6 +43,10 @@ class P2PHubException(Exception):
 
 
 class DocumentException(P2PHubException):
+    pass
+
+
+class DocumentNotFoundException(DocumentException):
     pass
 
 

@@ -1,4 +1,7 @@
 from sqlalchemy import text
+from p2p_knowledge_hub.models.db.document import DocumentRecord
+from p2p_knowledge_hub.models.db.base import Base
+
 
 from p2p_knowledge_hub.models.db.sessions import engine
 
@@ -16,3 +19,4 @@ def check_database_connection() -> None:
 
 if __name__ == "__main__":
     check_database_connection()
+    print(Base.metadata.tables)
