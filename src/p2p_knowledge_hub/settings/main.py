@@ -24,6 +24,8 @@ class Settings(BaseSettings):
         toml_file=_base_dir / "config.toml",
         env_prefix="p2p_",
         env_nested_delimiter="__",
+        env_file=_base_dir / ".env",
+        env_ignore_empty=False,
         case_sensitive=False,
         extra="ignore",
     )
@@ -38,10 +40,10 @@ class Settings(BaseSettings):
         file_secret_settings: PydanticBaseSettingsSource,
     ) -> tuple[PydanticBaseSettingsSource, ...]:
         return (
-            TomlConfigSettingsSource(settings_cls),
             env_settings,
             dotenv_settings,
             file_secret_settings,
+            TomlConfigSettingsSource(settings_cls),
             init_settings,
         )
 

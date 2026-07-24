@@ -64,8 +64,20 @@ class Document(BaseModel):
 
 
 if __name__ == "__main__":
-    data = Document()
-    data.document_id = uuid4()
+    data = Document(
+        document_group_id=uuid4(),
+        document_id=uuid4(),
+        document_name=__name__,
+        source_system="SAP",
+        business_process="SUPPLIER",
+        uploaded_by="__main__",
+        department="VMF",
+        source_uri="/home/san/Documents/Amutha/10305.jpg",
+        file_hash="a" * 64,
+        file_size_bytes=23,
+        document_version=2,
+    )
+
     print(data)
     print(data.model_dump())
     print(data.model_dump_json(indent=2))

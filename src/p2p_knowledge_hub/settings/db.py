@@ -27,3 +27,8 @@ class DBConfig(BaseModel):
             port=self.port,
             database=self.database,
         )
+
+
+if __name__ == "__main__":
+    s = DBConfig()
+    print(s.model_dump())
