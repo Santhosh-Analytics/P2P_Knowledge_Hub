@@ -1,0 +1,4 @@
+2026-07-25 16:26:17 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-0/test_compute_sha256_given_dire0
+2026-07-25 16:26:17 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-0/test_compute_sha256_given_miss0/ss.text
+2026-07-25 16:30:07 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-1/test_compute_sha256_given_dire0
+2026-07-25 16:30:07 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-1/test_compute_sha256_given_miss0/ss.text

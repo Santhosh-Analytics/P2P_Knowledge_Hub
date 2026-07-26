@@ -55,6 +55,7 @@ class Document(BaseModel):
     file_hash: str = Field(min_length=64, max_length=64)
     file_size_bytes: int = Field(gt=0)
     mime_type: MimeType = MimeType.PDF
+    source_document_key: str
 
     model_config = ConfigDict(
         frozen=True,
@@ -67,7 +68,7 @@ if __name__ == "__main__":
     data = Document(
         document_group_id=uuid4(),
         document_id=uuid4(),
-        document_name=__name__,
+        document_name="",
         source_system="SAP",
         business_process="SUPPLIER",
         uploaded_by="__main__",

@@ -1,5 +1,4 @@
 from datetime import datetime
-from os import name
 from uuid import UUID
 
 from sqlalchemy import (
@@ -72,3 +71,8 @@ class DocumentRecord(Base):
             name="uq_documents_group_version",
         ),
     )
+
+
+if __name__ == "__main__":
+    data = DocumentRecord()
+    print(data)

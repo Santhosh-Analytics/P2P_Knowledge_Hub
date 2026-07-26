@@ -1,5 +1,3 @@
-from string import hexdigits
-
 import pytest
 from p2p_knowledge_hub.exceptions.base import FileMissingError, InvalidPathError
 from p2p_knowledge_hub.ingestion.hashing import compute_sha256

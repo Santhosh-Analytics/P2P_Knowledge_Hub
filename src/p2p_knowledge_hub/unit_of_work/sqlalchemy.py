@@ -1,4 +1,4 @@
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 
 from p2p_knowledge_hub.repositories.document_repository import (
     SQLAlchemyDocumentRepository,
@@ -9,6 +9,8 @@ from p2p_knowledge_hub.unit_of_work.base import AbstractUnitOfWork
 class SQLAlchemyUnitOfWork(AbstractUnitOfWork):
     def __init__(self, session_factory: sessionmaker) -> None:
         self.session_factory = session_factory
+        self.session: Session
+        self.document: SQLAlchemyDocumentRepository
 
     def __enter__(self) -> "SQLAlchemyUnitOfWork":
         self.session = self.session_factory()
