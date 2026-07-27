@@ -1,4 +1,5 @@
 from datetime import datetime
+from os import name
 from uuid import UUID
 
 from sqlalchemy import (
@@ -19,6 +20,7 @@ from p2p_knowledge_hub.models.document import (
     Department,
     DocumentStatus,
     MimeType,
+    SourceDocumentKey,
     SourceSystem,
 )
 
@@ -34,7 +36,9 @@ class DocumentRecord(Base):
     source_system: Mapped[SourceSystem] = mapped_column(
         Enum(SourceSystem, name="source_system_enum"), nullable=False
     )
-    source_document_key: Mapped[str] = mapped_column(String(100), nullable=False)
+    source_document_key: Mapped[str] = mapped_column(
+        Enum(SourceDocumentKey, name="source_document_key_enum"), nullable=False
+    )
     business_process: Mapped[BusinessProcess] = mapped_column(
         Enum(BusinessProcess, name="business_process_enum"), nullable=False
     )

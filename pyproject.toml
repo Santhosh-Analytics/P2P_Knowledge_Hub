@@ -47,7 +47,13 @@ build-backend = "hatchling.build"
 packages = ["src/p2p_knowledge_hub"]
 
 [dependency-groups]
-dev = ["just>=0.8.165", "pytest>=9.1.1", "ruff>=0.15.22"]
+dev = [
+    "alembic>=1.18.5",
+    "pgcli>=4.5.0",
+    "pytest>=9.1.1",
+    "python-dateutil>=2.9.0.post0",
+    "ruff>=0.15.22",
+]
 
 
 [tool.alembic]

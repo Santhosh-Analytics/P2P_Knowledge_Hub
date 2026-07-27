@@ -12,6 +12,7 @@ class SourceSystem(str, Enum):
     SAP = "SAP"
     ORACLE = "ORACLE"
     TALLY = "TALLY"
+    SAP_ARIBA = "SAP_ARIBA"
 
 
 class DocumentStatus(str, Enum):
@@ -22,15 +23,32 @@ class DocumentStatus(str, Enum):
 
 
 class Department(str, Enum):
-    CONTRACT = "CONTRACT"
-    VMF = "VMF"
-    PURCHASE_ORDER = "PURCHASE_ORDER"
-    INVOICE = "INVOICE"
-    PAYMENT = "PAYMENT"
+    PROCUREMENT = "PROCUREMENT"
+    ACCOUNTS_PAYABLE = "ACCOUNTS_PAYABLE"
+    FINANCE = "FINANCE"
+    SUPPLIER_MANAGEMENT = "SUPPLIER_MANAGEMENT"
+
+
+class SourceDocumentKey(str, Enum):
+    PROCUREMENT_POLICY = "PROCUREMENT_POLICY"
+    CONTRACTING_POLICY = "CONTRACTING_POLICY"
+    SUPPLIER_ONBOARDING_POLICY = "SUPPLIER_ONBOARDING_POLICY"
+    SINGLE_PAYMENT_REQUEST_POLICY = "SINGLE_PAYMENT_REQUEST_POLICY"
+    INVOICE_POLICY = "INVOICE_POLICY"
+    PAYMENT_POLICY = "PAYMENT_POLICY"
+    PURCHASING_POLICY = "PURCHASING_POLICY"
+    SUPPLIER_ONBOARDING_SOP = "SUPPLIER_ONBOARDING_SOP"
+    SINGLE_PAYMENT_REQUEST_SOP = "SINGLE_PAYMENT_REQUEST_SOP"
+    INVOICE_APPROVAL_SOP = "INVOICE_APPROVAL_SOP"
+    PAYMENT_SOP = "PAYMENT_SOP"
+    PURCHASE_ORDER_SOP = "PURCHASE_ORDER_SOP"
 
 
 class BusinessProcess(str, Enum):
-    SUPPLIER = "SUPPLIER"
+    CONTRACT = "CONTRACT"
+    SOURCING = "SOURCING"
+    SUPPLIER_ONBOARDING = "SUPPLIER_ONBOARDING"
+    SINGLE_PAYMENT_REQUEST = "SINGLE_PAYMENT_REQUEST"
     INVOICE = "INVOICE"
     PURCHASEORDER = "PURCHASEORDER"
     PAYMENT = "PAYMENT"
@@ -38,6 +56,11 @@ class BusinessProcess(str, Enum):
 
 class MimeType(str, Enum):
     PDF = "application/pdf"
+    TXT = "text/plain"
+    MSWORD = "application/msword"
+    EXCEL = "application/vnd.ms-excel"
+    PPT = "application/vnd.ms-powerpoint"
+    MARKDOWN = "text/markdown"
 
 
 class Document(BaseModel):
@@ -55,7 +78,7 @@ class Document(BaseModel):
     file_hash: str = Field(min_length=64, max_length=64)
     file_size_bytes: int = Field(gt=0)
     mime_type: MimeType = MimeType.PDF
-    source_document_key: str
+    source_document_key: SourceDocumentKey
 
     model_config = ConfigDict(
         frozen=True,

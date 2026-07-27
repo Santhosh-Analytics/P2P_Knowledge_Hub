@@ -1,0 +1,24 @@
+2026-07-27 10:45:49 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-0/test_compute_sha256_given_dire0
+2026-07-27 10:45:49 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-0/test_compute_sha256_given_miss0/ss.text
+2026-07-27 10:52:44 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-1/test_compute_sha256_given_dire0
+2026-07-27 10:52:44 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-1/test_compute_sha256_given_miss0/ss.text
+2026-07-27 10:54:28 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-2/test_compute_sha256_given_dire0
+2026-07-27 10:54:28 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-2/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:01:19 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-3/test_compute_sha256_given_dire0
+2026-07-27 11:01:19 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-3/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:04:25 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-4/test_compute_sha256_given_dire0
+2026-07-27 11:04:25 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-4/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:06:27 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-5/test_compute_sha256_given_dire0
+2026-07-27 11:06:27 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-5/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:08:51 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-6/test_compute_sha256_given_dire0
+2026-07-27 11:08:51 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-6/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:33:57 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-7/test_compute_sha256_given_dire0
+2026-07-27 11:33:57 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-7/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:34:01 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-8/test_compute_sha256_given_dire0
+2026-07-27 11:34:01 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-8/test_compute_sha256_given_miss0/ss.text
+2026-07-27 11:34:58 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-9/test_compute_sha256_given_dire0
+2026-07-27 11:34:58 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-9/test_compute_sha256_given_miss0/ss.text
+2026-07-27 12:06:29 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-10/test_compute_sha256_given_dire0
+2026-07-27 12:06:29 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-10/test_compute_sha256_given_miss0/ss.text
+2026-07-27 12:07:45 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:23 | Expected a file path, but got a directory: /tmp/pytest-of-san/pytest-11/test_compute_sha256_given_dire0
+2026-07-27 12:07:45 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:20 | Path does not exist: /tmp/pytest-of-san/pytest-11/test_compute_sha256_given_miss0/ss.text

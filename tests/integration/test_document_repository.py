@@ -1,6 +1,5 @@
 from datetime import datetime
 from pathlib import Path
-import re
 import pytest
 from p2p_knowledge_hub.exceptions.base import DocumentNotFoundException
 from p2p_knowledge_hub.ingestion.hashing import compute_sha256
@@ -55,7 +54,6 @@ def test_repository_add_record(valid_document_data):
         assert fetched.document_id == doc_record.document_id
         assert fetched.business_process == doc_record.business_process
         assert fetched.department == doc_record.department
-
     finally:
         session.rollback()
         session.close()
@@ -71,10 +69,8 @@ def test_repository_get_record(valid_document_data):
         repo.session.flush()
         fetched = session.get(DocumentRecord, doc_record.document_id)
 
-        get_fetched = repo.get(fetched.document_id)
-
-        assert get_fetched is not None
-        assert get_fetched.document_id == doc_record.document_id
+        assert fetched is not None
+        assert fetched.document_id == doc_record.document_id
 
     finally:
         session.rollback()

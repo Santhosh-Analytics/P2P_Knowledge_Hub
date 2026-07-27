@@ -1,8 +1,8 @@
-"""create document table
+"""initial schema
 
-Revision ID: 7913ae7db144
+Revision ID: f56a2e1c0b01
 Revises: 
-Create Date: 2026-07-24 01:53:16.456445
+Create Date: 2026-07-28 03:45:16.758046
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '7913ae7db144'
+revision: str = 'f56a2e1c0b01'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -25,17 +25,17 @@ def upgrade() -> None:
     sa.Column('document_id', sa.Uuid(), nullable=False),
     sa.Column('document_group_id', sa.Uuid(), nullable=False),
     sa.Column('document_name', sa.String(length=255), nullable=False),
-    sa.Column('department', sa.Enum('CONTRACT', 'VMF', 'PURCHASE_ORDER', 'INVOICE', 'PAYMENT', name='department_enum'), nullable=False),
-    sa.Column('source_system', sa.Enum('SAP', 'ORACLE', 'TALLY', name='source_system_enum'), nullable=False),
+    sa.Column('department', sa.Enum('PROCUREMENT', 'ACCOUNTS_PAYABLE', 'FINANCE', 'SUPPLIER_MANAGEMENT', name='department_enum'), nullable=False),
+    sa.Column('source_system', sa.Enum('SAP', 'ORACLE', 'TALLY', 'SAP_ARIBA', name='source_system_enum'), nullable=False),
     sa.Column('source_document_key', sa.String(length=100), nullable=False),
-    sa.Column('business_process', sa.Enum('SUPPLIER', 'INVOICE', 'PURCHASEORDER', 'PAYMENT', name='business_process_enum'), nullable=False),
+    sa.Column('business_process', sa.Enum('CONTRACT', 'SOURCING', 'SUPPLIER_ONBOARDING', 'SINGLE_PAYMENT_REQUEST', 'INVOICE', 'PURCHASEORDER', 'PAYMENT', name='business_process_enum'), nullable=False),
     sa.Column('file_hash', sa.String(length=64), nullable=False),
     sa.Column('document_status', sa.Enum('UPLOADED', 'PROCESSING', 'INDEXED', 'FAILED', name='document_status_enum'), nullable=False),
     sa.Column('document_version', sa.Integer(), nullable=False),
     sa.Column('uploaded_at', sa.DateTime(timezone=True), nullable=False),
     sa.Column('file_size_bytes', sa.Integer(), nullable=False),
     sa.Column('uploaded_by', sa.String(length=255), nullable=False),
-    sa.Column('mime_type', sa.Enum('PDF', name='mime_type_enum'), nullable=False),
+    sa.Column('mime_type', sa.Enum('PDF', 'TXT', 'MSWORD', 'EXCEL', 'PPT', 'MARKDOWN', name='mime_type_enum'), nullable=False),
     sa.Column('source_uri', sa.Text(), nullable=False),
     sa.CheckConstraint('char_length(file_hash) = 64', name='ck_documents_hash_length'),
     sa.CheckConstraint('document_version >= 1', name='ck_documents_version_positive'),

@@ -1,5 +1,4 @@
 import hashlib
-from hashlib import sha256
 from pathlib import Path
 from p2p_knowledge_hub.exceptions.base import (
     FileMissingError,
