@@ -76,7 +76,3 @@ class FileReadError(FileOperationError):
 
 class HashingError(P2PHubException):
     pass
-
-
-class DBSessionError(P2PHubException):
-    pass

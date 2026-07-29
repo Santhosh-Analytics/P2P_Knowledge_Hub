@@ -1,6 +1,8 @@
 from enum import Enum
 from uuid import uuid4
 
+from sqlalchemy import exc
+
 from p2p_knowledge_hub.models.db.sessions import SessionManager
 from p2p_knowledge_hub.models.document import (
     BusinessProcess,
@@ -11,14 +13,17 @@ from p2p_knowledge_hub.models.document import (
     SourceSystem,
     tz_aware_time,
 )
-from p2p_knowledge_hub.settings.main import get_settings
-
-# from p2p_knowledge_hub.exceptions.ingestion import P2P_IngessionError
+from sqlalchemy.exc import OperationalError
+from p2p_knowledge_hub.exceptions.ingestion import DuplicateDocumentError
+from p2p_knowledge_hub.exceptions.sqlalchemy_error import DBConnectionError
 from p2p_knowledge_hub.ingestion.hashing import compute_sha256
 from pathlib import Path
 import mimetypes
-
 from p2p_knowledge_hub.unit_of_work.sqlalchemy import SQLAlchemyUnitOfWork
+from p2p_knowledge_hub.core.logger import AppLogger
+
+settings = get_settings()
+_logger = AppLogger(settings.logs).get_logger(__name__)
 
 
 class MetadataCollector:
@@ -30,6 +35,7 @@ class MetadataCollector:
         return values[selected_number - 1]
 
     def collect_document(self, file_path: Path) -> Document:
+        _logger.info(f"Collecting metadata for document: {file_path.name}")
         department = self.choose_enum(Department)
         business_process = self.choose_enum(BusinessProcess)
         source_system = self.choose_enum(SourceSystem)
@@ -58,30 +64,72 @@ class MetadataCollector:
 
 class IngestionService:
     def ingestion_service(self, document: Document):
-        with SQLAlchemyUnitOfWork(SessionManager().session_factory) as uow:
-            exact_duplicate = uow.document.find_exact_duplicate(
-                document.source_system,
-                document.business_process,
-                document.department,
-                document.file_hash,
-                document.source_document_key,
-            )
+        _logger.info(
+            f"Ingestion Service started for document: {document.document_name}"
+        )
 
-            if exact_duplicate is not None:
-                print(
-                    f"The provided document : {exact_duplicate.document_name} is already avilable in the record with id {exact_duplicate.document_id}"
+        with SQLAlchemyUnitOfWork(SessionManager().session_factory) as uow:
+            try:
+                exact_duplicate = uow.document.find_exact_duplicate(
+                    document.source_system,
+                    document.business_process,
+                    document.department,
+                    document.file_hash,
+                    document.source_document_key,
+                )
+                if exact_duplicate is not None:
+                    _logger.warning(
+                        f"The provided document : {exact_duplicate.document_name} is already avilable in the record with id {exact_duplicate.document_id}"
+                    )
+
+                    raise DuplicateDocumentError(
+                        f"Document exists in the database with id : {exact_duplicate.document_id}"
+                    )
+                new_version = uow.document.find_latest_version(
+                    document.source_system,
+                    document.business_process,
+                    document.department,
+                    document.source_document_key,
                 )
 
-            duplicate = uow.document.find_latest_version(
-                document.source_system,
-                document.business_process,
-                document.department,
-                document.source_document_key,
-            )
+                if new_version is None:
+                    _logger.debug(
+                        f"Injecting metadata to the PSQL for {document.document_name}"
+                    )
+                    uow.document.add(document)
+                    uow.commit()
+                    _logger.info(
+                        f"Injected Metadata to PSQL dbfor {document.document_name}"
+                    )
+                elif new_version is not None:
+                    _logger.debug(f"New version found for {new_version.document_name}")
+                    versioned_document = document.model_copy(
+                        update={
+                            "document_group_id": new_version.document_group_id,
+                            "document_version": new_version.document_version + 1,
+                        }
+                    )
+                    uow.document.add(versioned_document)
+                    uow.commit()
+                    _logger.info(
+                        f"New version metada Injected to the database for {versioned_document.document_name}"
+                    )
+            except DuplicateDocumentError:
+                raise
+            except OperationalError as e:
+                error_message = str(e.__dict__.get("orig", e))
+                _logger.error(
+                    f"Ingestion failed for document '{document.document_name}. \n\n{error_message}'"
+                )
+                if "connection failed: connection to server" in error_message:
+                    raise DBConnectionError(
+                        f"ERROR: Could not connect to the database.\n\n{error_message}"
+                    )
 
-            if duplicate is None:
-                uow.document.add(document)
-                uow.commit()
+            except Exception as e:
+                _logger.error(
+                    f"Ingestion failed for document '{document.document_name}. \n\n{e}'"
+                )
 
 
 if __name__ == "__main__":
@@ -89,7 +137,15 @@ if __name__ == "__main__":
         file_path=Path("/home/san/Documents/all_packages.txt")
     )
 
-    print(IngestionService().ingestion_service(data))
+    try:
+        IngestionService().ingestion_service(data)
+    except DBConnectionError as exc:
+        print(exc)
+
+    except DuplicateDocumentError as exc:
+        print("ERROR: Document already exists.")
+        print()
+        print(exc)
 
     # source_document_key: Mapped[str] = mapped_column(String(100), nullable=False)
     # mime_type: Mapped[MimeType] = mapped_column(

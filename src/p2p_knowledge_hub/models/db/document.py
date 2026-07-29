@@ -1,5 +1,4 @@
 from datetime import datetime
-from os import name
 from uuid import UUID
 
 from sqlalchemy import (

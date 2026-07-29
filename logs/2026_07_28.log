@@ -1,0 +1,10 @@
+2026-07-28 16:42:23 | INFO     | __main__:collect_document:37 | Collecting metadata for document: all_packages.txt
+2026-07-28 16:42:30 | INFO     | __main__:ingestion_service:66 | Ingestion Service started for document: all_packages.txt
+2026-07-28 16:42:30 | DEBUG    | __main__:ingestion_service:103 | New version found forall_packages.txt
+2026-07-28 16:42:30 | INFO     | __main__:ingestion_service:112 | New version metada Injected to the database for all_packages.txt
+2026-07-28 16:43:01 | INFO     | __main__:collect_document:37 | Collecting metadata for document: all_packages.txt
+2026-07-28 16:43:09 | INFO     | __main__:ingestion_service:66 | Ingestion Service started for document: all_packages.txt
+2026-07-28 16:43:09 | WARNING  | __main__:ingestion_service:79 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-28 16:45:01 | INFO     | __main__:collect_document:37 | Collecting metadata for document: all_packages.txt
+2026-07-28 16:45:07 | INFO     | __main__:ingestion_service:66 | Ingestion Service started for document: all_packages.txt
+2026-07-28 16:45:07 | WARNING  | __main__:ingestion_service:79 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
