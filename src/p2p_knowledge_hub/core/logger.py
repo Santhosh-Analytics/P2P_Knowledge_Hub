@@ -2,6 +2,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from rich.logging import RichHandler
 from p2p_knowledge_hub.settings import LogSettings
+import click
 
 
 class AppLogger:
@@ -32,6 +33,7 @@ class AppLogger:
             show_time=True,
             show_path=True,
             rich_tracebacks=self.settings.rich_tracebacks,
+            tracebacks_suppress=[click],
         )
         return _handlers
 

@@ -1,5 +1,6 @@
 from enum import Enum
 from uuid import uuid4
+from rich import print
 
 from sqlalchemy import exc
 
@@ -13,7 +14,7 @@ from p2p_knowledge_hub.models.document import (
     SourceSystem,
     tz_aware_time,
 )
-from sqlalchemy.exc import OperationalError
+from sqlalchemy.exc import IntegrityError, OperationalError
 from p2p_knowledge_hub.exceptions.ingestion import DuplicateDocumentError
 from p2p_knowledge_hub.exceptions.sqlalchemy_error import DBConnectionError
 from p2p_knowledge_hub.ingestion.hashing import compute_sha256
@@ -21,6 +22,7 @@ from pathlib import Path
 import mimetypes
 from p2p_knowledge_hub.unit_of_work.sqlalchemy import SQLAlchemyUnitOfWork
 from p2p_knowledge_hub.core.logger import AppLogger
+from p2p_knowledge_hub.settings.main import get_settings
 
 settings = get_settings()
 _logger = AppLogger(settings.logs).get_logger(__name__)
@@ -36,12 +38,33 @@ class MetadataCollector:
 
     def collect_document(self, file_path: Path) -> Document:
         _logger.info(f"Collecting metadata for document: {file_path.name}")
-        department = self.choose_enum(Department)
-        business_process = self.choose_enum(BusinessProcess)
-        source_system = self.choose_enum(SourceSystem)
-        source_document_key = self.choose_enum(SourceDocumentKey)
-        # self.document_status = self.choose_enum(DocumentStatus)
-        mime_type = mimetypes.guess_type(file_path)[0]
+        try:
+            department = self.choose_enum(Department)
+            business_process = self.choose_enum(BusinessProcess)
+            source_system = self.choose_enum(SourceSystem)
+            source_document_key = self.choose_enum(SourceDocumentKey)
+            # self.document_status = self.choose_enum(DocumentStatus)
+            mime_type = mimetypes.guess_type(file_path)[0]
+
+        except ValueError as e:
+            error_message = str(e.__dict__.get("orig", e))
+            _logger.error(
+                f"[bold red blink]Please enter integer to select the value: \n\n {error_message}"
+            )
+            raise
+
+        except IndexError or UnboundLocalError as e:
+            error_message = str(e.__dict__.get("orig", e))
+            _logger.error(
+                f"[bold red blink]Please enter integer within the range provided: \n\n {error_message}"
+            )
+            raise
+        except Exception as e:
+            _logger.error(
+                f"[bold red blink]Error updating source metadata  \n\n{e}'",
+                extra={"markup": True},
+            )
+            raise
 
         document = Document(
             file_hash=compute_sha256(file_path),
@@ -52,10 +75,11 @@ class MetadataCollector:
             business_process=business_process,
             source_system=source_system,
             # self.document_version = self.document_version + 1 ,
+            document_status=DocumentStatus.UPLOADED,
             uploaded_at=tz_aware_time(),
             uploaded_by=str(input("Enter your email: ")),
             file_size_bytes=file_path.lstat()[6],
-            mime_type=str(mime_type),
+            mime_type=mime_type,
             source_document_key=source_document_key,
             source_uri=str(file_path),
         )
@@ -77,20 +101,20 @@ class IngestionService:
                     document.file_hash,
                     document.source_document_key,
                 )
-                if exact_duplicate is not None:
-                    _logger.warning(
-                        f"The provided document : {exact_duplicate.document_name} is already avilable in the record with id {exact_duplicate.document_id}"
-                    )
-
-                    raise DuplicateDocumentError(
-                        f"Document exists in the database with id : {exact_duplicate.document_id}"
-                    )
                 new_version = uow.document.find_latest_version(
                     document.source_system,
                     document.business_process,
                     document.department,
                     document.source_document_key,
                 )
+                if exact_duplicate is not None:
+                    _logger.warning(
+                        f"The provided document : {exact_duplicate.document_name} is already avilable in the record with id {exact_duplicate.document_id}"
+                    )
+
+                    raise DuplicateDocumentError(
+                        f"[bold red blink]Document exists in the database with id : {exact_duplicate.document_id}"
+                    )
 
                 if new_version is None:
                     _logger.debug(
@@ -107,6 +131,7 @@ class IngestionService:
                         update={
                             "document_group_id": new_version.document_group_id,
                             "document_version": new_version.document_version + 1,
+                            "document_status": DocumentStatus.UPLOADED,
                         }
                     )
                     uow.document.add(versioned_document)
@@ -116,36 +141,67 @@ class IngestionService:
                     )
             except DuplicateDocumentError:
                 raise
+
             except OperationalError as e:
                 error_message = str(e.__dict__.get("orig", e))
                 _logger.error(
-                    f"Ingestion failed for document '{document.document_name}. \n\n{error_message}'"
+                    f"[bold red blink]Ingestion failed for document{document.document_name}. \n\n{error_message}",
+                    extra={"markup": True},
                 )
                 if "connection failed: connection to server" in error_message:
                     raise DBConnectionError(
                         f"ERROR: Could not connect to the database.\n\n{error_message}"
                     )
 
+            except IntegrityError as e:
+                error_message = str(e.__dict__.get("orig", e))
+                _logger.error(
+                    f"[bold red blink]Ingestion failed for document '{document.document_name}. \n\n{error_message}'",
+                    extra={"markup": True},
+                )
+                raise
+
             except Exception as e:
                 _logger.error(
-                    f"Ingestion failed for document '{document.document_name}. \n\n{e}'"
+                    f"[bold red blink]Ingestion failed for document '{document.document_name}. \n\n{e}'",
+                    extra={"markup": True},
                 )
+                raise
 
 
 if __name__ == "__main__":
     data = MetadataCollector().collect_document(
-        file_path=Path("/home/san/Documents/all_packages.txt")
+        file_path=Path("/home/san/Documents/San_DS/descrition.md")
     )
 
     try:
         IngestionService().ingestion_service(data)
     except DBConnectionError as exc:
-        print(exc)
+        print(f"[bold red blink]{exc}")
 
     except DuplicateDocumentError as exc:
-        print("ERROR: Document already exists.")
+        print("[bold red blink]ERROR: Document already exists.")
         print()
-        print(exc)
+        print(f"[bold red blink]{exc}")
+
+    except IntegrityError as exc:
+        print("[bold red blink]ERROR: Integrity Error.")
+        print()
+        print(f"[bold red blink]{exc}")
+    except ValueError as exc:
+        print("[bold red blink]ERROR: Value Error.")
+        print()
+        print(f"[bold red blink]{exc}")
+
+    except IndexError or UnboundLocalError as exc:
+        print("[bold red blink]ERROR: Unknow Error.")
+        print()
+        print(f"[bold red blink]{exc}")
+
+    except Exception as exc:
+        print("[bold red blink]ERROR: Indices out of Range.")
+        print()
+        print(f"[bold red blink]{exc}")
 
     # source_document_key: Mapped[str] = mapped_column(String(100), nullable=False)
     # mime_type: Mapped[MimeType] = mapped_column(

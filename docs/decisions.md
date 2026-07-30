@@ -18,6 +18,14 @@
     * [Decision](#decision-3)
     * [Reason](#reason-3)
     * [Future Consideration](#future-consideration-3)
+- [ADR-005: Document Loader](#adr-005-document-loader)
+    * [Decision](#decision-4)
+    * [Reason](#reason-4)
+    * [Future Consideration](#future-consideration-4)
+- [ADR-006 Chunking](#adr-006-chunking)
+    * [Decision](#decision-5)
+    * [Reason](#reason-5)
+    * [Future Consideration](#future-consideration-5)
 
 <!-- tocstop -->
 
@@ -90,3 +98,41 @@ and file hash. So we can use it to avoid duplication.
 ## Future Consideration
 
 Currently the db access will be synchronous. Later, FastAPI can move to async only if measurements show a need.
+
+# ADR-005: Document Loader
+
+## Decision
+
+Keep the loader simple and format-specific (PDF, DOCX, Markdown) in v1, without adopting large frameworks like LangChain or Unstructured.
+
+## Reason
+
+- Reduces dependency overhead for a beginner-friendly implementation.
+- Easier debugging and control over parsing logic.
+- Avoids premature complexity before validating ingestion pipeline.
+
+Since i am beginner i would like to start with small. Once it is
+successful, i may add few other document types.
+
+## Future Consideration
+
+- Add support for Plain Text, JSON, HTML.
+- Extend to OCR-based ingestion for scanned images.
+- Revisit framework adoption if scaling demands modularity or multi-format support.
+
+# ADR-006 Chunking
+
+## Decision
+
+Keeping core metadata such as chunk id, chunk index, chunk version, chunk
+status, created at, document id, text, page no, and section optionally. This
+will help to keep audit trail and debug friendly.
+
+## Reason
+
+- Keep versioning helps in rollback if any issues.
+- Experiment with different chunk size and overlap without noise.
+
+## Future Consideration
+
+None

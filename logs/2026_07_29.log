@@ -34,3 +34,111 @@
 
 connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
 	Is the server running on that host and accepting TCP/IP connections?'
+2026-07-30 00:44:44 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:45:05 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:48:14 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:49:23 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:49:25 | ERROR    | __main__:collect_document:55 | Please enter integer within the range provided: 
+
+ list index out of range
+2026-07-30 00:50:26 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:50:30 | ERROR    | __main__:collect_document:55 | Please enter integer within the range provided: 
+
+ e
+2026-07-30 00:51:39 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:51:54 | ERROR    | __main__:collect_document:55 | Please enter integer within the range provided: 
+
+ e
+2026-07-30 00:52:04 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:52:08 | ERROR    | __main__:collect_document:55 | Please enter integer within the range provided: 
+
+ e
+2026-07-30 00:53:21 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:53:26 | ERROR    | __main__:collect_document:56 | Please enter integer within the range provided: 
+
+ e
+2026-07-30 00:54:34 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:54:39 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 00:54:39 | ERROR    | __main__:ingestion_service:135 | Ingestion failed for document 'all_packages.txt. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?'
+2026-07-30 00:57:04 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:57:09 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 00:57:09 | ERROR    | __main__:ingestion_service:135 | Ingestion failed for document 'all_packages.txt. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?'
+2026-07-30 00:58:20 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:58:26 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 00:58:26 | ERROR    | __main__:ingestion_service:135 | Ingestion failed for document 'all_packages.txt. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?'
+2026-07-30 00:59:30 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 00:59:35 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 00:59:35 | WARNING  | __main__:ingestion_service:100 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:01:29 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:01:34 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:01:34 | WARNING  | __main__:ingestion_service:100 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:02:03 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:02:09 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:02:09 | WARNING  | __main__:ingestion_service:100 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:02:47 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:02:52 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:02:52 | WARNING  | __main__:ingestion_service:100 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:03:12 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:03:19 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:03:19 | WARNING  | __main__:ingestion_service:100 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:10:34 | INFO     | __main__:collect_document:39 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:10:38 | INFO     | __main__:ingestion_service:80 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:10:38 | WARNING  | __main__:ingestion_service:100 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:12:36 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:12:41 | INFO     | __main__:ingestion_service:81 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:12:41 | ERROR    | __main__:ingestion_service:136 | [bold red blink]Ingestion failed for document 'all_packages.txt. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?'
+2026-07-30 01:15:35 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:15:42 | INFO     | __main__:ingestion_service:81 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:15:42 | ERROR    | __main__:ingestion_service:136 | [bold red blink]Ingestion failed for document 'all_packages.txt. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?'
+2026-07-30 01:19:01 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:19:05 | INFO     | __main__:ingestion_service:81 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:19:05 | ERROR    | __main__:ingestion_service:136 | [bold red blink]Ingestion failed for documentall_packages.txt. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-07-30 01:20:30 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:20:36 | INFO     | __main__:ingestion_service:81 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:20:36 | WARNING  | __main__:ingestion_service:101 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 01:21:06 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 01:21:11 | INFO     | __main__:ingestion_service:81 | Ingestion Service started for document: all_packages.txt
+2026-07-30 01:21:11 | WARNING  | __main__:ingestion_service:101 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 02:00:43 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 02:00:49 | INFO     | __main__:ingestion_service:90 | Ingestion Service started for document: all_packages.txt
+2026-07-30 02:00:49 | DEBUG    | __main__:ingestion_service:119 | Injecting metadata to the PSQL for all_packages.txt
+2026-07-30 02:00:49 | ERROR    | __main__:ingestion_service:165 | [bold red blink]Ingestion failed for document 'all_packages.txt. 
+
+1 validation error for Document
+document_status
+  Instance is frozen [type=frozen_instance, input_value=<DocumentStatus.UPLOADED: 'uploaded'>, input_type=DocumentStatus]
+    For further information visit https://errors.pydantic.dev/2.13/v/frozen_instance'
+2026-07-30 02:06:32 | INFO     | __main__:collect_document:40 | Collecting metadata for document: all_packages.txt
+2026-07-30 02:06:37 | INFO     | __main__:ingestion_service:91 | Ingestion Service started for document: all_packages.txt
+2026-07-30 02:06:37 | WARNING  | __main__:ingestion_service:111 | The provided document : all_packages.txt is already avilable in the record with id 1d711277-aa69-42ec-ba95-6a780bb7ca3d
+2026-07-30 02:07:28 | INFO     | __main__:collect_document:40 | Collecting metadata for document: descrition.md
+2026-07-30 02:07:35 | INFO     | __main__:ingestion_service:91 | Ingestion Service started for document: descrition.md
+2026-07-30 02:07:35 | DEBUG    | __main__:ingestion_service:120 | Injecting metadata to the PSQL for descrition.md
+2026-07-30 02:07:35 | ERROR    | __main__:ingestion_service:166 | [bold red blink]Ingestion failed for document 'descrition.md. 
+
+1 validation error for Document
+document_status
+  Instance is frozen [type=frozen_instance, input_value=<DocumentStatus.INDEXED: 'indexed'>, input_type=DocumentStatus]
+    For further information visit https://errors.pydantic.dev/2.13/v/frozen_instance'
+2026-07-30 02:08:33 | INFO     | __main__:collect_document:40 | Collecting metadata for document: descrition.md
+2026-07-30 02:08:39 | INFO     | __main__:ingestion_service:91 | Ingestion Service started for document: descrition.md
+2026-07-30 02:08:39 | DEBUG    | __main__:ingestion_service:120 | Injecting metadata to the PSQL for descrition.md
+2026-07-30 02:08:39 | INFO     | __main__:ingestion_service:125 | Injected Metadata to PSQL dbfor descrition.md
