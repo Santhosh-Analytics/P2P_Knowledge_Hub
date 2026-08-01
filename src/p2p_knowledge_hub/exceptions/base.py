@@ -50,6 +50,10 @@ class DocumentNotFoundException(DocumentException):
     pass
 
 
+class DocumentLoadError(DocumentException):
+    pass
+
+
 class FileOperationError(P2PHubException):
     pass
 
@@ -70,9 +74,9 @@ class DirectoryError(FileOperationError):
     pass
 
 
-class FileReadError(FileOperationError):
+class HashingError(P2PHubException):
     pass
 
 
-class HashingError(P2PHubException):
+class FileReadError(P2PHubException):
     pass

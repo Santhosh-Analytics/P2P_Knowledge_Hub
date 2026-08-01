@@ -1,0 +1,1 @@
+from p2p_knowledge_hub.exceptions.base import P2PHubException

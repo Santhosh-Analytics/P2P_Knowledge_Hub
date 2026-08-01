@@ -1,0 +1,15 @@
+2026-08-01 11:36:04 | INFO     | __main__:load:72 | Extracting pages from /home/san/Projects/P2P_Knowledge_Hub/Training proposal.docx with id f6ce26eb-c3f3-4c98-bc61-db46e98a8b9c
+2026-08-01 11:36:04 | INFO     | __main__:load:115 | DOCX extraction completed: document_id=f6ce26eb-c3f3-4c98-bc61-db46e98a8b9c units=4
+2026-08-01 11:37:47 | INFO     | __main__:load:73 | Extracting pages from /home/san/Projects/P2P_Knowledge_Hub/Training proposal.docx with id 8fc591e8-89a1-4799-85c8-21a1abc4cc40
+2026-08-01 11:39:06 | INFO     | __main__:load:73 | Extracting pages from /home/san/Projects/P2P_Knowledge_Hub/Training proposal.docx with id d92bab6a-0f85-4433-be6d-bd2d8b31c4ec
+2026-08-01 11:39:06 | INFO     | __main__:load:118 | DOCX extraction completed: document_id=d92bab6a-0f85-4433-be6d-bd2d8b31c4ec units=4
+2026-08-01 11:47:41 | INFO     | __main__:load:67 | Markdown extraction completed: document_id=a1963d25-723a-4971-8e7b-b558f13fe76e units=0
+2026-08-01 11:49:32 | INFO     | __main__:load:70 | Markdown extraction completed: document_id=d5a4a4e0-7655-42c0-a0bf-3f8539519cd9 units=14
+2026-08-01 14:25:17 | INFO     | __main__:load:80 | Markdown extraction completed: document_id=1cd0cec2-e655-4a2a-8b73-82f74c0ef87f units=20
+2026-08-01 14:28:02 | INFO     | __main__:load:80 | Markdown extraction completed: document_id=f628d41b-3fbd-4dc0-9758-e1deafe6b2a2 units=20
+2026-08-01 14:28:13 | INFO     | __main__:load:80 | Markdown extraction completed: document_id=54d092b6-1325-4eb9-bcc3-b53a50f61881 units=20
+2026-08-01 14:28:56 | INFO     | __main__:load:80 | Markdown extraction completed: document_id=328837eb-252c-4d87-9d0b-1e4a13169e8d units=20
+2026-08-01 14:34:34 | INFO     | __main__:load:80 | Markdown extraction completed: document_id=1c284b97-b0dc-4e77-a850-900d6c2f14c2 units=20
+2026-08-01 15:22:42 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=22013c73-e977-40d9-8968-36741e70eed6 units=20
+2026-08-01 15:24:06 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=658f59be-22fb-4faf-9254-0cc1497dcb94 units=20
+2026-08-01 15:24:32 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=66d8da36-f6b2-4139-a9e0-e76f62dd82ba units=20

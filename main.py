@@ -1,4 +1,11 @@
-from p2p_knowledge_hub.exceptions import sqlalchemy_error
+from collections.abc import Iterator
+
+from docx.document import Document as DocxDocument
+from docx.table import Table
+from docx.text.paragraph import Paragraph
+from docx.oxml.table import CT_Tbl
+from docx.oxml.text.paragraph import CT_P
+
 from p2p_knowledge_hub.core.logger import AppLogger
 from p2p_knowledge_hub.models import document
 from p2p_knowledge_hub.settings.main import get_settings
@@ -23,36 +30,111 @@ _log = AppLogger(settings.logs).get_logger(__name__)
 
 class PDFLoader(BaseLoader):
     def load(self, document: Document) -> list[DocumentPage]:
-        doc = pymupdf.open(document.source_uri)
-        doc_pages = []
-        for page in doc:
+        pdf_docuemnt = pymupdf.open(document.source_uri)
+        pdf_pages: list[DocumentPage] = []
+        _log.info(f"Extracting pages from {document.source_uri}")
+        for page in pdf_docuemnt:
             doc_page = DocumentPage(
                 document_id=document.document_id,
                 document_group_id=document.document_group_id,
                 text=page.get_text("text"),
                 page_no=page.number + 1,
             )
-            doc_pages.append(doc_page)
-        return doc_pages
+            pdf_pages.append(doc_page)
+        return pdf_pages
 
 
 class DOCXLoader(BaseLoader):
     def load(self, document: Document) -> list[DocumentPage]:
-        doc = docx.Document(document.source_uri)
-        doc_pages = []
-        for para in doc.paragraphs:
-            doc_page = DocumentPage(
+        docx_document = docx.Document(document.source_uri)
+        docx_pages: list[DocumentPage] = []
+        current_section: str | None = None
+        current_content: list[str] = []
+
+        _log.info(f"Extracting pages from {document.source_uri}")
+        for block in self._iter_blocks(docx_document):
+            if isinstance(block, Paragraph):
+                text = block.text.strip()
+                if not text:
+                    continue
+                style_name = block.style.name.strip().lower()
+
+                if style_name == "title":
+                    continue
+
+                if style_name == "heading 1":
+                    self._flush_section(
+                        document=document,
+                        docx_pages=docx_pages,
+                        section=current_section,
+                        content=current_content,
+                    )
+
+                    current_section = text
+                    current_content = []
+                    continue
+
+                # Heading 2 and all other non-empty paragraph styles
+                # remain inside the current Heading 1 section.
+                current_content.append(text)
+            elif isinstance(block, Table):
+                table_text = self._extract_table(block)
+
+                if table_text:
+                    current_content.append(table_text)
+
+        # Save the final section because no next Heading 1 exists
+        # to trigger the normal flush.
+        self._flush_section(
+            document=document,
+            docx_pages=docx_pages,
+            section=current_section,
+            content=current_content,
+        )
+        _log.info(
+            "DOCX extraction completed: document_id=%s units=%s",
+            document.document_id,
+            len(docx_pages),
+        )
+
+        return docx_pages
+
+    def _flush_section(
+        self,
+        document: Document,
+        docx_pages: list[DocumentPage],
+        section: str | None,
+        content: list[str],
+    ) -> None:
+        if not content:
+            return
+        docx_pages.append(
+            DocumentPage(
                 document_id=document.document_id,
                 document_group_id=document.document_group_id,
-                text=para.text
-                if (para.text.strip() and "Title" not in para.style.name)
-                else None,
+                text="\n\n".join(content),
                 page_no=None,
-                section=None,
-                title=para.style.name,
+                section=section,
             )
-            doc_pages.append(doc_page)
-        return doc_pages
+        )
+
+    def _extract_table(self, table: Table) -> str:
+        rows: list[str] = []
+
+        for row in table.rows:
+            cells = [cell.text.strip() for cell in row.cells]
+
+            if any(cells):
+                rows.append(" | ".join(cells))
+
+        return "\n".join(rows)
+
+    def _iter_blocks(self, document: DocxDocument) -> Iterator[Paragraph | Table]:
+        for child in document.element.body.iterchildren():
+            if isinstance(child, CT_P):
+                yield Paragraph(child, document)
+            elif isinstance(child, CT_Tbl):
+                yield Table(child, document)
 
 
 def valid_document_data():
