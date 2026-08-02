@@ -24,3 +24,4 @@ class DocumentChunk(BaseModel):
     text: str | None = None
     page_no: int | None = None
     section: str | None = None
+    title: str | None = None

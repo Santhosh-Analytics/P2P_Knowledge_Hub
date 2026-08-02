@@ -1,5 +1,3 @@
-from pydoc import text
-
 from p2p_knowledge_hub.chunking.base_chunker import BaseChunker
 from p2p_knowledge_hub.models.document import (
     BusinessProcess,
@@ -20,29 +18,38 @@ settings = get_settings()
 _log = AppLogger(settings.logs).get_logger()
 
 
-class FixedChunker(BaseChunker):
-    def chunk(self, pages: list[DcumentPage]) -> list[DocumentChunk]:
+class SlidingWordChunker(BaseChunker):
+    def chunk(self, pages: list[DocumentPage]) -> list[DocumentChunk]:
         document_chunks: list[DocumentChunk] = []
+        chunk_idx: int = 0
         for page in pages:
-            chunks = self._chunker(page, 10, 3)
-            document_chunks.append(
-                DocumentChunk(
-                    chunk_id=uuid4(),
-                    chunk_index=page.document_group_id,
-                    chunking_version=1,
-                    document_id=page.uuid,
-                    document_group_id=page.document_group_id,
-                    is_active=True,
-                    created_at=tz_aware_time(),
-                    text=chunks,
+            chunks = self._chunker(page, 30, 5)
+            for chunk in chunks:
+                document_chunks.append(
+                    DocumentChunk(
+                        chunk_id=uuid4(),
+                        chunk_index=chunk_idx + 1,
+                        chunking_version=1,
+                        document_id=page.document_id,
+                        document_group_id=page.document_group_id,
+                        is_active=True,
+                        created_at=tz_aware_time(),
+                        text=chunk,
+                        page_no=page.page_no,
+                        section=page.section,
+                        title=page.title,
+                    )
                 )
-            )
+                chunk_idx += 1
+
         return document_chunks
 
-    def _chunker(page: DocumentPage, chunk_size: int, chunk_overlap: int) -> list[str]:
+    def _chunker(
+        self, page: DocumentPage, chunk_size: int, chunk_overlap: int
+    ) -> list[str]:
         chunks: list[str] = []
-        for i in range(0, len(page.text.split(), chunk_size - chunk_overlap)):
-            chunk = " ".join(page.text.split()[i : i + cs])
+        for i in range(0, len(page.text.split()), chunk_size - chunk_overlap):
+            chunk = " ".join(page.text.split()[i : i + chunk_size])
             chunks.append(chunk)
         return chunks
 
@@ -85,7 +92,7 @@ if __name__ == "__main__":
 
     document = Document(**valid_document_data())
     loader = MarkDownLoader().load(document)
+    chunks = SlidingWordChunker().chunk(loader)
+    import json
 
-    fixed_chunker = FixedChunker()
-    ssw = fixed_chunker.chunk(loader)
-    print(ssw)
+    print(json.dumps([c.model_dump() for c in chunks], indent=2, default=str))

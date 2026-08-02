@@ -26,6 +26,7 @@
     * [Decision](#decision-5)
     * [Reason](#reason-5)
     * [Future Consideration](#future-consideration-5)
+- [For uniquely identifying and ordering all chunks in one document, I recommend a global index across the document.](#for-uniquely-identifying-and-ordering-all-chunks-in-one-document-i-recommend-a-global-index-across-the-document)
 
 <!-- tocstop -->
 
@@ -136,3 +137,5 @@ will help to keep audit trail and debug friendly.
 ## Future Consideration
 
 None
+
+# For uniquely identifying and ordering all chunks in one document, I recommend a global index across the document.
