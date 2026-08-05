@@ -11,3 +11,13 @@ rich_tracebacks = false
 
 [exceptions]
 default_error_message = "An unexpected error occured."
+
+[chunking]
+chunk_strategy = "sliding_word"
+max_chunk_size = 70
+chunk_overlap = 7
+
+
+[embeddings]
+provider = "sentence_transformers"
+model = "sentence-transformers/all-MiniLM-L6-v2"

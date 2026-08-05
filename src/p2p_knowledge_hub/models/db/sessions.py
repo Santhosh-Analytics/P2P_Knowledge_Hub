@@ -22,8 +22,8 @@ class SessionManager:
         )
 
 
-manager = SessionManager()
-print(type(manager.session_factory()))
+# manager = SessionManager()
+# print(type(manager.session_factory()))
 
 # engine = create_engine(
 #     settings.db.database_url,

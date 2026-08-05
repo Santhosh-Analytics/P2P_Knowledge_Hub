@@ -1,35 +1,38 @@
-from p2p_knowledge_hub.chunking.base_chunker import BaseChunker
-from p2p_knowledge_hub.models.document import (
-    BusinessProcess,
-    Department,
-    DocumentStatus,
-    MimeType,
-    SourceSystem,
-    tz_aware_time,
-)
-from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
-from p2p_knowledge_hub.settings.main import get_settings
-
-# from p2p_knowledge_hub.exceptions import chunking_exception
+from p2p_knowledge_hub.exceptions.chunking_exceptions import P2PHubException
 from p2p_knowledge_hub.core.logger import AppLogger
-
+from p2p_knowledge_hub.settings.main import get_settings
+from p2p_knowledge_hub.chunking.base_chunker import BaseChunker
+from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
+from p2p_knowledge_hub.models.document import tz_aware_time
+from uuid import uuid4
 
 settings = get_settings()
-_log = AppLogger(settings.logs).get_logger()
+_log = AppLogger(settings.logs).get_logger(__name__)
 
 
-class SlidingWordChunker(BaseChunker):
+class RecursiveChunker(BaseChunker):
     def chunk(self, pages: list[DocumentPage]) -> list[DocumentChunk]:
         document_chunks: list[DocumentChunk] = []
-        chunk_idx: int = 0
+        chunk_idx: int = 1
         for page in pages:
-            chunks = self._chunker(page, 30, 5)
+            chunks = self._split_text(
+                text=page.text, max_chunk_size=settings.chunks.max_chunk_size
+            )
+            if not chunks:
+                _log.warning(
+                    "No chunks produced: document_id=%s section=%s page_no=%s",
+                    page.document_id,
+                    page.section,
+                    page.page_no,
+                )
+                continue
+
             for chunk in chunks:
                 document_chunks.append(
                     DocumentChunk(
                         chunk_id=uuid4(),
-                        chunk_index=chunk_idx + 1,
                         chunking_version=1,
+                        chunk_index=chunk_idx,
                         document_id=page.document_id,
                         document_group_id=page.document_group_id,
                         is_active=True,
@@ -44,13 +47,71 @@ class SlidingWordChunker(BaseChunker):
 
         return document_chunks
 
-    def _chunker(
-        self, page: DocumentPage, chunk_size: int, chunk_overlap: int
+    def _split_text(
+        self,
+        text: str,
+        max_chunk_size: int,
+        separators: tuple[str, ...] = ("\n\n", "\n", ". ", " "),
+    ) -> list[str]:
+
+        if not text.strip():
+            return []
+        if len(text.split()) <= max_chunk_size:
+            return [text.strip()]
+        if not separators:
+            words = text.split()
+            return [
+                " ".join(words[i : i + max_chunk_size])
+                for i in range(0, len(words), max_chunk_size)
+            ]
+
+        current_separator = separators[0]
+        remaining_separators = separators[1:]
+        pieces = text.split(current_separator)
+        smaller_pieces: list[str] = []
+
+        for piece in pieces:
+            piece = piece.strip()
+            if not piece:
+                continue
+            if len(piece.split()) <= max_chunk_size:
+                smaller_pieces.append(piece)
+            else:
+                smaller_pieces.extend(
+                    self._split_text(
+                        text=piece,
+                        max_chunk_size=max_chunk_size,
+                        separators=remaining_separators,
+                    ),
+                )
+
+        return self._merge_split(
+            pieces=smaller_pieces,
+            max_chunk_size=max_chunk_size,
+            separator=current_separator,
+        )
+
+    def _merge_split(
+        self, pieces: list[str], max_chunk_size: int, separator: str
     ) -> list[str]:
         chunks: list[str] = []
-        for i in range(0, len(page.text.split()), chunk_size - chunk_overlap):
-            chunk = " ".join(page.text.split()[i : i + chunk_size])
-            chunks.append(chunk)
+        current_parts: list[str] = []
+        current_word_count = 0
+
+        for piece in pieces:
+            piece_word_count = len(piece.split())
+
+            if current_parts and current_word_count + piece_word_count > max_chunk_size:
+                chunks.append(separator.join(current_parts).strip())
+                current_parts = []
+                current_word_count = 0
+
+            current_parts.append(piece)
+            current_word_count += piece_word_count
+
+        if current_parts:
+            chunks.append(separator.join(current_parts).strip())
+
         return chunks
 
 
@@ -92,7 +153,7 @@ if __name__ == "__main__":
 
     document = Document(**valid_document_data())
     loader = MarkDownLoader().load(document)
-    chunks = SlidingWordChunker().chunk(loader)
+    chunks = RecursiveChunker().chunk(loader)
     import json
 
     print(json.dumps([c.model_dump() for c in chunks], indent=2, default=str))
