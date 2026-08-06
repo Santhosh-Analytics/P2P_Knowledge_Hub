@@ -1,0 +1,2 @@
+2026-08-06 13:55:21 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=e0766058-1a31-4476-a258-55217e35a437 units=8
+2026-08-06 16:30:55 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=a851d7ae-dcb2-4b79-9394-f4f530b0b6ab units=8

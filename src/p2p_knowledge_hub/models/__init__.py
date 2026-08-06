@@ -4,6 +4,7 @@ from p2p_knowledge_hub.models.embeddings import DocumentEmbedding
 from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
 from p2p_knowledge_hub.models.db.document import DocumentRecord
 from p2p_knowledge_hub.models.db.sessions import SessionManager
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
 from p2p_knowledge_hub.models.document import (
     BusinessProcess,
     Department,
@@ -31,4 +32,5 @@ __all__ = [
     "Document",
     "DocumentRecord",
     "SessionManager",
+    "RetrievedChunk",
 ]

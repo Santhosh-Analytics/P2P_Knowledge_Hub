@@ -27,6 +27,11 @@
     * [Reason](#reason-5)
     * [Future Consideration](#future-consideration-5)
 - [For uniquely identifying and ordering all chunks in one document, I recommend a global index across the document.](#for-uniquely-identifying-and-ordering-all-chunks-in-one-document-i-recommend-a-global-index-across-the-document)
+- [ADR-007 Lexical Indexing Strategy](#adr-007-lexical-indexing-strategy)
+    * [Decision](#decision-6)
+    * [Reason](#reason-6)
+        + [Cons](#cons)
+    * [Future Consideration](#future-consideration-6)
 
 <!-- tocstop -->
 
@@ -139,3 +144,31 @@ will help to keep audit trail and debug friendly.
 None
 
 # For uniquely identifying and ordering all chunks in one document, I recommend a global index across the document.
+
+# ADR-007 Lexical Indexing Strategy
+
+Pre-compute corpus statistics
+
+Use an in-memory BM25 lexical index built from active document chunks.
+
+## Decision
+
+Chunkers produce source-neutral DocumentChunk objects. BM25 tokenization and corpus statistics are handled by a dedicated lexical-index component to avoid coupling chunk generation to one retrieval strategy.
+
+## Reason
+
+- Fast lexical retrieval
+- Separate lexical indexing from chunk generation
+- No preprocessing during queries
+- Exact keyword matching
+- Simple implementation for V1
+
+### Cons
+
+- Index rebuilt on application restart
+- Entire corpus must fit in memory
+- Not suitable for millions of chunks
+
+## Future Consideration
+
+Replace the in-memory BM25 index with Elasticsearch/OpenSearch or another persistent sparse retrieval engine if the corpus grows significantly.

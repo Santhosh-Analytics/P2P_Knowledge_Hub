@@ -1,51 +1,30 @@
-from p2p_knowledge_hub.embeddings.base_embedding import BaseEmbeddingService
-from p2p_knowledge_hub.exceptions.chunking_exceptions import P2PHubException
-from p2p_knowledge_hub.core.logger import AppLogger
-from p2p_knowledge_hub.settings.main import get_settings
-from p2p_knowledge_hub.chunking.recursive_chunker import RecursiveChunker
-from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk
-from p2p_knowledge_hub.models.embeddings import DocumentEmbedding
-from p2p_knowledge_hub.models.document import tz_aware_time
-
-from sentence_transformers import SentenceTransformer
-
-settings = get_settings()
-_log = AppLogger(settings.logs).get_logger(__name__)
+from p2p_knowledge_hub.lexical_index.base_lexical_index import BaseLexicalIndex
+from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
+from p2p_knowledge_hub.models import RetrievedChunk
+from p2p_knowledge_hub.retrieval.base_retriever import BaseRetriever
 
 
-class SentenceTransformerEmbedding(BaseEmbeddingService):
-    def __init__(self, model_name: str, provider: str = "SentenceTransformer") -> None:
-        self.model_name = model_name
-        self.provider = provider
-        self.model = SentenceTransformer(model_name)
+class BM25Retriever(BaseRetriever):
+    def __init__(self, lexical_index: BaseLexicalIndex) -> None:
+        self.lexical_index = lexical_index
 
-    def embed(self, chunks: list[DocumentChunk]) -> list[DocumentEmbedding]:
-        for chunk in chunks:
-            if not chunk.text.strip():
-                raise ValueError(f"Chunk {chunk.chunk_id} contains empty text")
-
-        document_embedding: list[DocumentEmbedding] = []
-        embed_text = [chunk.text for chunk in chunks]
-        embeddings = self.model.encode(embed_text, normalize_embeddings=True)
-
-        for embed_chunk, chunk in zip(embeddings, chunks):
-            document_embedding.append(
-                DocumentEmbedding(
-                    chunk_id=chunk.chunk_id,
-                    embeddings=embed_chunk.tolist(),
-                    embedding_provider=self.provider,
-                    embedding_model=self.model_name,
-                    created_at=tz_aware_time(),
-                    embedding_dimension=len(embed_chunk),
-                )
-            )
-        return document_embedding
+    def retrieve(self, query: str, top_k: int) -> list[RetrievedChunk]:
+        return self.lexical_index.search(query=query, top_k=top_k)
 
 
 if __name__ == "__main__":
+    from p2p_knowledge_hub.chunking.recursive_chunker import RecursiveChunker
+    from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk
+    from p2p_knowledge_hub.models.embeddings import DocumentEmbedding
+    from p2p_knowledge_hub.models.embeddings.sentence_transformers import (
+        SentenceTransformerEmbedding,
+    )
+    from p2p_knowledge_hub.models.document import tz_aware_time
+
     from p2p_knowledge_hub.ingestion.markdown_loader import MarkDownLoader
     from p2p_knowledge_hub.ingestion.hashing import compute_sha256
     from uuid import uuid4
+    from sentence_transformers import SentenceTransformer
     from p2p_knowledge_hub.models.document import (
         Document,
         SourceDocumentKey,
@@ -98,3 +77,13 @@ if __name__ == "__main__":
         )
 
     print(json.dumps([c.model_dump() for c in embed_chunks], indent=2, default=str))
+    query = "Hello there good man!"
+
+    bm25_index = BM25Index()
+    bm25_index.build(chunks)
+    retriever = BM25Retriever(lexical_index=bm25_index)
+
+    results = retriever.retrieve(
+        query="Hello there good man!",
+        top_k=5,
+    )

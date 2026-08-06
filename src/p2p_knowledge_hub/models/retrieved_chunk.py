@@ -1,0 +1,16 @@
+from pydantic import BaseModel
+from enum import StrEnum
+from p2p_knowledge_hub.models import DocumentChunk
+import numpy as np
+
+
+class RetrievalSource(StrEnum):
+    bm25 = "BM25"
+    dense = "Dense"
+    hybrid = "Hybrid"
+
+
+class RetrievedChunk(BaseModel):
+    chunk: DocumentChunk
+    score: float
+    retrieval_source: RetrievalSource

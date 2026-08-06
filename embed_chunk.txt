@@ -1,6 +1,6 @@
 [
   {
-    "chunk_id": "a53da059-38ac-4d3a-b4ef-0e40cb60e884",
+    "chunk_id": "d90f33b1-80e5-471c-b2dd-2f120243d580",
     "embeddings": [
       -0.025260351598262787,
       0.07529402524232864,
@@ -389,11 +389,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481257+00:00",
+    "created_at": "2026-08-06 11:01:00.433673+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "abc660f1-95cc-481d-b249-812e56df4f7b",
+    "chunk_id": "7695e2a5-1e0d-4463-bc27-b1b25443f744",
     "embeddings": [
       -0.08605076372623444,
       -0.06318707764148712,
@@ -782,11 +782,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481289+00:00",
+    "created_at": "2026-08-06 11:01:00.433705+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "2e5b4b99-95a3-452b-abf1-1787bb422b81",
+    "chunk_id": "61511579-3308-4720-87f0-45a1b91f03ba",
     "embeddings": [
       -0.024198386818170547,
       0.043457601219415665,
@@ -1175,11 +1175,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481301+00:00",
+    "created_at": "2026-08-06 11:01:00.433722+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "25d05318-c45b-46bf-9af9-fe224ce57892",
+    "chunk_id": "2316c61f-bec3-451f-8bad-be4f59655f0e",
     "embeddings": [
       0.006652922835201025,
       -0.016290046274662018,
@@ -1568,11 +1568,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481311+00:00",
+    "created_at": "2026-08-06 11:01:00.433733+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "fea6f9e3-ce78-46fe-ba09-162aa6bbbd73",
+    "chunk_id": "ec1f61c7-dd1d-4796-b144-6e0e7b718b3a",
     "embeddings": [
       -0.010398058220744133,
       -0.04526962712407112,
@@ -1961,11 +1961,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481320+00:00",
+    "created_at": "2026-08-06 11:01:00.433743+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "0c1724e4-2ef9-478b-9dad-9c810cb9ba61",
+    "chunk_id": "86279aad-8eb1-454b-bee7-2085cf87ed12",
     "embeddings": [
       -0.036336008459329605,
       0.01989632658660412,
@@ -2354,11 +2354,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481330+00:00",
+    "created_at": "2026-08-06 11:01:00.433753+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "31971d6c-2f24-48b4-9a5d-1c9a22c95335",
+    "chunk_id": "98ad4487-5c2a-4346-9bf4-aeaf030983aa",
     "embeddings": [
       -0.049263857305049896,
       0.013905256055295467,
@@ -2747,11 +2747,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481344+00:00",
+    "created_at": "2026-08-06 11:01:00.433766+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "5a5679e4-c4b3-4223-8b2d-9c463da927ae",
+    "chunk_id": "d9f8c403-c914-4626-9dc8-02c9a1afe615",
     "embeddings": [
       -0.04007592797279358,
       -0.039087120443582535,
@@ -3140,11 +3140,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481357+00:00",
+    "created_at": "2026-08-06 11:01:00.433779+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "430a1191-e213-4a49-9058-8e955d7c4ed8",
+    "chunk_id": "b3b702d0-79b5-4670-b941-d712e08c1587",
     "embeddings": [
       -0.028240298852324486,
       -0.05406443402171135,
@@ -3533,11 +3533,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481371+00:00",
+    "created_at": "2026-08-06 11:01:00.433792+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "94eb202b-18da-4410-a7b3-44bf591c0226",
+    "chunk_id": "71cd6a8e-d59d-4704-906a-d10684157b13",
     "embeddings": [
       0.03584970906376839,
       -0.053219616413116455,
@@ -3926,11 +3926,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481384+00:00",
+    "created_at": "2026-08-06 11:01:00.433804+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "879a7242-6693-48a2-a1f6-4c926ae7f0d6",
+    "chunk_id": "dd6f7c30-a9e1-44a0-90bb-4b62d6e1eaff",
     "embeddings": [
       -0.022883491590619087,
       -0.009115983732044697,
@@ -4319,11 +4319,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481398+00:00",
+    "created_at": "2026-08-06 11:01:00.433817+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "c513ea38-f2d1-4b31-b18f-12fec9bc1445",
+    "chunk_id": "c6da401a-89ee-46af-806d-3594d7b835e2",
     "embeddings": [
       -0.050298240035772324,
       0.07582461833953857,
@@ -4712,11 +4712,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481412+00:00",
+    "created_at": "2026-08-06 11:01:00.433830+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "a7df23b2-5e29-4261-a26e-033011f07750",
+    "chunk_id": "461ff9de-bd37-48ff-8ec8-fe0b92b8904b",
     "embeddings": [
       -0.020516114309430122,
       -0.07254469394683838,
@@ -5105,11 +5105,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481433+00:00",
+    "created_at": "2026-08-06 11:01:00.433842+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "88909db7-5e87-45a9-9ef6-e0d7716b0dee",
+    "chunk_id": "b964499e-5996-4472-aa96-2971513f4512",
     "embeddings": [
       -0.06812335550785065,
       -0.007019795943051577,
@@ -5498,11 +5498,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481449+00:00",
+    "created_at": "2026-08-06 11:01:00.433857+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "2f13f9fd-0b26-4460-96d3-70d81215d7da",
+    "chunk_id": "45bc8fea-278a-4832-89d0-e3be00515010",
     "embeddings": [
       0.041659876704216,
       -0.0447738878428936,
@@ -5891,11 +5891,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481461+00:00",
+    "created_at": "2026-08-06 11:01:00.433869+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "4235f59f-8be0-43bc-95d3-fe5fb2b64e9d",
+    "chunk_id": "f9157600-27b0-4c08-9e12-d4b30cbef7f7",
     "embeddings": [
       -0.001406536321155727,
       -0.021974660456180573,
@@ -6284,11 +6284,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481474+00:00",
+    "created_at": "2026-08-06 11:01:00.433882+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "3ac757b3-b175-4e1c-9439-a7c63afee4f5",
+    "chunk_id": "d3f78d9e-16df-459b-a3a6-23bd18cc6ea6",
     "embeddings": [
       -0.04858903959393501,
       0.008792310021817684,
@@ -6677,11 +6677,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481486+00:00",
+    "created_at": "2026-08-06 11:01:00.433894+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "cf2baea6-f8f6-44e6-bb4c-2345f714867e",
+    "chunk_id": "6db89c9d-960a-4b3e-b583-2616191f5c45",
     "embeddings": [
       -0.060572706162929535,
       -0.06456982344388962,
@@ -7070,11 +7070,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481501+00:00",
+    "created_at": "2026-08-06 11:01:00.433907+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "4931e91a-3902-4b3a-befe-5a9ec2c4141c",
+    "chunk_id": "b39a3199-f27e-415b-888c-a4de8737e231",
     "embeddings": [
       -0.00024330343876499683,
       -0.02983895130455494,
@@ -7463,11 +7463,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481513+00:00",
+    "created_at": "2026-08-06 11:01:00.433919+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "8c384002-8e70-4550-a84b-f17ef2f34563",
+    "chunk_id": "b7e83675-a698-4cd6-b26c-daf591152c4d",
     "embeddings": [
       0.011100544594228268,
       0.004185388330370188,
@@ -7856,11 +7856,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481525+00:00",
+    "created_at": "2026-08-06 11:01:00.433932+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "57b9ef4a-7e65-4f70-b9cf-cd9c8ea8b0b2",
+    "chunk_id": "b9e669d2-673c-43bd-994f-ea0fb3cb7616",
     "embeddings": [
       -0.005005341488867998,
       0.03775796294212341,
@@ -8249,11 +8249,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481537+00:00",
+    "created_at": "2026-08-06 11:01:00.433944+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "0a20553d-09bb-4e29-847e-1a3af2c7a1d6",
+    "chunk_id": "adf362c3-38a4-4eaf-8186-52217e3339d5",
     "embeddings": [
       -0.08894731104373932,
       -0.032057322561740875,
@@ -8642,11 +8642,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481550+00:00",
+    "created_at": "2026-08-06 11:01:00.433957+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "068f9f63-8bed-4f11-b914-819ce343ea9c",
+    "chunk_id": "caed0903-0dcc-4d92-bd52-0c073bccabb0",
     "embeddings": [
       -0.026056986302137375,
       -0.03296460956335068,
@@ -9035,11 +9035,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481562+00:00",
+    "created_at": "2026-08-06 11:01:00.433969+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "797f1ed6-872a-4607-8fb5-8202afd58bd9",
+    "chunk_id": "67e3c710-419a-443e-95c5-0d701e01a36d",
     "embeddings": [
       -0.021962594240903854,
       -0.0843280628323555,
@@ -9428,11 +9428,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481574+00:00",
+    "created_at": "2026-08-06 11:01:00.433983+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "db1cae58-4999-4ebd-8967-a11b75cf4a32",
+    "chunk_id": "08d1a654-d2b2-4866-91dc-c70ad0c942b1",
     "embeddings": [
       -0.07772627472877502,
       -0.03928372636437416,
@@ -9821,11 +9821,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481586+00:00",
+    "created_at": "2026-08-06 11:01:00.433996+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "ce1db56d-08ae-4e0b-8b1f-a3c0b3303718",
+    "chunk_id": "165bf57f-f4d1-4f5e-96f6-288645dcab8f",
     "embeddings": [
       -0.02524511143565178,
       0.04051085188984871,
@@ -10214,11 +10214,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481600+00:00",
+    "created_at": "2026-08-06 11:01:00.434008+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "7d12a69c-982b-48f3-9e10-88536955b50a",
+    "chunk_id": "ec97bdea-eabe-4722-839d-f0513abd4658",
     "embeddings": [
       -0.03330916538834572,
       -0.08418392390012741,
@@ -10607,11 +10607,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481614+00:00",
+    "created_at": "2026-08-06 11:01:00.434020+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "8830f6d9-7ebe-4c57-bf4d-567fa5bb4692",
+    "chunk_id": "d146d064-17b7-406c-993b-006c5f2c619d",
     "embeddings": [
       -0.07979640364646912,
       -0.03865649923682213,
@@ -11000,11 +11000,11 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481628+00:00",
+    "created_at": "2026-08-06 11:01:00.434035+00:00",
     "embedding_dimension": 384
   },
   {
-    "chunk_id": "498b13ba-ae49-4f3d-8a3a-eb4d333da4df",
+    "chunk_id": "301c776d-81ff-4862-b7c3-833731c71983",
     "embeddings": [
       0.04393935576081276,
       -0.0441494882106781,
@@ -11393,7 +11393,7 @@
     ],
     "embedding_provider": "SentenceTransformer",
     "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-    "created_at": "2026-08-05 18:47:59.481640+00:00",
+    "created_at": "2026-08-06 11:01:00.434047+00:00",
     "embedding_dimension": 384
   }
 ]
