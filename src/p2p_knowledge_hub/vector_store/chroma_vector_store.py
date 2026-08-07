@@ -1,7 +1,8 @@
 from p2p_knowledge_hub.vector_store.base_vector_store import BaseVectorStore
-from p2p_knowledge_hub.models import DocumentChunk, DocumentEmbedding
-from p2p_knowledge_hub.core import AppLogger
-from p2p_knowledge_hub.settings import get_settings
+from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk
+from p2p_knowledge_hub.models.embeddings import DocumentEmbedding
+from p2p_knowledge_hub.core.logger import AppLogger
+from p2p_knowledge_hub.settings.main import get_settings
 from chromadb.api import ClientAPI
 from chromadb.api.types import Embedding, Metadata
 from typing import cast

@@ -1,0 +1,74 @@
+2026-08-07 15:45:32 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=bdb211ed-c965-48ea-9cfe-5c8d3e47d27c units=9
+2026-08-07 15:50:49 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 15:51:03 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 15:51:35 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 15:51:57 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 15:52:19 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 15:52:23 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=97befb38-6ad0-46fb-b243-ca3c0a54bf16 units=9
+2026-08-07 15:53:40 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 15:53:45 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=e2b04a4a-5f7e-42ec-a86e-3c177400976e units=9
+2026-08-07 16:24:26 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 16:24:31 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=1cea0309-9674-43c4-94db-231de05d5562 units=9
+2026-08-07 16:41:54 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 16:41:59 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=a48ff103-4a3b-44e4-9aa3-30d5a8fa377c units=9
+2026-08-07 16:43:45 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 16:43:50 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=42daa115-75c9-4490-9265-ccbe5131b839 units=9
+2026-08-07 16:48:11 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 16:48:17 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=8efcd80d-9a8e-4ed5-ac87-c6b357edcf43 units=9
+2026-08-07 16:50:10 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 16:50:17 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=33febf95-47fc-46eb-8480-8df4be98e234 units=9
+2026-08-07 17:00:26 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 17:00:32 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: interview.md
+2026-08-07 17:00:32 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:165 | [bold red blink]Ingestion failed for document 'interview.md. 
+
+(psycopg.errors.UndefinedTable) relation "documents" does not exist
+LINE 2: FROM documents 
+             ^
+[SQL: SELECT documents.document_id, documents.document_group_id, documents.document_name, documents.department, documents.source_system, documents.source_document_key, documents.business_process, documents.file_hash, documents.document_status, documents.document_version, documents.uploaded_at, documents.file_size_bytes, documents.uploaded_by, documents.mime_type, documents.source_uri 
+FROM documents 
+WHERE documents.business_process = %(business_process_1)s AND documents.source_system = %(source_system_1)s AND documents.department = %(department_1)s AND documents.file_hash = %(file_hash_1)s::VARCHAR AND documents.source_document_key = %(source_document_key_1)s]
+[parameters: {'business_process_1': 'CONTRACT', 'source_system_1': 'SAP', 'department_1': 'PROCUREMENT', 'file_hash_1': 'c8eb65ecb2b398ad96917ba8f1ed54ca607d8a9ef11b7aca284ec82a763b16e6', 'source_document_key_1': 'PROCUREMENT_POLICY'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)'
+2026-08-07 17:05:56 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 17:06:01 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: interview.md
+2026-08-07 17:06:01 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for interview.md
+2026-08-07 17:06:01 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor interview.md
+2026-08-07 17:06:01 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=573577f7-13a0-45ec-8ba6-2c22b401d9f5 units=9
+2026-08-07 18:55:16 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 18:55:24 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: interview.md
+2026-08-07 18:55:24 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:147 | [bold red blink]Ingestion failed for documentinterview.md. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-08-07 18:55:49 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: interview.md
+2026-08-07 18:55:55 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: interview.md
+2026-08-07 18:55:55 | WARNING  | p2p_knowledge_hub.services.ingestion_service:ingestion_service:111 | The provided document : interview.md is already avilable in the record with id 573577f7-13a0-45ec-8ba6-2c22b401d9f5
+2026-08-07 19:40:33 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0.\ Conclusion.md
+2026-08-07 19:40:48 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0.\ Conclusion.md
+2026-08-07 19:40:58 | ERROR    | p2p_knowledge_hub.services.ingestion_service:collect_document:51 | [bold red blink]Please enter integer to select the value: 
+
+ invalid literal for int() with base 10: 's'
+2026-08-07 19:41:10 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0.\ Conclusion.md
+2026-08-07 19:41:24 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:19 | Path does not exist: ~/Obsidian/Data\ Science_/Machine\ Learning_/1.\ Linear\ Regression/0.\ Conclusion.md
+2026-08-07 19:42:51 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0. Conclusion.md
+2026-08-07 19:43:07 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 0. Conclusion.md
+2026-08-07 19:43:07 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for 0. Conclusion.md
+2026-08-07 19:43:07 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor 0. Conclusion.md
+2026-08-07 19:43:07 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=9ccdb317-2a3a-4d28-9d45-e35c1c0322d0 units=21
+2026-08-07 19:43:07 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=9ccdb317-2a3a-4d28-9d45-e35c1c0322d0 section=None page_no=None
+2026-08-07 21:11:09 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0. Conclusion.md
+2026-08-07 21:11:19 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 0. Conclusion.md
+2026-08-07 21:11:19 | WARNING  | p2p_knowledge_hub.services.ingestion_service:ingestion_service:111 | The provided document : 0. Conclusion.md is already avilable in the record with id 9ccdb317-2a3a-4d28-9d45-e35c1c0322d0
+2026-08-07 21:11:27 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0. Conclusion.md
+2026-08-07 21:11:35 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 0. Conclusion.md
+2026-08-07 21:11:35 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for 0. Conclusion.md
+2026-08-07 21:11:35 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor 0. Conclusion.md
+2026-08-07 21:11:35 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=49caa80f-e821-41bf-a875-9c8194ac250b units=21
+2026-08-07 21:11:35 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=49caa80f-e821-41bf-a875-9c8194ac250b section=None page_no=None
+2026-08-07 21:20:42 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0. Conclusion.md
+2026-08-07 21:20:52 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 0. Conclusion.md
+2026-08-07 21:20:52 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for 0. Conclusion.md
+2026-08-07 21:20:52 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor 0. Conclusion.md
+2026-08-07 21:20:52 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=5a65753b-345c-4fd1-87f3-e0cf479e24eb units=21
+2026-08-07 21:20:52 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=5a65753b-345c-4fd1-87f3-e0cf479e24eb section=None page_no=None
+2026-08-07 22:09:29 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: 0. Conclusion.md

@@ -1,7 +1,7 @@
 import logging
 from logging.handlers import RotatingFileHandler
 from rich.logging import RichHandler
-from p2p_knowledge_hub.settings import LogSettings
+from p2p_knowledge_hub.settings.logging_config import LogSettings
 import click
 
 

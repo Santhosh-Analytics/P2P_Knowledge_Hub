@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from enum import StrEnum
-from p2p_knowledge_hub.models import DocumentChunk
+from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk
 import numpy as np
 
 

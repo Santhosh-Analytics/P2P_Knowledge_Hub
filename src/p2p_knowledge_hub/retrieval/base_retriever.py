@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from p2p_knowledge_hub.models import RetrievedChunk
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
 
 
 class BaseRetriever(ABC):

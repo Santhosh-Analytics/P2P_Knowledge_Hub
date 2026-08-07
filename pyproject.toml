@@ -17,6 +17,7 @@ classifiers = [
 dependencies = [
     "alembic>=1.18.5",
     "chromadb>=1.5.9",
+    "fastapi[standard]>=0.141.1",
     "psycopg>=3.3.4",
     "pydantic>=2.13.4",
     "pydantic-settings>=2.14.2",
@@ -59,6 +60,8 @@ dev = [
     "python-dateutil>=2.9.0.post0",
     "ruff>=0.15.22",
 ]
+[tool.uv.sources]
+p2p = { path = "./src/p2p_knowledge_hub/" }
 
 
 [tool.alembic]

@@ -1,7 +1,8 @@
 from rank_bm25 import BM25Okapi
 import numpy as np
 from p2p_knowledge_hub.lexical_index.base_lexical_index import BaseLexicalIndex
-from p2p_knowledge_hub.models import DocumentChunk, RetrievedChunk
+from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
 from p2p_knowledge_hub.models.retrieved_chunk import RetrievalSource
 
 
@@ -21,14 +22,21 @@ class BM25Index(BaseLexicalIndex):
         for chunk in chunks:
             if chunk.text is not None and chunk.text.strip():
                 self._filtered_chunks.append(chunk)
-                self._filtered_tokenized_corpus.append(chunk.text.split())
+                self._filtered_tokenized_corpus.append(self._tokenize(chunk.text))
         return (self._filtered_tokenized_corpus, self._filtered_chunks)
 
     def search(self, query: str, top_k: int) -> list[RetrievedChunk]:
-        tokenized_query = query.split()
+        if not hasattr(self, "bm25_index"):
+            raise RuntimeError("BM25 index has not been built")
+        tokenized_query = self._tokenize(query)
         scores: np.ndarray = self.bm25_index.get_scores(tokenized_query)
-        ranked = sorted(enumerate(scores), key=lambda x: x[1], reverse=True)
+        positive_scores = (
+            (idx, score) for idx, score in enumerate(scores) if score > 0
+        )
+
+        ranked = sorted(positive_scores, key=lambda x: x[1], reverse=True)
         top_results = ranked[:top_k]
+
         return [
             RetrievedChunk(
                 chunk=self.filtered_chunks[idx],
@@ -37,3 +45,6 @@ class BM25Index(BaseLexicalIndex):
             )
             for idx, score in top_results
         ]
+
+    def _tokenize(self, text: str) -> list[str]:
+        return text.lower().split()

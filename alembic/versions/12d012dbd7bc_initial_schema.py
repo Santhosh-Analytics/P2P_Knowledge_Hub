@@ -1,8 +1,8 @@
 """initial schema
 
-Revision ID: f56a2e1c0b01
+Revision ID: 12d012dbd7bc
 Revises: 
-Create Date: 2026-07-28 03:45:16.758046
+Create Date: 2026-08-07 17:05:13.754157
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'f56a2e1c0b01'
+revision: str = '12d012dbd7bc'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -27,7 +27,7 @@ def upgrade() -> None:
     sa.Column('document_name', sa.String(length=255), nullable=False),
     sa.Column('department', sa.Enum('PROCUREMENT', 'ACCOUNTS_PAYABLE', 'FINANCE', 'SUPPLIER_MANAGEMENT', name='department_enum'), nullable=False),
     sa.Column('source_system', sa.Enum('SAP', 'ORACLE', 'TALLY', 'SAP_ARIBA', name='source_system_enum'), nullable=False),
-    sa.Column('source_document_key', sa.String(length=100), nullable=False),
+    sa.Column('source_document_key', sa.Enum('PROCUREMENT_POLICY', 'CONTRACTING_POLICY', 'SUPPLIER_ONBOARDING_POLICY', 'SINGLE_PAYMENT_REQUEST_POLICY', 'INVOICE_POLICY', 'PAYMENT_POLICY', 'PURCHASING_POLICY', 'SUPPLIER_ONBOARDING_SOP', 'SINGLE_PAYMENT_REQUEST_SOP', 'INVOICE_APPROVAL_SOP', 'PAYMENT_SOP', 'PURCHASE_ORDER_SOP', name='source_document_key_enum'), nullable=False),
     sa.Column('business_process', sa.Enum('CONTRACT', 'SOURCING', 'SUPPLIER_ONBOARDING', 'SINGLE_PAYMENT_REQUEST', 'INVOICE', 'PURCHASEORDER', 'PAYMENT', name='business_process_enum'), nullable=False),
     sa.Column('file_hash', sa.String(length=64), nullable=False),
     sa.Column('document_status', sa.Enum('UPLOADED', 'PROCESSING', 'INDEXED', 'FAILED', name='document_status_enum'), nullable=False),

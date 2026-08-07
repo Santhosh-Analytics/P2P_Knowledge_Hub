@@ -1,10 +1,9 @@
 from functools import lru_cache
-from p2p_knowledge_hub.settings import (
-    ExceptionSettings,
-    LogSettings,
-    ChunkSettings,
-    RunTimeDir,
-)
+from p2p_knowledge_hub.settings.exceptions import ExceptionSettings
+from p2p_knowledge_hub.settings.logging_config import LogSettings
+from p2p_knowledge_hub.settings.chunking import ChunkSettings
+from p2p_knowledge_hub.settings.run_time_config import RunTimeDir
+from p2p_knowledge_hub.settings.embedding import EmbeddingSettings
 from p2p_knowledge_hub.settings.db import DBConfig
 from pathlib import Path
 from pydantic import Field
@@ -22,6 +21,7 @@ class Settings(BaseSettings):
     app_name: str = Field(default="P2P Knowledge Hub", min_length=4)
     runtime_dir: RunTimeDir = Field(default_factory=RunTimeDir)
     logs: LogSettings = Field(default_factory=LogSettings)
+    embeddings: EmbeddingSettings = Field(default_factory=EmbeddingSettings)
     chunks: ChunkSettings = Field(default_factory=ChunkSettings)
     exceptions: ExceptionSettings = Field(default_factory=ExceptionSettings)
     db: DBConfig = Field(default_factory=DBConfig)
