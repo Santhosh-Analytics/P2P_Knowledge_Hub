@@ -41,60 +41,10 @@ class SentenceTransformerEmbedding(BaseEmbeddingService):
             )
         return document_embedding
 
-
-if __name__ == "__main__":
-    from p2p_knowledge_hub.ingestion.markdown_loader import MarkDownLoader
-    from p2p_knowledge_hub.ingestion.hashing import compute_sha256
-    from uuid import uuid4
-    from p2p_knowledge_hub.models.document import (
-        Document,
-        SourceDocumentKey,
-        SourceSystem,
-        BusinessProcess,
-        Department,
-        DocumentStatus,
-        MimeType,
-    )
-    from datetime import datetime
-    from pathlib import Path
-
-    def valid_document_data():
-        return {
-            "document_group_id": uuid4(),
-            "document_id": uuid4(),
-            "document_name": "supplier_policy.pdf",
-            "source_system": SourceSystem.TALLY,
-            "business_process": BusinessProcess.INVOICE,
-            "uploaded_by": "san",
-            "uploaded_at": datetime.now(),
-            "department": Department.FINANCE,
-            # "source_uri": "/home/san/Projects/EnterpriseKnowledgeAssistant_bak/data/raw/Vendor onboarding Policy/SOP Accounts - Payable.pdf",
-            "source_uri": "/home/san/Obsidian/Interview/about.md",
-            "file_size_bytes": 23,
-            "document_version": 1,
-            "document_status": DocumentStatus.INDEXED,
-            "file_hash": compute_sha256(Path("/home/san/ss.zsh")),
-            "mime_type": MimeType.PDF,
-            "source_document_key": SourceDocumentKey.CONTRACTING_POLICY,
-        }
-
-    import json
-
-    document = Document(**valid_document_data())
-    loader = MarkDownLoader().load(document)
-    chunks = RecursiveChunker().chunk(loader)
-    with open("./chunks.txt", "w", encoding="utf-8") as target:
-        target.write(
-            json.dumps([c.model_dump() for c in chunks], indent=2, default=str)
+    def embed_query(self, query: str) -> list[float]:
+        query_embeddings: list[float] = self.model.encode(
+            query,
+            normalize_embeddings=True,
+            convert_to_numpy=True,
         )
-
-    embeddings = SentenceTransformerEmbedding(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
-    embed_chunks = embeddings.embed(chunks)
-    with open("./embed_chunk.txt", "w", encoding="utf-8") as target:
-        target.write(
-            json.dumps([c.model_dump() for c in embed_chunks], indent=2, default=str)
-        )
-
-    print(json.dumps([c.model_dump() for c in embed_chunks], indent=2, default=str))
+        return query_embeddings.tolist()

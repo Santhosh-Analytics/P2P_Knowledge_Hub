@@ -1,0 +1,29 @@
+2026-08-10 01:28:18 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 10_Final_Notes.md
+2026-08-10 01:28:18 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:147 | [bold red blink]Ingestion failed for document10_Final_Notes.md. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-08-10 01:35:56 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 10_Final_Notes.md
+2026-08-10 01:35:56 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for 10_Final_Notes.md
+2026-08-10 01:35:56 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor 10_Final_Notes.md
+2026-08-10 01:35:56 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=5658aef4-8e82-4615-8ca4-e89253cef2b0 units=4
+2026-08-10 01:37:02 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 10_Final_Notes.md
+2026-08-10 01:37:02 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:147 | [bold red blink]Ingestion failed for document10_Final_Notes.md. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-08-10 01:37:02 | ERROR    | api.main:db_connection_exception_handler:17 | [bold red blink]Ingestion failed for document . 
+
+['ERROR: Could not connect to the database.', '', 'connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused', '\tIs the server running on that host and accepting TCP/IP connections?']
+2026-08-10 01:57:44 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: P2P_NON_PO_Invoice.pdf
+2026-08-10 01:57:44 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for P2P_NON_PO_Invoice.pdf
+2026-08-10 01:57:44 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor P2P_NON_PO_Invoice.pdf
+2026-08-10 01:58:53 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: Vendor_onboarding.pdf
+2026-08-10 01:58:53 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for 0. Conclusion.md
+2026-08-10 01:58:53 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for Vendor_onboarding.pdf
+2026-08-10 01:59:37 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: ShoppingCart.pdf
+2026-08-10 01:59:37 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for ShoppingCart.pdf
+2026-08-10 01:59:37 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor ShoppingCart.pdf
+2026-08-10 02:00:11 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: InvPayProcess.pdf
+2026-08-10 02:00:11 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for InvPayProcess.pdf
+2026-08-10 02:00:11 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor InvPayProcess.pdf

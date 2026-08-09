@@ -7,6 +7,8 @@ from p2p_knowledge_hub.embeddings.sentence_transformer import (
 )
 from datetime import datetime
 from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
+from p2p_knowledge_hub.models.embeddings import DocumentEmbedding
+from p2p_knowledge_hub.retrieval.dense_retriever import DenseRetriever
 from p2p_knowledge_hub.settings.main import get_settings
 from p2p_knowledge_hub.chunking.recursive_chunker import RecursiveChunker
 from p2p_knowledge_hub.ingestion.hashing import compute_sha256
@@ -48,6 +50,7 @@ class DocumentPipelineService:
         self.vector_store = ChromaVectorStore(client=self.chroma_client)
         self.index_service = IndexingService(self.embedding_service, self.vector_store)
         self.file_storage = LocalFileStorage()
+        self.dense_retriever = DenseRetriever(self.vector_store, self.embedding_service)
 
     def metadata_ingestion(self, document: Document) -> None:
         self.ingestion_service.ingestion_service(document)
@@ -110,3 +113,8 @@ class DocumentPipelineService:
         chunks_length = self.document_pipeline(document)
 
         return chunks_length
+
+    # def _dense_retriever(self, query: str) -> list[RecursiveChunk]:
+    #     retrieved = self.dense_retriever.retrieve(query, 5)
+    #     print(retrieved)
+    #     return retrieved

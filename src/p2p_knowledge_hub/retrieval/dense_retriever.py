@@ -15,5 +15,5 @@ class DenseRetriever(BaseRetriever):
         self.vector_store = vector_store
 
     def retrieve(self, query: str, top_k: int) -> list[RetrievedChunk]:
-        query_embedding: list[float] = self.embedding_service.embed_query(query, top_k)
+        query_embedding: list[float] = self.embedding_service.embed_query(query)
         return self.vector_store.search(query_embedding, top_k)

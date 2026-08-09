@@ -10,5 +10,5 @@ class BaseEmbeddingService(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def embed_query(self, query: str, topk_k: int) -> list[float]:
+    def embed_query(self, query: str) -> list[float]:
         raise NotImplementedError
