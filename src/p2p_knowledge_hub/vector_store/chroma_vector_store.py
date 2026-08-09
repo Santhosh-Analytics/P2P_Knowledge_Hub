@@ -6,6 +6,7 @@ from p2p_knowledge_hub.settings.main import get_settings
 from chromadb.api import ClientAPI
 from chromadb.api.types import Embedding, Metadata
 from typing import cast
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
 
 settings = get_settings()
 _log = AppLogger(settings.logs).get_logger(__name__)
@@ -55,3 +56,11 @@ class ChromaVectorStore(BaseVectorStore):
             metadatas=metadatas,
             documents=documents,
         )
+
+    def search(self, query_embeddings: list[float], top_k: int) -> list[RetrievedChunk]:
+        retrieved = self.collection.query(
+            query_embeddings=[query_embeddings],
+            n_results=top_k,
+            include=["documents", "metadatas", "distances"],
+        )
+        return retrieved

@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field, ConfigDict
-from enum import Enum
+from enum import StrEnum
 from uuid import UUID, uuid4
 
 
@@ -8,28 +8,28 @@ def tz_aware_time() -> datetime:
     return datetime.now(timezone.utc)
 
 
-class SourceSystem(str, Enum):
+class SourceSystem(StrEnum):
     SAP = "SAP"
     ORACLE = "ORACLE"
     TALLY = "TALLY"
     SAP_ARIBA = "SAP_ARIBA"
 
 
-class DocumentStatus(str, Enum):
+class DocumentStatus(StrEnum):
     UPLOADED = "uploaded"
     PROCESSING = "processing"
     INDEXED = "indexed"
     FAILED = "failed"
 
 
-class Department(str, Enum):
+class Department(StrEnum):
     PROCUREMENT = "PROCUREMENT"
     ACCOUNTS_PAYABLE = "ACCOUNTS_PAYABLE"
     FINANCE = "FINANCE"
     SUPPLIER_MANAGEMENT = "SUPPLIER_MANAGEMENT"
 
 
-class SourceDocumentKey(str, Enum):
+class SourceDocumentKey(StrEnum):
     PROCUREMENT_POLICY = "PROCUREMENT_POLICY"
     CONTRACTING_POLICY = "CONTRACTING_POLICY"
     SUPPLIER_ONBOARDING_POLICY = "SUPPLIER_ONBOARDING_POLICY"
@@ -44,7 +44,7 @@ class SourceDocumentKey(str, Enum):
     PURCHASE_ORDER_SOP = "PURCHASE_ORDER_SOP"
 
 
-class BusinessProcess(str, Enum):
+class BusinessProcess(StrEnum):
     CONTRACT = "CONTRACT"
     SOURCING = "SOURCING"
     SUPPLIER_ONBOARDING = "SUPPLIER_ONBOARDING"
@@ -54,7 +54,7 @@ class BusinessProcess(str, Enum):
     PAYMENT = "PAYMENT"
 
 
-class MimeType(str, Enum):
+class MimeType(StrEnum):
     PDF = "application/pdf"
     TXT = "text/plain"
     MSWORD = "application/msword"

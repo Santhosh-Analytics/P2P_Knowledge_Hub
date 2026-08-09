@@ -8,3 +8,7 @@ class BaseEmbeddingService(ABC):
     @abstractmethod
     def embed(self, chunks: list[DocumentChunk]) -> list[DocumentEmbedding]:
         raise NotImplementedError
+
+    @abstractmethod
+    def embed_query(self, query: str, topk_k: int) -> list[float]:
+        raise NotImplementedError

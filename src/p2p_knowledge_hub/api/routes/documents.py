@@ -6,6 +6,14 @@ from p2p_knowledge_hub.models.document import (
     SourceSystem,
     Department,
 )
+from p2p_knowledge_hub.models.api.document_upload import DocumentUploadResponse
+from p2p_knowledge_hub.services.document_pipeline_service import DocumentPipelineService
+from p2p_knowledge_hub.core.logger import AppLogger
+from p2p_knowledge_hub.settings.main import get_settings
+
+
+# settings = get_settings()
+# _log = AppLogger(settings).get_logger(__name__)
 
 
 router = APIRouter(
@@ -13,8 +21,10 @@ router = APIRouter(
     tags=["documents"],
 )
 
+pipeline = DocumentPipelineService()
 
-@router.post("")
+
+@router.post("", response_model=DocumentUploadResponse)
 async def create_file(
     file: Annotated[UploadFile, File()],
     source_system: Annotated[SourceSystem, Form()],
@@ -24,7 +34,7 @@ async def create_file(
     uploaded_by: Annotated[str, Form()],
 ):
     file_bytes = await file.read()
-    result = await pipeline.process_upload(
+    document = await pipeline.process_upload(
         file_bytes=file_bytes,
         file_name=file.filename,
         file_size=file.size,
@@ -35,5 +45,4 @@ async def create_file(
         source_document_key=source_document_key,
         uploaded_by=uploaded_by,
     )
-
-    return result
+    return document

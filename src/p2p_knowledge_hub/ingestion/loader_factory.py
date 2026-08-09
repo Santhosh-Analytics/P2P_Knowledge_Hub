@@ -8,7 +8,7 @@ from p2p_knowledge_hub.ingestion.base_loader import BaseLoader
 class DocumentLoaderFactory:
     def get_loader(self, source_uri: Path) -> BaseLoader:
         loaders = {".pdf": PDFLoader, ".md": MarkDownLoader, ".docx": DOCXLoader}
-        identifier = Path(source_uri).suffix().lower()
+        identifier = Path(source_uri).suffix.lower()
         loader_class = loaders[identifier]
 
         return loader_class()

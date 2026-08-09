@@ -1,0 +1,36 @@
+2026-08-08 20:39:45 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: TicketIQ_README.md
+2026-08-08 20:39:46 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:147 | [bold red blink]Ingestion failed for documentTicketIQ_README.md. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-08-08 20:40:55 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: TicketIQ_README.md
+2026-08-08 20:40:55 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for interview.md
+2026-08-08 20:40:55 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for TicketIQ_README.md
+2026-08-08 20:44:42 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: TicketIQ_README.md
+2026-08-08 20:44:42 | WARNING  | p2p_knowledge_hub.services.ingestion_service:ingestion_service:111 | The provided document : TicketIQ_README.md is already avilable in the record with id 7afe352b-9b6d-4b74-ba0a-e56a8bb6ebdb
+2026-08-08 20:44:57 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: TicketIQ_README.md
+2026-08-08 20:44:57 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for TicketIQ_README.md
+2026-08-08 20:44:57 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor TicketIQ_README.md
+2026-08-08 20:44:57 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=676ccfe1-57da-4165-aa3f-13aa9cb578c9 units=10
+2026-08-08 21:40:01 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: audit_new.md
+2026-08-08 21:40:01 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for TicketIQ_README.md
+2026-08-08 21:40:01 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for audit_new.md
+2026-08-08 21:40:01 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=c67f8144-b4e6-4f66-be90-6b3fb8374944 units=1
+2026-08-08 21:44:06 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: asdsad
+2026-08-08 21:44:10 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:19 | Path does not exist: asdsad
+2026-08-08 21:48:07 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: santhosh
+2026-08-08 21:48:09 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:19 | Path does not exist: santhosh
+2026-08-08 21:50:06 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: santhosh
+2026-08-08 21:50:06 | ERROR    | p2p_knowledge_hub.services.ingestion_service:collect_document:51 | [bold red blink]Please enter integer to select the value: 
+
+ invalid literal for int() with base 10: ''
+2026-08-08 21:50:15 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: sanhtos
+2026-08-08 21:50:16 | ERROR    | p2p_knowledge_hub.services.ingestion_service:collect_document:51 | [bold red blink]Please enter integer to select the value: 
+
+ invalid literal for int() with base 10: ''
+2026-08-08 21:50:22 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: santhosh
+2026-08-08 21:50:25 | ERROR    | p2p_knowledge_hub.ingestion.hashing:compute_sha256:19 | Path does not exist: santhosh
+2026-08-08 21:53:06 | INFO     | p2p_knowledge_hub.services.ingestion_service:collect_document:40 | Collecting metadata for document: santhosh
+2026-08-08 21:53:08 | ERROR    | p2p_knowledge_hub.services.ingestion_service:collect_document:51 | [bold red blink]Please enter integer to select the value: 
+
+ invalid literal for int() with base 10: ''

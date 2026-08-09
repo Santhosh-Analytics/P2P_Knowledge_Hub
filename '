@@ -5,7 +5,6 @@ from chromadb.config import Settings as ChromaSettings
 from p2p_knowledge_hub.embeddings.sentence_transformer import (
     SentenceTransformerEmbedding,
 )
-from datetime import datetime
 from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
 from p2p_knowledge_hub.settings.main import get_settings
 from p2p_knowledge_hub.chunking.recursive_chunker import RecursiveChunker
@@ -20,7 +19,6 @@ from p2p_knowledge_hub.models.document import (
     BusinessProcess,
     MimeType,
 )
-from p2p_knowledge_hub.models.api.document_upload import DocumentUploadResponse
 from p2p_knowledge_hub.services.ingestion_service import IngestionService
 from p2p_knowledge_hub.ingestion.loader_factory import DocumentLoaderFactory
 from p2p_knowledge_hub.services.indexing_services import IndexingService
@@ -34,9 +32,9 @@ settings = get_settings()
 
 class DocumentPipelineService:
     def __init__(self) -> None:
-        self.metadata_collector = MetadataCollector()
+        self.meta_data_collector = MetadataCollector()
         self.ingestion_service = IngestionService()
-        self.loader_factory = DocumentLoaderFactory()
+        self.loader = DocumentLoaderFactory()
         self.chunker = RecursiveChunker()
         self.embedding_service = SentenceTransformerEmbedding(
             model_name=settings.embeddings.embedding_model
@@ -49,17 +47,21 @@ class DocumentPipelineService:
         self.index_service = IndexingService(self.embedding_service, self.vector_store)
         self.file_storage = LocalFileStorage()
 
+    def cli_metadata_collector(self, file_path: Path) -> Document:
+        document: Document = self.meta_data_collector.collect_document(file_path)
+        return document
+
     def metadata_ingestion(self, document: Document) -> None:
         self.ingestion_service.ingestion_service(document)
 
-    def document_pipeline(self, document: Document) -> int:
-        pages: list[DocumentPage] = self.loader_factory.get_loader(
+    def document_pipeline(self, document: Document) -> None:
+        pages: list[DocumentPage] = self.loader.get_loader(
             Path(document.source_uri)
         ).load(document)
         chunks: list[DocumentChunk] = self.chunker.chunk(pages)
         self.index_service.index(chunks)
 
-        return len(chunks)
+        return None
 
     async def process_upload(
         self,
@@ -72,7 +74,7 @@ class DocumentPipelineService:
         department: Department,
         source_document_key: SourceDocumentKey,
         uploaded_by: str,
-    ) -> DocumentUploadResponse:
+    ):
 
         stored_path = self.file_storage.store(file_bytes, file_name)
         if content_type is None:
@@ -95,18 +97,3 @@ class DocumentPipelineService:
             file_size_bytes=file_size,
             source_uri=str(stored_path),
         )
-        self.ingestion_service.ingestion_service(document)
-
-        chunks_len = self.document_pipeline(document)
-
-        document_upload_response = DocumentUploadResponse(
-            **document.model_dump(), chunks_length=chunks_len
-        )
-        return document_upload_response
-
-    def cli_metadata_collector(self, file_path: Path) -> int:
-        document: Document = self.metadata_collector.collect_document(file_path)
-        self.metadata_ingestion(document)
-        chunks_length = self.document_pipeline(document)
-
-        return chunks_length
