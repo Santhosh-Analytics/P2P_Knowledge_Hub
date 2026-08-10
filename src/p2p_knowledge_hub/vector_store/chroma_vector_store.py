@@ -1,3 +1,5 @@
+from uuid import UUID
+
 from p2p_knowledge_hub.vector_store.base_vector_store import BaseVectorStore
 from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk
 from p2p_knowledge_hub.models.embeddings import DocumentEmbedding
@@ -6,7 +8,7 @@ from p2p_knowledge_hub.settings.main import get_settings
 from chromadb.api import ClientAPI
 from chromadb.api.types import Embedding, Metadata
 from typing import cast
-from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievalSource, RetrievedChunk
 
 settings = get_settings()
 _log = AppLogger(settings.logs).get_logger(__name__)
@@ -63,4 +65,44 @@ class ChromaVectorStore(BaseVectorStore):
             n_results=top_k,
             include=["documents", "metadatas", "distances"],
         )
-        return retrieved
+
+        results: list[RetrievedChunk] = []
+
+        for chunk_id, text, metadata, score in zip(
+            retrieved["ids"][0],
+            retrieved["documents"][0],
+            retrieved["metadatas"][0],
+            retrieved["distances"][0],
+        ):
+            metadata = dict(metadata)
+            metadata.pop("chunk_id", None)
+
+            document_chunk = DocumentChunk(
+                chunk_id=UUID(chunk_id), text=text, **metadata
+            )
+
+            results.append(
+                RetrievedChunk(
+                    chunk=document_chunk,
+                    raw_score=float(score),
+                    retrieval_source=RetrievalSource.dense,
+                )
+            )
+
+        return results
+
+    def get_all_chunks(self) -> list[DocumentChunk]:
+        results = self.collection.get()
+
+        chunks: list[DocumentChunk] = []
+
+        for chunk_id, text, metadata in zip(
+            results["ids"], results["documents"], results["metadatas"]
+        ):
+            metadata = dict(metadata)  # make a copy
+            metadata.pop("chunk_id", None)
+
+            chunk = DocumentChunk(chunk_id=UUID(chunk_id), text=text, **metadata)
+            chunks.append(chunk)
+
+        return chunks

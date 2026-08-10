@@ -32,6 +32,11 @@
     * [Reason](#reason-6)
         + [Cons](#cons)
     * [Future Consideration](#future-consideration-6)
+    * [ADR-008: Chunk Persistence and BM25 Index Reconstruction](#adr-008-chunk-persistence-and-bm25-index-reconstruction)
+        + [Decision](#decision-7)
+        + [Reason](#reason-7)
+        + [Trade-offs](#trade-offs)
+        + [Future Consideration](#future-consideration-7)
 
 <!-- tocstop -->
 
@@ -172,3 +177,106 @@ Chunkers produce source-neutral DocumentChunk objects. BM25 tokenization and cor
 ## Future Consideration
 
 Replace the in-memory BM25 index with Elasticsearch/OpenSearch or another persistent sparse retrieval engine if the corpus grows significantly.
+
+## ADR-008: Chunk Persistence and BM25 Index Reconstruction
+
+### Decision
+
+For the current MVP, `DocumentChunk` objects will not be persisted in a
+separate local chunk store or PostgreSQL table.
+
+ChromaDB will persist:
+
+- chunk IDs
+- chunk text
+- chunk metadata
+- embedding vectors
+
+PostgreSQL will continue to persist document-level metadata.
+
+The BM25 index is an in-memory index and will be rebuilt when the application
+starts.
+
+The startup flow will be:
+
+ChromaDB
+→ fetch persisted chunk text and metadata
+→ reconstruct `DocumentChunk` objects
+→ `BM25Index.build(chunks)`
+→ BM25 index available for lexical retrieval
+
+When new documents are indexed, the BM25 corpus can be rebuilt from the
+current persisted chunks.
+
+### Reason
+
+`rank_bm25.BM25Okapi` is currently used as an in-memory lexical index.
+Unlike the ChromaDB vector index, the BM25 index does not automatically
+persist between application restarts.
+
+The chunk text required to rebuild BM25 is already stored in the persistent
+ChromaDB collection.
+
+Creating an additional local chunk store would introduce another persistence
+layer:
+
+PostgreSQL
+
+- ChromaDB
+- local chunk storage
+
+This would increase synchronization complexity, particularly during document
+updates, version changes, and deletion.
+
+The current project has a small corpus, so rebuilding BM25 from persisted
+chunks is inexpensive and keeps the MVP architecture simple.
+
+`BM25Index` should remain independent of ChromaDB. It should only accept:
+
+`list[DocumentChunk]`
+
+A separate service/infrastructure component is responsible for retrieving
+persisted chunks and providing them to `BM25Index`.
+
+### Trade-offs
+
+Advantages:
+
+- avoids duplicate chunk persistence
+- keeps BM25 implementation independent of ChromaDB
+- BM25 can be rebuilt after application restart
+- simpler MVP architecture
+- fewer stores to synchronize
+- existing ChromaDB data can be reused
+
+Disadvantages:
+
+- ChromaDB temporarily acts as the persistent source for chunk content
+- startup requires rebuilding the BM25 index
+- rebuilding may become expensive with a large corpus
+- lexical retrieval availability depends on successful chunk reconstruction
+
+### Future Consideration
+
+For a larger production deployment, persist chunks in a dedicated
+`document_chunks` table or another canonical document/chunk store.
+
+The architecture could then become:
+
+PostgreSQL / canonical chunk store
+↓
+DocumentChunk
+/ \
+↓ ↓
+ChromaDB BM25
+vector lexical
+index index
+
+In that architecture, ChromaDB and BM25 are derived indexes rather than the
+source of truth.
+
+This would allow either retrieval index to be deleted and rebuilt from the
+canonical chunk data.
+
+For the current portfolio MVP, this additional persistence layer is deferred
+until scale or operational requirements justify it.

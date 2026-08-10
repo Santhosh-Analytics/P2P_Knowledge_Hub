@@ -40,7 +40,7 @@ class BM25Index(BaseLexicalIndex):
         return [
             RetrievedChunk(
                 chunk=self.filtered_chunks[idx],
-                score=float(score),
+                raw_score=float(score),
                 retrieval_source=RetrievalSource.bm25,
             )
             for idx, score in top_results

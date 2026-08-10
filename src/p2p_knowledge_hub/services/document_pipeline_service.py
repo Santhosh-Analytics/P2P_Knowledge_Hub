@@ -30,6 +30,8 @@ from p2p_knowledge_hub.services.ingestion_service import (
     MetadataCollector,
 )
 from p2p_knowledge_hub.vector_store.chroma_vector_store import ChromaVectorStore
+from p2p_knowledge_hub.lexical_index.base_lexical_index import BaseLexicalIndex
+from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
 
 settings = get_settings()
 
@@ -50,6 +52,7 @@ class DocumentPipelineService:
         self.vector_store = ChromaVectorStore(client=self.chroma_client)
         self.index_service = IndexingService(self.embedding_service, self.vector_store)
         self.file_storage = LocalFileStorage()
+        self.sparse_retrieval = BM25Index()
         self.dense_retriever = DenseRetriever(self.vector_store, self.embedding_service)
 
     def metadata_ingestion(self, document: Document) -> None:
@@ -61,6 +64,7 @@ class DocumentPipelineService:
         ).load(document)
         chunks: list[DocumentChunk] = self.chunker.chunk(pages)
         self.index_service.index(chunks)
+        self.index_service.index(self.vector_store.get_all_chunks())
 
         return len(chunks)
 
@@ -113,8 +117,3 @@ class DocumentPipelineService:
         chunks_length = self.document_pipeline(document)
 
         return chunks_length
-
-    # def _dense_retriever(self, query: str) -> list[RecursiveChunk]:
-    #     retrieved = self.dense_retriever.retrieve(query, 5)
-    #     print(retrieved)
-    #     return retrieved

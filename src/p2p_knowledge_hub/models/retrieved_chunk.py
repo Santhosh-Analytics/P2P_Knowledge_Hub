@@ -12,5 +12,5 @@ class RetrievalSource(StrEnum):
 
 class RetrievedChunk(BaseModel):
     chunk: DocumentChunk
-    score: float
+    raw_score: float
     retrieval_source: RetrievalSource

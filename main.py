@@ -1,83 +1,16 @@
-from rich import print
-from pathlib import Path
-
-from p2p_knowledge_hub.embeddings.base_embedding import BaseEmbeddingService
-from p2p_knowledge_hub.retrieval.base_retriever import BaseRetriever
-from p2p_knowledge_hub.retrieval.dense_retriever import DenseRetriever
 from p2p_knowledge_hub.services.document_pipeline_service import DocumentPipelineService
-from p2p_knowledge_hub.vector_store.base_vector_store import BaseVectorStore
+from p2p_knowledge_hub.services.retrieval_pipeline_service import (
+    RetrievalPipelineService,
+)
 
+query = "Invoice lifecycl"
 
-pipeline = DocumentPipelineService()
+document_pipeline = DocumentPipelineService()
+retrievel_pipeline = RetrievalPipelineService()
 
-ss = DenseRetriever(pipeline.vector_store, pipeline.embedding_service)
-
-query = "Invoice lifecycle"
-
-pipeline._dense_retriever(query)
-
-# from p2p_knowledge_hub.ingestion.markdown_loader import MarkDownLoader
-# from p2p_knowledge_hub.services.ingestion_service import (
-#     MetadataCollector,
-#     IngestionService,
-# )
-# from p2p_knowledge_hub.exceptions.base import FileMissingError
-# from p2p_knowledge_hub.services.indexing_services import IndexingService
-# from p2p_knowledge_hub.chunking.recursive_chunker import RecursiveChunker
-# from p2p_knowledge_hub.embeddings.sentence_transformer import (
-#     SentenceTransformerEmbedding,
-# )
-# from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
-# from p2p_knowledge_hub.retrieval.bm25_retriever import BM25Retriever
-# from p2p_knowledge_hub.vector_store.chroma_vector_store import ChromaVectorStore
-# import json
-# from chromadb.config import Settings as ChromaSettings
-# import chromadb
-#
-# chroma_client = chromadb.PersistentClient(
-#     path="./chroma", settings=ChromaSettings(anonymized_telemetry=False)
-# )
-
-# user_input = str(input())
-# file_path = Path(user_input)
-# try:
-#     document = MetadataCollector().collect_document(Path(file_path))
-# except FileMissingError as exc:
-#     print(f"[bold red blink]ERROR: Path does not exist. {user_input}")
-#     print()
-#     print(f"[bold red blink]{exc}")
-# except ValueError as exc:
-#     print(f"[bold red blink]ERROR: Please select option using number. {user_input}")
-#     print()
-#     print(f"[bold red blink]{exc}")
-
-# loader = MarkDownLoader()
-# metadata_injector = IngestionService()
-# metadata_injector.ingestion_service(document)
-#
-# loaded_document = loader.load(document)
-# chunker = RecursiveChunker()
-# chunks = chunker.chunk(loaded_document)
-#
-# embeddings = SentenceTransformerEmbedding(
-#     model_name="sentence-transformers/all-MiniLM-L6-v2"
-# )
-# vector_store = ChromaVectorStore(client=chroma_client)
-#
-# index_service = IndexingService(embeddings, vector_store)
-# embed_chunks = index_service.index(chunks)
-#
-# bm25_index = BM25Index()
-# bm25_index.build(chunks)
-# bm25_retriever = BM25Retriever(lexical_index=bm25_index)
-# results = bm25_retriever.retrieve(
-#     query="linear regression cost function",
-#     top_k=5,
-# )
-#
-# for rank, result in enumerate(results, start=1):
-#     print(rank)
-#     print(result.score)
-#     print(result.chunk.title)
-#     print(result.chunk.section)
-#     print(result.chunk.text)
+results_bm25 = retrievel_pipeline.bm25_retriever.retrieve(query, 5)
+results_dense = retrievel_pipeline.dense_retriever.retrieve(query, 5)
+print("XO" * 50)
+print(results_bm25)
+print("XO" * 50)
+print(results_dense)
