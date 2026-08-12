@@ -14,3 +14,4 @@ class RetrievedChunk(BaseModel):
     chunk: DocumentChunk
     raw_score: float
     retrieval_source: RetrievalSource
+    rerank_score: float | None = None

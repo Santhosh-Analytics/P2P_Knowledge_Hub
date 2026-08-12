@@ -3,6 +3,7 @@ from p2p_knowledge_hub.settings.exceptions import ExceptionSettings
 from p2p_knowledge_hub.settings.logging_config import LogSettings
 from p2p_knowledge_hub.settings.chunking import ChunkSettings
 from p2p_knowledge_hub.settings.run_time_config import RunTimeDir
+from p2p_knowledge_hub.settings.reranker import RerankerSettings
 from p2p_knowledge_hub.settings.embedding import EmbeddingSettings
 from p2p_knowledge_hub.settings.db import DBConfig
 from pathlib import Path
@@ -25,6 +26,7 @@ class Settings(BaseSettings):
     chunks: ChunkSettings = Field(default_factory=ChunkSettings)
     exceptions: ExceptionSettings = Field(default_factory=ExceptionSettings)
     db: DBConfig = Field(default_factory=DBConfig)
+    reranker: RerankerSettings = Field(default_factory=RerankerSettings)
     # chunks
     model_config = SettingsConfigDict(
         toml_file=_base_dir / "config.toml",

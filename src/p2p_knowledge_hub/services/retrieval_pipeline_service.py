@@ -11,6 +11,7 @@ from p2p_knowledge_hub.settings.main import get_settings
 from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
 from p2p_knowledge_hub.retrieval.dense_retriever import DenseRetriever
 from p2p_knowledge_hub.retrieval.bm25_retriever import BM25Retriever
+from p2p_knowledge_hub.retrieval.hybrid_retriever import HybridRetriever
 
 
 settings = get_settings()
@@ -32,3 +33,6 @@ class RetrievalPipelineService:
 
         self.dense_retriever = DenseRetriever(self.vector_store, self.embedding_service)
         self.bm25_retriever = BM25Retriever(self.bm25_index)
+        self.hybrid_retriever = HybridRetriever(
+            sparse_retriever=self.bm25_retriever, dense_retriever=self.dense_retriever
+        )
