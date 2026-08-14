@@ -23,3 +23,7 @@ class DBSyntexError(P2PHubException):
 
 class DBConnectionError(P2PHubException):
     """Raises whenever the script failed to reach database"""
+
+
+class DBNotFoundError(P2PHubException):
+    """Raised when a requested record (e.g. by ID) does not exist in the database"""

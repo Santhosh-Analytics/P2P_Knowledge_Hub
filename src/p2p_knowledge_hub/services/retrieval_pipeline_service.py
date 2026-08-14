@@ -1,6 +1,4 @@
 from pathlib import Path
-
-
 from p2p_knowledge_hub.vector_store.chroma_vector_store import ChromaVectorStore
 import chromadb
 from chromadb.config import Settings as ChromaSettings
@@ -12,7 +10,9 @@ from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
 from p2p_knowledge_hub.retrieval.dense_retriever import DenseRetriever
 from p2p_knowledge_hub.retrieval.bm25_retriever import BM25Retriever
 from p2p_knowledge_hub.retrieval.hybrid_retriever import HybridRetriever
-
+from p2p_knowledge_hub.reranker.cross_encoder_reranker import CrossEncoderReranker
+from p2p_knowledge_hub.retrieval.base_retriever import BaseRetriever
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
 
 settings = get_settings()
 
@@ -36,3 +36,14 @@ class RetrievalPipelineService:
         self.hybrid_retriever = HybridRetriever(
             sparse_retriever=self.bm25_retriever, dense_retriever=self.dense_retriever
         )
+        self.reranker = CrossEncoderReranker(model_name=settings.reranker.model_name)
+
+    def search(
+        self, query: str, candidate: BaseRetriever, candidate_k: int, top_k: int
+    ) -> list[RetrievedChunk]:
+
+        retrived = candidate.retrieve(query, candidate_k)
+
+        reranked = self.reranker.rerank(query, retrived, top_k)
+
+        return reranked

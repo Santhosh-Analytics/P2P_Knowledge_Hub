@@ -12,15 +12,15 @@ from p2p_knowledge_hub.models.document import (
 class AbstractDocumentRepository(ABC):
     @abstractmethod
     def add(self, document: Document) -> None:
-        pass
+        raise NotImplementedError
 
     @abstractmethod
     def get(self, document_id: UUID) -> Document:
-        pass
+        raise NotImplementedError
 
     @abstractmethod
     def delete(self, document_id: UUID) -> None:
-        pass
+        raise NotImplementedError
 
     @abstractmethod
     def find_exact_duplicate(
@@ -31,7 +31,11 @@ class AbstractDocumentRepository(ABC):
         file_hash: str,
         source_document_key: SourceDocumentKey,
     ) -> Document | None:
-        pass
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_by_ids(self, ids: set[UUID]) -> dict[UUID, Document]:
+        raise NotImplementedError
 
     @abstractmethod
     def find_latest_version(
@@ -41,4 +45,4 @@ class AbstractDocumentRepository(ABC):
         department: Department,
         source_document_key: SourceDocumentKey,
     ) -> Document | None:
-        pass
+        raise NotImplementedError

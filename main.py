@@ -2,14 +2,16 @@ from p2p_knowledge_hub.services.retrieval_pipeline_service import (
     RetrievalPipelineService,
 )
 
-retrieval = RetrievalPipelineService()
 
-query = "Invoice lifecycl"
+def main():
+    retrieval = RetrievalPipelineService()
+    query = "Invoice lifecycl"
+    hybrid = retrieval.hybrid_retriever
+    dense = retrieval.dense_retriever
+    sparse = retrieval.bm25_retriever
+    result = retrieval.search(query, hybrid, 20, 10)
+    print(result)
 
-# document_pipeline = DocumentPipelineService()
-# retrievel_pipeline = RetrievalPipelineService()
-results = retrieval.hybrid_retriever.retrieve(query, 5)
 
-print("XO" * 50)
-print(results)
-print("XO" * 50)
+if __name__ == "__main__":
+    main()

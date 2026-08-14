@@ -35,6 +35,17 @@ class SQLAlchemyDocumentRepository(AbstractDocumentRepository):
         else:
             return doc
 
+    def get_by_ids(self, ids: set[UUID]) -> dict[UUID, Document]:
+
+        stmt = select(DocumentRecord).where(DocumentRecord.document_id.in_(ids))
+        result = self.session.execute(stmt).scalars()
+
+        documents: dict[UUID, Document] = {
+            document.document_id: self._to_domain(document) for document in result
+        }
+
+        return documents
+
     def delete(self, document_id: UUID) -> None:
         self.session.delete(self._get(document_id))
 
