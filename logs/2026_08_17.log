@@ -1,0 +1,347 @@
+2026-08-17 15:51:31 | ERROR    | p2p_knowledge_hub.generation.generation_service:get_document_record:33 | [bold red blink] Failed to retrieve citation metadata.{UUID('7c29a983-e874-42a7-8703-25529786567b')}. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-08-17 15:51:31 | ERROR    | api.main:db_connection_exception_handler:20 | [bold red blink]Ingestion failed for document . 
+
+['ERROR: Could not connect to the database.', '', 'connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused', '\tIs the server running on that host and accepting TCP/IP connections?']
+2026-08-17 15:55:25 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: ShoppingCart.pdf
+2026-08-17 15:55:25 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for ShoppingCart.pdf
+2026-08-17 15:55:25 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:165 | [bold red blink]Ingestion failed for document 'ShoppingCart.pdf. 
+
+duplicate key value violates unique constraint "uq_documents_source_process_hash"
+DETAIL:  Key (source_system, business_process, file_hash)=(SAP, PURCHASEORDER, a34135eedfa757fd00f20c8abbebc175ba3f4688c1586087800d605c408c05bb) already exists.'
+2026-08-17 15:56:09 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: ShoppingCart.pdf
+2026-08-17 15:56:09 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for ShoppingCart.pdf
+2026-08-17 15:56:09 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:165 | [bold red blink]Ingestion failed for document 'ShoppingCart.pdf. 
+
+duplicate key value violates unique constraint "uq_documents_source_process_hash"
+DETAIL:  Key (source_system, business_process, file_hash)=(SAP, PURCHASEORDER, a34135eedfa757fd00f20c8abbebc175ba3f4688c1586087800d605c408c05bb) already exists.'
+2026-08-17 15:56:13 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: ShoppingCart.pdf
+2026-08-17 15:56:13 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for ShoppingCart.pdf
+2026-08-17 15:56:13 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:165 | [bold red blink]Ingestion failed for document 'ShoppingCart.pdf. 
+
+duplicate key value violates unique constraint "uq_documents_source_process_hash"
+DETAIL:  Key (source_system, business_process, file_hash)=(SAP, PURCHASEORDER, a34135eedfa757fd00f20c8abbebc175ba3f4688c1586087800d605c408c05bb) already exists.'
+2026-08-17 15:56:25 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: Vendor_onboarding.pdf
+2026-08-17 15:56:25 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for Vendor_onboarding.pdf
+2026-08-17 15:56:25 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor Vendor_onboarding.pdf
+2026-08-17 15:57:39 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 2. Decision Tree Regressor.md
+2026-08-17 15:57:39 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for Vendor_onboarding.pdf
+2026-08-17 15:57:39 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for 2. Decision Tree Regressor.md
+2026-08-17 15:57:39 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=edbaf3ff-2f1d-40c6-bc7f-5ebb2a06ad72 units=3
+2026-08-17 18:33:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 18:33:52 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 18:34:39 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 1. Ridge Regression (L2 Regularization).md
+2026-08-17 18:34:39 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:147 | [bold red blink]Ingestion failed for document1. Ridge Regression (L2 Regularization).md. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+2026-08-17 18:34:39 | ERROR    | api.main:db_connection_exception_handler:20 | [bold red blink]Ingestion failed for document . 
+
+['ERROR: Could not connect to the database.', '', 'connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused', '\tIs the server running on that host and accepting TCP/IP connections?']
+2026-08-17 18:34:57 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 1. Ridge Regression (L2 Regularization).md
+2026-08-17 18:34:57 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for 1. Ridge Regression (L2 Regularization).md
+2026-08-17 18:34:57 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor 1. Ridge Regression (L2 Regularization).md
+2026-08-17 18:34:57 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=fe998258-ca06-4194-8ac9-a221fa0ff727 units=4
+2026-08-17 18:34:57 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=fe998258-ca06-4194-8ac9-a221fa0ff727 section=None page_no=None
+2026-08-17 18:36:48 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 471.59
+2026-08-17 18:36:48 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 482.27
+2026-08-17 18:37:23 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 35132.42
+2026-08-17 18:37:23 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 35629.56
+2026-08-17 18:40:32 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 18:43:54 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: SOP Accounts - Payable.pdf
+2026-08-17 18:43:54 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for SOP Accounts - Payable.pdf
+2026-08-17 18:43:54 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor SOP Accounts - Payable.pdf
+2026-08-17 18:45:11 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 146.92
+2026-08-17 18:45:11 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 158.83
+2026-08-17 18:45:11 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.29
+2026-08-17 18:45:11 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.04
+2026-08-17 18:46:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 60288.44
+2026-08-17 18:46:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 60460.74
+2026-08-17 18:59:52 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 18:59:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 19:02:00 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 0.0
+2026-08-17 19:02:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 19:03:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 19:03:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for calculate_math is 0.0
+2026-08-17 19:04:44 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 231.61
+2026-08-17 19:04:44 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 337.75
+2026-08-17 19:04:45 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 317.86
+2026-08-17 19:04:45 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.04
+2026-08-17 19:05:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 27655.44
+2026-08-17 19:05:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 28314.24
+2026-08-17 19:06:38 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 208.53
+2026-08-17 19:06:38 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 233.36
+2026-08-17 19:06:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 271.53
+2026-08-17 19:06:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:06:56 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 17069.24
+2026-08-17 19:06:56 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 17577.17
+2026-08-17 19:10:45 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 200.08
+2026-08-17 19:10:45 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 213.54
+2026-08-17 19:10:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 266.58
+2026-08-17 19:10:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:11:13 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 27721.12
+2026-08-17 19:11:13 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 28204.26
+2026-08-17 19:11:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 195.06
+2026-08-17 19:11:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 207.01
+2026-08-17 19:11:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.84
+2026-08-17 19:11:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 19:12:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 18766.69
+2026-08-17 19:12:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 18986.25
+2026-08-17 19:12:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 172.08
+2026-08-17 19:12:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 183.13
+2026-08-17 19:12:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 8.75
+2026-08-17 19:12:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 19:13:11 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 16220.65
+2026-08-17 19:13:11 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 16415.03
+2026-08-17 19:13:24 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 194.79
+2026-08-17 19:13:24 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 205.11
+2026-08-17 19:13:24 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.26
+2026-08-17 19:13:24 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.05
+2026-08-17 19:13:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 22320.19
+2026-08-17 19:13:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 22537.82
+2026-08-17 19:14:48 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 172.44
+2026-08-17 19:14:48 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 183.0
+2026-08-17 19:14:48 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 8.79
+2026-08-17 19:14:48 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 19:15:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 15440.31
+2026-08-17 19:15:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 15634.75
+2026-08-17 19:24:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 202.92
+2026-08-17 19:24:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 215.96
+2026-08-17 19:24:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 301.46
+2026-08-17 19:24:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:25:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 21300.35
+2026-08-17 19:25:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 21821.23
+2026-08-17 19:25:38 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 185.38
+2026-08-17 19:25:38 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 199.39
+2026-08-17 19:25:38 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 12.97
+2026-08-17 19:25:38 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:26:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 25917.45
+2026-08-17 19:26:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 26132.84
+2026-08-17 19:26:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 189.66
+2026-08-17 19:26:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 201.47
+2026-08-17 19:26:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.83
+2026-08-17 19:26:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:26:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 33787.49
+2026-08-17 19:26:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 34001.62
+2026-08-17 19:27:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 197.21
+2026-08-17 19:27:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 207.78
+2026-08-17 19:27:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.69
+2026-08-17 19:27:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:27:27 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 25517.9
+2026-08-17 19:27:27 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 25738.95
+2026-08-17 19:29:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 188.95
+2026-08-17 19:29:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 200.1
+2026-08-17 19:29:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.59
+2026-08-17 19:29:04 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:29:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 22129.13
+2026-08-17 19:29:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 22341.55
+2026-08-17 19:40:08 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 205.35
+2026-08-17 19:40:08 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 219.79
+2026-08-17 19:40:08 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 303.61
+2026-08-17 19:40:08 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:40:40 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 32360.2
+2026-08-17 19:40:40 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 32893.21
+2026-08-17 19:41:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 202.24
+2026-08-17 19:41:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 219.97
+2026-08-17 19:41:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 325.04
+2026-08-17 19:41:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:41:54 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 708
+2026-08-17 19:41:54 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 37285000
+2026-08-17 19:41:54 | INFO     | p2p_knowledge_hub.generation.ollama:generate:45 | Eval count - 774
+2026-08-17 19:41:54 | INFO     | p2p_knowledge_hub.generation.ollama:generate:46 | Eval duration - 27416112000
+2026-08-17 19:41:54 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 27634.72
+2026-08-17 19:41:54 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 28182.53
+2026-08-17 19:43:29 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 177.27
+2026-08-17 19:43:29 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 192.54
+2026-08-17 19:43:29 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 311.15
+2026-08-17 19:43:29 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 19:43:46 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 7.08e-07
+2026-08-17 19:43:46 | INFO     | p2p_knowledge_hub.generation.ollama:generate:46 | Prompt eval duration - 0.036547
+2026-08-17 19:43:46 | INFO     | p2p_knowledge_hub.generation.ollama:generate:49 | Eval count - 4.63e-07
+2026-08-17 19:43:46 | INFO     | p2p_knowledge_hub.generation.ollama:generate:50 | Eval duration - 16.490619999
+2026-08-17 19:43:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 16773.65
+2026-08-17 19:43:46 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 17280.2
+2026-08-17 20:02:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 182.4
+2026-08-17 20:02:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 195.65
+2026-08-17 20:02:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 310.28
+2026-08-17 20:02:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:04:05 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 708
+2026-08-17 20:04:05 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 3.545253
+2026-08-17 20:04:05 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 1505
+2026-08-17 20:04:05 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 59.255896
+2026-08-17 20:04:05 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 65551.83
+2026-08-17 20:04:05 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 66060.55
+2026-08-17 20:04:21 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 177.44
+2026-08-17 20:04:21 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 188.56
+2026-08-17 20:04:21 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.92
+2026-08-17 20:04:21 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:04:41 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 708
+2026-08-17 20:04:41 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 0.035802
+2026-08-17 20:04:41 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 573
+2026-08-17 20:04:41 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 20.276955
+2026-08-17 20:04:41 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 20590.42
+2026-08-17 20:04:41 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 20791.36
+2026-08-17 20:04:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 191.01
+2026-08-17 20:04:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 203.43
+2026-08-17 20:04:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 8.91
+2026-08-17 20:04:57 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:05:14 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 708
+2026-08-17 20:05:14 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 0.035087
+2026-08-17 20:05:14 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 485
+2026-08-17 20:05:14 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 16.571839
+2026-08-17 20:05:14 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 16773.91
+2026-08-17 20:05:14 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 16988.59
+2026-08-17 20:05:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 174.17
+2026-08-17 20:05:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 184.81
+2026-08-17 20:05:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 10.08
+2026-08-17 20:05:43 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:06:08 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 708
+2026-08-17 20:06:08 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 0.035864
+2026-08-17 20:06:08 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 676
+2026-08-17 20:06:08 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 24.901206
+2026-08-17 20:06:08 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 25099.51
+2026-08-17 20:06:08 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 25296.82
+2026-08-17 20:22:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 175.83
+2026-08-17 20:22:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 192.77
+2026-08-17 20:22:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 309.85
+2026-08-17 20:22:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:22:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 475
+2026-08-17 20:22:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 2.360271
+2026-08-17 20:22:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 1227
+2026-08-17 20:22:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 48.763951
+2026-08-17 20:22:56 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 55387.35
+2026-08-17 20:22:56 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 55893.1
+2026-08-17 20:23:23 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 243.81
+2026-08-17 20:23:23 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 271.5
+2026-08-17 20:23:23 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.9
+2026-08-17 20:23:23 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 20:23:37 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 475
+2026-08-17 20:23:37 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 0.040297
+2026-08-17 20:23:37 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 383
+2026-08-17 20:23:37 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 13.55097
+2026-08-17 20:23:37 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 13824.04
+2026-08-17 20:23:37 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 14108.1
+2026-08-17 20:24:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 244.04
+2026-08-17 20:24:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 261.14
+2026-08-17 20:24:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 9.93
+2026-08-17 20:24:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 20:24:24 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 475
+2026-08-17 20:24:24 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 0.034985
+2026-08-17 20:24:24 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 609
+2026-08-17 20:24:24 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 22.042846
+2026-08-17 20:24:24 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 22247.81
+2026-08-17 20:24:24 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 22521.31
+2026-08-17 20:24:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 273.39
+2026-08-17 20:24:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 285.01
+2026-08-17 20:24:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 10.41
+2026-08-17 20:24:39 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:25:00 | INFO     | p2p_knowledge_hub.generation.ollama:generate:43 | Prompt eval count - 475
+2026-08-17 20:25:00 | INFO     | p2p_knowledge_hub.generation.ollama:generate:44 | Prompt eval duration - 0.04656
+2026-08-17 20:25:00 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Eval count - 563
+2026-08-17 20:25:00 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Eval duration - 20.788987
+2026-08-17 20:25:00 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 21068.77
+2026-08-17 20:25:00 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 21367.32
+2026-08-17 20:45:33 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 367.56
+2026-08-17 20:45:33 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 517.25
+2026-08-17 20:45:34 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 523.81
+2026-08-17 20:45:34 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.05
+2026-08-17 20:46:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:46 | Prompt eval count - 475
+2026-08-17 20:46:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval duration - 3.210206
+2026-08-17 20:46:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:50 | Eval count - 450
+2026-08-17 20:46:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:51 | Eval duration - 25.289901
+2026-08-17 20:46:10 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 35870.18
+2026-08-17 20:46:10 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 36914.56
+2026-08-17 20:46:32 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 304.79
+2026-08-17 20:46:32 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 330.41
+2026-08-17 20:46:32 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 14.03
+2026-08-17 20:46:32 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.04
+2026-08-17 20:46:55 | INFO     | p2p_knowledge_hub.generation.ollama:generate:46 | Prompt eval count - 475
+2026-08-17 20:46:55 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval duration - 0.047382
+2026-08-17 20:46:55 | INFO     | p2p_knowledge_hub.generation.ollama:generate:50 | Eval count - 450
+2026-08-17 20:46:55 | INFO     | p2p_knowledge_hub.generation.ollama:generate:51 | Eval duration - 22.167721
+2026-08-17 20:46:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 22373.88
+2026-08-17 20:46:55 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 22721.04
+2026-08-17 20:47:06 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 233.48
+2026-08-17 20:47:06 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 251.34
+2026-08-17 20:47:06 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 11.94
+2026-08-17 20:47:06 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.04
+2026-08-17 20:47:26 | INFO     | p2p_knowledge_hub.generation.ollama:generate:46 | Prompt eval count - 475
+2026-08-17 20:47:26 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval duration - 0.046073
+2026-08-17 20:47:26 | INFO     | p2p_knowledge_hub.generation.ollama:generate:50 | Eval count - 450
+2026-08-17 20:47:26 | INFO     | p2p_knowledge_hub.generation.ollama:generate:51 | Eval duration - 20.009706
+2026-08-17 20:47:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 20218.36
+2026-08-17 20:47:26 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 20485.1
+2026-08-17 20:47:36 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 271.2
+2026-08-17 20:47:36 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 287.25
+2026-08-17 20:47:36 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 14.05
+2026-08-17 20:47:36 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:47:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:46 | Prompt eval count - 475
+2026-08-17 20:47:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval duration - 0.042615
+2026-08-17 20:47:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:50 | Eval count - 450
+2026-08-17 20:47:56 | INFO     | p2p_knowledge_hub.generation.ollama:generate:51 | Eval duration - 19.846101
+2026-08-17 20:47:56 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 20061.03
+2026-08-17 20:47:56 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 20365.32
+2026-08-17 20:53:37 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 300.83
+2026-08-17 20:53:37 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 432.03
+2026-08-17 20:53:37 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 393.11
+2026-08-17 20:53:37 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:53:44 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval count - 481
+2026-08-17 20:53:44 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Prompt eval duration - 2.863829 secs
+2026-08-17 20:53:44 | INFO     | p2p_knowledge_hub.generation.ollama:generate:53 | Eval count - 33
+2026-08-17 20:53:44 | INFO     | p2p_knowledge_hub.generation.ollama:generate:54 | Eval duration - 1.339744 secs
+2026-08-17 20:53:44 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 7198.49
+2026-08-17 20:53:44 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 8026.39
+2026-08-17 20:54:17 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 230.87
+2026-08-17 20:54:17 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 257.51
+2026-08-17 20:54:17 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 16.84
+2026-08-17 20:54:17 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 20:54:18 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval count - 481
+2026-08-17 20:54:18 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Prompt eval duration - 0.056451 secs
+2026-08-17 20:54:18 | INFO     | p2p_knowledge_hub.generation.ollama:generate:53 | Eval count - 33
+2026-08-17 20:54:18 | INFO     | p2p_knowledge_hub.generation.ollama:generate:54 | Eval duration - 1.331849 secs
+2026-08-17 20:54:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 1544.83
+2026-08-17 20:54:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 1821.7
+2026-08-17 20:54:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 268.27
+2026-08-17 20:54:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 283.4
+2026-08-17 20:54:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 12.23
+2026-08-17 20:54:59 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:55:01 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval count - 481
+2026-08-17 20:55:01 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Prompt eval duration - 0.04073 secs
+2026-08-17 20:55:01 | INFO     | p2p_knowledge_hub.generation.ollama:generate:53 | Eval count - 33
+2026-08-17 20:55:01 | INFO     | p2p_knowledge_hub.generation.ollama:generate:54 | Eval duration - 1.338719 secs
+2026-08-17 20:55:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 1525.46
+2026-08-17 20:55:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 1823.89
+2026-08-17 20:55:09 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 254.9
+2026-08-17 20:55:09 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 271.76
+2026-08-17 20:55:09 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 11.19
+2026-08-17 20:55:09 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.02
+2026-08-17 20:55:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | Prompt eval count - 481
+2026-08-17 20:55:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Prompt eval duration - 0.039682 secs
+2026-08-17 20:55:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:53 | Eval count - 33
+2026-08-17 20:55:10 | INFO     | p2p_knowledge_hub.generation.ollama:generate:54 | Eval duration - 1.332683 secs
+2026-08-17 20:55:10 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 1516.21
+2026-08-17 20:55:10 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 1801.81
+2026-08-17 20:58:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 272.68
+2026-08-17 20:58:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 344.29
+2026-08-17 20:58:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 418.57
+2026-08-17 20:58:18 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.generation.ollama:generate:47 | [GenerationContext(chunk_id=UUID('88122482-4b1d-4abe-b52d-6fda0d08a707'), text='accepted automatically, even if a line-item credit memo for the invoiced quantity is received.\nTwo-Way Invoice Matching in SAP Ariba Invoice\nManagement\nTwo-way matching between invoices and purchase orders allows you to reconcile invoices for items that do not\nrequire a receipt.\nThe default matching in invoice reconciliation is between invoice, purchase order, and receipt. However, many', document_name='InvPayProcess.pdf', page_no=69, section=None, title=None, source_uri='/home/san/Projects/P2P_Knowledge_Hub/data/raw/InvPayProcess.pdf'), GenerationContext(chunk_id=UUID('6414dd03-270d-446a-ae8d-39199a707da5'), text='5. The SAP Ariba solution matches the invoice to both receipts, matching a quantity of 20 for the first receipt and\na quantity of 10 for the second receipt.\nWhen a Quantity Variance Exception Is Raised After the Invoice Is Matched to Receipts for the\nSame Purchase Order\n1.\nThe buyer sends the supplier an order for an item marked for goods receipt-based invoice verification. The', document_name='InvPayProcess.pdf', page_no=83, section=None, title=None, source_uri='/home/san/Projects/P2P_Knowledge_Hub/data/raw/InvPayProcess.pdf'), GenerationContext(chunk_id=UUID('f12735cd-d5eb-4382-a801-37520741076d'), text="5. The buyer creates a receipt for the order. The receipt includes a ship notice ID.\n6. The SAP Ariba solution matches the invoice to the receipt and clears the Matching Receipt Not Found\nexception.\nWhen There Are Multiple Receipts for the Purchase Order That's Referenced on the Invoice\n1.\nThe buyer sends the supplier an order for an item marked for goods receipt-based invoice verification. The", document_name='InvPayProcess.pdf', page_no=82, section=None, title=None, source_uri='/home/san/Projects/P2P_Knowledge_Hub/data/raw/InvPayProcess.pdf')]
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.generation.ollama:generate:48 | Prompt eval count - 481
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.generation.ollama:generate:49 | Prompt eval duration - 0.041254 secs
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.generation.ollama:generate:54 | Eval count - 33
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.generation.ollama:generate:55 | Eval duration - 1.33166 secs
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 1552.71
+2026-08-17 20:58:20 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 2318.32
+2026-08-17 21:05:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for CrossEncoderReranker.rerank is 245.03
+2026-08-17 21:05:01 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RetrievalPipelineService.search is 265.61
+2026-08-17 21:05:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.get_document_record is 391.03
+2026-08-17 21:05:02 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for GenerationService.build_context is 0.03
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.generation.ollama:generate:49 | [GenerationContext(chunk_id=UUID('88122482-4b1d-4abe-b52d-6fda0d08a707'), text='accepted automatically, even if a line-item credit memo for the invoiced quantity is received.\nTwo-Way Invoice Matching in SAP Ariba Invoice\nManagement\nTwo-way matching between invoices and purchase orders allows you to reconcile invoices for items that do not\nrequire a receipt.\nThe default matching in invoice reconciliation is between invoice, purchase order, and receipt. However, many', document_name='InvPayProcess.pdf', page_no=69, section=None, title=None, source_uri='/home/san/Projects/P2P_Knowledge_Hub/data/raw/InvPayProcess.pdf'), GenerationContext(chunk_id=UUID('6414dd03-270d-446a-ae8d-39199a707da5'), text='5. The SAP Ariba solution matches the invoice to both receipts, matching a quantity of 20 for the first receipt and\na quantity of 10 for the second receipt.\nWhen a Quantity Variance Exception Is Raised After the Invoice Is Matched to Receipts for the\nSame Purchase Order\n1.\nThe buyer sends the supplier an order for an item marked for goods receipt-based invoice verification. The', document_name='InvPayProcess.pdf', page_no=83, section=None, title=None, source_uri='/home/san/Projects/P2P_Knowledge_Hub/data/raw/InvPayProcess.pdf'), GenerationContext(chunk_id=UUID('f12735cd-d5eb-4382-a801-37520741076d'), text="5. The buyer creates a receipt for the order. The receipt includes a ship notice ID.\n6. The SAP Ariba solution matches the invoice to the receipt and clears the Matching Receipt Not Found\nexception.\nWhen There Are Multiple Receipts for the Purchase Order That's Referenced on the Invoice\n1.\nThe buyer sends the supplier an order for an item marked for goods receipt-based invoice verification. The", document_name='InvPayProcess.pdf', page_no=82, section=None, title=None, source_uri='/home/san/Projects/P2P_Knowledge_Hub/data/raw/InvPayProcess.pdf')]
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.generation.ollama:generate:50 | Prompt eval count - 508
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.generation.ollama:generate:51 | Prompt eval duration - 3.217044 secs
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.generation.ollama:generate:56 | Eval count - 76
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.generation.ollama:generate:57 | Eval duration - 3.345192 secs
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for OllamaGeneration.generate is 10873.78
+2026-08-17 21:05:12 | INFO     | p2p_knowledge_hub.core.timing:wrapper_function:21 | latency time for RAGPipelineService.answer is 11533.16

@@ -1,6 +1,8 @@
+from p2p_knowledge_hub.core.timing import latency_decorator
 from p2p_knowledge_hub.unit_of_work.sqlalchemy import SQLAlchemyUnitOfWork
 from uuid import UUID
 from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
+from p2p_knowledge_hub.models.generation_citation import GenerationCitation
 from p2p_knowledge_hub.models.document import Document
 from p2p_knowledge_hub.models.generation_context import GenerationContext
 from p2p_knowledge_hub.models.db.sessions import SessionManager
@@ -9,6 +11,7 @@ from p2p_knowledge_hub.exceptions.sqlalchemy_error import DBConnectionError
 from p2p_knowledge_hub.exceptions.generation_error import DocumentIDNotFoundError
 from p2p_knowledge_hub.core.logger import AppLogger
 from p2p_knowledge_hub.settings.main import get_settings
+import re
 
 settings = get_settings()
 _logger = AppLogger(settings.logs).get_logger(__name__)
@@ -21,6 +24,7 @@ class GenerationService:
             retrieved_chunk.chunk.document_id for retrieved_chunk in reranked_documents
         }
 
+    @latency_decorator
     def get_document_record(self, ids: set[UUID]) -> dict[UUID, Document]:
 
         with SQLAlchemyUnitOfWork(SessionManager().session_factory) as uow:
@@ -53,6 +57,7 @@ class GenerationService:
                 raise
         return document_dict
 
+    @latency_decorator
     def build_context(
         self,
         reranked_chunks: list[RetrievedChunk],
@@ -86,3 +91,27 @@ class GenerationService:
             )
 
         return generated_context
+
+    def build_citations(
+        self, answer: str, contexts: list[GenerationContext]
+    ) -> list[GenerationCitation]:
+        source_ids: list[str] = re.findall(r"\[Source (\d+)\]", answer)
+        unique_source_ids: list[int] = list(dict.fromkeys(map(int, source_ids)))
+
+        citations: list[GenerationCitation] = []
+
+        for i in unique_source_ids:
+            if 1 <= i <= len(contexts):
+                context = contexts[i - 1]
+                citations.append(
+                    GenerationCitation(
+                        source_id=i,
+                        chunk_id=context.chunk_id,
+                        document_name=context.document_name,
+                        page_no=context.page_no,
+                        section=context.section,
+                        title=context.title,
+                        source_uri=context.source_uri,
+                    )
+                )
+        return citations

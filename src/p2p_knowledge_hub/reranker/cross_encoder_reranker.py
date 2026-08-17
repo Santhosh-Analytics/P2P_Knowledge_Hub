@@ -1,3 +1,4 @@
+from p2p_knowledge_hub.core.timing import latency_decorator
 from p2p_knowledge_hub.models.retrieved_chunk import RetrievedChunk
 from p2p_knowledge_hub.reranker.base_reranker import BaseReranker
 from sentence_transformers import CrossEncoder
@@ -8,6 +9,7 @@ class CrossEncoderReranker(BaseReranker):
         self.model_name = model_name
         self.model = CrossEncoder(model_name)
 
+    @latency_decorator
     def rerank(
         self, query: str, retrieved: list[RetrievedChunk], top_k: int
     ) -> list[RetrievedChunk]:

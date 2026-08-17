@@ -6,6 +6,7 @@ from p2p_knowledge_hub.settings.run_time_config import RunTimeDir
 from p2p_knowledge_hub.settings.reranker import RerankerSettings
 from p2p_knowledge_hub.settings.embedding import EmbeddingSettings
 from p2p_knowledge_hub.settings.db import DBConfig
+from p2p_knowledge_hub.settings.generation import GenerationSettings
 from pathlib import Path
 from pydantic import Field
 from pydantic_settings import (
@@ -19,6 +20,7 @@ _base_dir = Path(__file__).resolve().parents[3]
 
 
 class Settings(BaseSettings):
+    hf_token: str | None = None
     app_name: str = Field(default="P2P Knowledge Hub", min_length=4)
     runtime_dir: RunTimeDir = Field(default_factory=RunTimeDir)
     logs: LogSettings = Field(default_factory=LogSettings)
@@ -27,6 +29,7 @@ class Settings(BaseSettings):
     exceptions: ExceptionSettings = Field(default_factory=ExceptionSettings)
     db: DBConfig = Field(default_factory=DBConfig)
     reranker: RerankerSettings = Field(default_factory=RerankerSettings)
+    generation: GenerationSettings = Field(default_factory=GenerationSettings)
     # chunks
     model_config = SettingsConfigDict(
         toml_file=_base_dir / "config.toml",

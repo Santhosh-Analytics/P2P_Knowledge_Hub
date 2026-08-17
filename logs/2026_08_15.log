@@ -1,0 +1,4 @@
+2026-08-15 13:10:32 | ERROR    | p2p_knowledge_hub.generation.generation_service:get_document_record:31 | [bold red blink] Failed to retrieve citation metadata.{UUID('7c29a983-e874-42a7-8703-25529786567b')}. 
+
+connection failed: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
