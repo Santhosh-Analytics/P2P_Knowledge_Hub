@@ -1,6 +1,39 @@
+# <div align="center"> P2P Knowledge Hub </div>
+
  <div align="center">
 
+[![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+
+[![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![ChromaDB](https://img.shields.io/badge/Vector_DB-ChromaDB-orange)](https://www.trychroma.com/)
+[![Hugging Face](https://img.shields.io/badge/Models-Hugging_Face-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/)
+[![Ollama](https://img.shields.io/badge/LLM-Ollama-black?logo=ollama)](https://ollama.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+</div>
+
+<div>
+
+<!-- toc -->
+
+- [P2P Knowledge Hub](#p2p-knowledge-hub)
+    * [Why this project](#why-this-project)
+    * [Current architecture](#current-architecture)
+    * [RAG pipeline](#rag-pipeline)
+        + [Ingestion](#ingestion)
+        + [Retrieval](#retrieval)
+        + [Generation and citations](#generation-and-citations)
+    * [API](#api)
+        + [`POST /documents`](#post-documents)
+        + [`POST /query`](#post-query)
+    * [Observability and latency](#observability-and-latency)
+    * [Technology](#technology)
+    * [Design principles](#design-principles)
+    * [Current scope](#current-scope)
+    * [Project status](#project-status)
+
+<!-- tocstop -->
+
 </div>
 
 # P2P Knowledge Hub
@@ -16,84 +49,108 @@ The project intentionally avoids hiding the core RAG pipeline behind large orche
 ## Current architecture
 
 ```mermaid
-flowchart TB
-    subgraph Ingestion["📄 Document Ingestion"]
-        direction LR
-        Docs[Documents] --> Parse[Parse & Chunk]
-        Parse --> Embed[Generate Embeddings]
+flowchart LR
+
+    %% =========================
+    %% LEFT: INGESTION PIPELINE
+    %% =========================
+    subgraph INGEST["📄 Document Ingestion"]
+        direction TB
+
+        Upload["POST /documents"]
+        Meta["Metadata + SHA-256"]
+        Loader["Format-Specific Loader"]
+        Chunker["Recursive Chunking"]
+        Embed["SentenceTransformer Embeddings"]
+
+        Upload --> Meta
+        Meta --> Loader
+        Loader --> Chunker
+        Chunker --> Embed
     end
 
-    subgraph Storage["🗄️ Storage Layer"]
+
+    %% =========================
+    %% CENTER: STORAGE / METADATA
+    %% =========================
+    subgraph STORE["🗄️ Persistence Layer"]
         direction TB
-        PG[(PostgreSQL<br/>Metadata)]
-        Chroma[(ChromaDB<br/>Vectors)]
+
+        PG[("PostgreSQL<br/>Document Metadata")]
+        Chroma[("ChromaDB<br/>Chunk Text + Metadata + Vectors")]
+        BM25Index["In-Memory BM25 Index"]
+
+        Chroma -->|"Rebuild lexical corpus"| BM25Index
     end
 
-    subgraph Retrieval["🔍 Retrieval Layer"]
+
+    %% =========================
+    %% RIGHT: QUERY PIPELINE
+    %% =========================
+    subgraph QUERY["🔍 Query / RAG Pipeline"]
         direction TB
-        BM25[BM25 Retriever]
-        Dense[Dense Retriever]
-        Hybrid[Hybrid Fusion]
-        Reranker[Cross-Encoder<br/>Reranker]
+
+        Query["POST /query"]
+
+        BM25["BM25 Retriever"]
+        Dense["Dense Retriever"]
+
+        Hybrid["Hybrid Fusion / RRF"]
+        Rerank["Cross-Encoder Reranker"]
+        TopK["Top-k Context"]
+        Context["GenerationContext"]
+        Ollama["Ollama / Qwen3"]
+        Citation["Python Citation Resolver"]
+        Result["FastAPI GenerationResult"]
+
+        Query --> BM25
+        Query --> Dense
 
         BM25 --> Hybrid
         Dense --> Hybrid
-        Hybrid --> Reranker
+
+        Hybrid --> Rerank
+        Rerank --> TopK
+        TopK --> Context
+        Context --> Ollama
+        Ollama --> Citation
+        Citation --> Result
     end
 
-    subgraph Serving["🚀 Serving Layer"]
-        direction LR
-        Ollama[Ollama / Qwen]
-        API[FastAPI]
-        Ollama --> API
-    end
 
-    %% Connections
-    Embed --> PG
-    Embed --> Chroma
-    Chroma --> BM25
-    Chroma --> Dense
-    Reranker --> Ollama
+    %% =========================
+    %% LEFT → CENTER
+    %% =========================
 
-    %% Styling
-    classDef storage fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef retrieval fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef serving fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
-    classDef ingestion fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    Meta -->|"Persist document metadata"| PG
+    Embed -->|"Store chunks + vectors"| Chroma
 
-    class PG,Chroma storage
-    class BM25,Dense,Hybrid,Reranker retrieval
-    class Ollama,API serving
-    class Docs,Parse,Embed ingestion
-```
 
-```text
-                         P2P Knowledge Hub
+    %% =========================
+    %% CENTER → RIGHT
+    %% =========================
 
-        Document ingestion                         Query
-               |                                     |
-               v                                     v
-      Metadata + SHA-256                    Hybrid Retrieval
-               |                           /                \
-               v                         BM25              Dense
-       Format-specific loaders             \                /
-               |                            Hybrid fusion
-               v                                 |
-       Recursive chunking                         v
-               |                         Cross-Encoder rerank
-               v                                 |
- SentenceTransformer embeddings                  v
-               |                          Top-k context
-               v                                 |
-           ChromaDB                              v
-      vectors + chunk data                 Ollama / Qwen
-               |                                 |
-               +----------> citations <----------+
-                              |
-                              v
-                    FastAPI GenerationResult
+    BM25Index --> BM25
+    Chroma -->|"Vector search"| Dense
 
-PostgreSQL stores document-level metadata and supports duplicate detection.
+    TopK -->|"document_id"| PG
+    PG -->|"Citation metadata"| Context
+
+
+    %% =========================
+    %% STYLES
+    %% =========================
+
+    classDef ingestion fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    classDef storage fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef retrieval fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#4a148c
+    classDef serving fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20,font-weight:bold
+
+    class Upload,Meta,Loader,Chunker,Embed ingestion
+    class PG,Chroma,BM25Index storage
+    class Query,BM25,Dense,Hybrid,Rerank,TopK,Context,Citation retrieval
+    class Ollama,Result serving
+
 ```
 
 ## RAG pipeline
