@@ -1,4 +1,6 @@
+ <div align="center">
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+</div>
 
 # P2P Knowledge Hub
 
