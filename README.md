@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # P2P Knowledge Hub
 
 A production-oriented Retrieval-Augmented Generation (RAG) system for Procure-to-Pay (P2P) knowledge. The project is designed to answer SOP, policy, invoice, purchasing, supplier, and payment questions from enterprise documents with grounded citations.
