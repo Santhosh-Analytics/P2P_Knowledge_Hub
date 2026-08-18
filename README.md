@@ -1,4 +1,5 @@
  <div align="center">
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 </div>
 
@@ -13,6 +14,58 @@ P2P teams often search across long SOPs and process guides to answer operational
 The project intentionally avoids hiding the core RAG pipeline behind large orchestration frameworks. Retrieval, indexing, reranking, generation, persistence, and API layers are implemented as separate components so their behavior can be measured and changed independently.
 
 ## Current architecture
+
+```mermaid
+flowchart TB
+    subgraph Ingestion["📄 Document Ingestion"]
+        direction LR
+        Docs[Documents] --> Parse[Parse & Chunk]
+        Parse --> Embed[Generate Embeddings]
+    end
+
+    subgraph Storage["🗄️ Storage Layer"]
+        direction TB
+        PG[(PostgreSQL<br/>Metadata)]
+        Chroma[(ChromaDB<br/>Vectors)]
+    end
+
+    subgraph Retrieval["🔍 Retrieval Layer"]
+        direction TB
+        BM25[BM25 Retriever]
+        Dense[Dense Retriever]
+        Hybrid[Hybrid Fusion]
+        Reranker[Cross-Encoder<br/>Reranker]
+
+        BM25 --> Hybrid
+        Dense --> Hybrid
+        Hybrid --> Reranker
+    end
+
+    subgraph Serving["🚀 Serving Layer"]
+        direction LR
+        Ollama[Ollama / Qwen]
+        API[FastAPI]
+        Ollama --> API
+    end
+
+    %% Connections
+    Embed --> PG
+    Embed --> Chroma
+    Chroma --> BM25
+    Chroma --> Dense
+    Reranker --> Ollama
+
+    %% Styling
+    classDef storage fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef retrieval fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef serving fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    classDef ingestion fill:#fff3e0,stroke:#e65100,stroke-width:2px
+
+    class PG,Chroma storage
+    class BM25,Dense,Hybrid,Reranker retrieval
+    class Ollama,API serving
+    class Docs,Parse,Embed ingestion
+```
 
 ```text
                          P2P Knowledge Hub
