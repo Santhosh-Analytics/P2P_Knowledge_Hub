@@ -3,7 +3,6 @@
  <div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-
 [![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![ChromaDB](https://img.shields.io/badge/Vector_DB-ChromaDB-orange)](https://www.trychroma.com/)
@@ -16,27 +15,27 @@
 
 <!-- toc -->
 
-- [P2P Knowledge Hub](#p2p-knowledge-hub)
-    * [Why this project](#why-this-project)
-    * [Current architecture](#current-architecture)
-    * [RAG pipeline](#rag-pipeline)
-        + [Ingestion](#ingestion)
-        + [Retrieval](#retrieval)
-        + [Generation and citations](#generation-and-citations)
-    * [API](#api)
-        + [`POST /documents`](#post-documents)
-        + [`POST /query`](#post-query)
-    * [Observability and latency](#observability-and-latency)
-    * [Technology](#technology)
-    * [Design principles](#design-principles)
-    * [Current scope](#current-scope)
-    * [Project status](#project-status)
+- [Project Overview](#project-overview)
+- [Why this project](#why-this-project)
+- [Current architecture](#current-architecture)
+- [RAG pipeline](#rag-pipeline)
+    * [Ingestion](#ingestion)
+    * [Retrieval](#retrieval)
+    * [Generation and citations](#generation-and-citations)
+- [API](#api)
+    * [`POST /documents`](#post-documents)
+    * [`POST /query`](#post-query)
+- [Observability and latency](#observability-and-latency)
+- [Technology](#technology)
+- [Design principles](#design-principles)
+- [Current scope](#current-scope)
+- [Project status](#project-status)
 
 <!-- tocstop -->
 
 </div>
 
-# P2P Knowledge Hub
+## Project Overview
 
 A production-oriented Retrieval-Augmented Generation (RAG) system for Procure-to-Pay (P2P) knowledge. The project is designed to answer SOP, policy, invoice, purchasing, supplier, and payment questions from enterprise documents with grounded citations.
 
@@ -250,6 +249,7 @@ These numbers are local development observations, not production benchmarks.
 | API                            | FastAPI                     |
 | Validation / settings          | Pydantic, pydantic-settings |
 | Document metadata              | PostgreSQL, SQLAlchemy      |
+| Database migrations            | Alembic                     |
 | Dense embeddings               | SentenceTransformers        |
 | Vector storage                 | ChromaDB                    |
 | Lexical retrieval              | BM25 (`rank_bm25`)          |
@@ -264,6 +264,7 @@ The current implementation follows several deliberate constraints:
 
 - Keep ingestion and retrieval components replaceable.
 - Keep BM25 independent from ChromaDB.
+- Version-controlled PostgreSQL schema migrations using Alembic.
 - Treat vector and lexical stores as retrieval infrastructure rather than mixing their logic with chunking.
 - Prefer explicit Python citation resolution over asking the LLM to construct citation metadata.
 - Measure bottlenecks before optimizing.

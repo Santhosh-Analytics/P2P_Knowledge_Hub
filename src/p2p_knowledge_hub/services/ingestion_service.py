@@ -1,3 +1,4 @@
+from sqlalchemy import UUID
 from enum import Enum
 from uuid import uuid4
 from rich import print
@@ -123,7 +124,7 @@ class IngestionService:
                     uow.document.add(document)
                     uow.commit()
                     _logger.info(
-                        f"Injected Metadata to PSQL dbfor {document.document_name}"
+                        f"Injected Metadata to PSQL db for {document.document_name}. \n\n {document}"
                     )
                 elif new_version is not None:
                     _logger.debug(f"New version found for {new_version.document_name}")
@@ -152,6 +153,7 @@ class IngestionService:
                     raise DBConnectionError(
                         f"ERROR: Could not connect to the database.\n\n{error_message}"
                     )
+                raise
 
             except IntegrityError as e:
                 error_message = str(e.__dict__.get("orig", e))
@@ -164,6 +166,43 @@ class IngestionService:
             except Exception as e:
                 _logger.error(
                     f"[bold red blink]Ingestion failed for document '{document.document_name}. \n\n{e}'",
+                    extra={"markup": True},
+                )
+                raise
+
+    def update_status(self, id: UUID, status: DocumentStatus) -> None:
+        with SQLAlchemyUnitOfWork(SessionManager().session_factory) as uow:
+            try:
+                uow.document.update_status(id, status)
+                uow.commit()
+
+                _logger.info(
+                    f"Document status updated as {status}",
+                    extra={"markup": True},
+                )
+            except OperationalError as e:
+                error_message = str(e.__dict__.get("orig", e))
+                _logger.error(
+                    f"[bold red blink] Document status update failed for {id}.  \n\n{error_message}",
+                    extra={"markup": True},
+                )
+                if "connection failed: connection to server" in error_message:
+                    raise DBConnectionError(
+                        f"ERROR: Could not connect to the database.\n\n{error_message}"
+                    )
+                raise
+
+            except IntegrityError as e:
+                error_message = str(e.__dict__.get("orig", e))
+                _logger.error(
+                    f"[bold red blink]Document status update failed for {id}. \n\n{error_message}'",
+                    extra={"markup": True},
+                )
+                raise
+
+            except Exception as e:
+                _logger.error(
+                    f"[bold red blink]Document status update failed for {id}. \n\n{e}'",
                     extra={"markup": True},
                 )
                 raise

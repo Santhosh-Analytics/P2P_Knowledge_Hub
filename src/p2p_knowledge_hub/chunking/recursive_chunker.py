@@ -1,3 +1,4 @@
+from p2p_knowledge_hub.exceptions.chunking_exceptions import NoChunksProducedError
 from p2p_knowledge_hub.exceptions.chunking_exceptions import P2PHubException
 from p2p_knowledge_hub.core.logger import AppLogger
 from p2p_knowledge_hub.settings.main import get_settings
@@ -5,6 +6,7 @@ from p2p_knowledge_hub.chunking.base_chunker import BaseChunker
 from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
 from p2p_knowledge_hub.models.document import tz_aware_time
 from uuid import uuid4
+from rich import print
 
 settings = get_settings()
 _log = AppLogger(settings.logs).get_logger(__name__)
@@ -45,6 +47,11 @@ class RecursiveChunker(BaseChunker):
                 )
                 chunk_idx += 1
 
+        if not document_chunks:
+            _log.error(
+                f"The system cannot produce chunks using the document:{pages[0].document_id}  "
+            )
+        _log.info(f"Following chunks were produced. {document_chunks}")
         return document_chunks
 
     def _split_text(

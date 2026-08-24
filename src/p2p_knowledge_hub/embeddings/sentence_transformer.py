@@ -21,7 +21,7 @@ class SentenceTransformerEmbedding(BaseEmbeddingService):
 
     def embed(self, chunks: list[DocumentChunk]) -> list[DocumentEmbedding]:
         for chunk in chunks:
-            if not chunk.text.strip():
+            if not chunk.text or not chunk.text.strip():
                 raise ValueError(f"Chunk {chunk.chunk_id} contains empty text")
 
         document_embedding: list[DocumentEmbedding] = []

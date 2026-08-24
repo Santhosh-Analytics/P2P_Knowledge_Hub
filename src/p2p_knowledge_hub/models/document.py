@@ -61,6 +61,7 @@ class MimeType(StrEnum):
     EXCEL = "application/vnd.ms-excel"
     PPT = "application/vnd.ms-powerpoint"
     MARKDOWN = "text/markdown"
+    DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
 
 class Document(BaseModel):

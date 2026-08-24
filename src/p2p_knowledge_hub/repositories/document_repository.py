@@ -1,6 +1,7 @@
+from p2p_knowledge_hub.models.document import DocumentStatus
 from uuid import UUID
 
-from sqlalchemy import desc, select
+from sqlalchemy import desc, select, update
 from sqlalchemy.orm import Session
 
 from p2p_knowledge_hub.models.document import (
@@ -109,3 +110,12 @@ class SQLAlchemyDocumentRepository(AbstractDocumentRepository):
             source_document_key=record.source_document_key,
         )
         return document
+
+    def update_status(self, id: UUID, status: DocumentStatus) -> None:
+
+        stmt = (
+            update(DocumentRecord)
+            .where(DocumentRecord.document_id == id)
+            .values(document_status=status)
+        )
+        self.session.execute(stmt)

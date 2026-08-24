@@ -1,5 +1,3 @@
-from turtle import title
-
 from rich import print
 from uuid import uuid4
 from p2p_knowledge_hub.ingestion.base_loader import BaseLoader
@@ -101,9 +99,7 @@ class MarkDownLoader(BaseLoader):
             title=current_title,
         )
         _log.info(
-            "Markdown extraction completed: document_id=%s units=%s",
-            document.document_id,
-            len(md_pages),
+            f"Markdown extraction completed: {document}. Pages : {len(md_pages)}",
         )
 
         return md_pages

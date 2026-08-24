@@ -1,3 +1,5 @@
+from p2p_knowledge_hub.core.logger import AppLogger
+from p2p_knowledge_hub.exceptions.chunking_exceptions import NoChunksProducedError
 from uuid import uuid4
 from pathlib import Path
 from p2p_knowledge_hub.models.document_page_chunk import DocumentChunk, DocumentPage
@@ -21,10 +23,16 @@ from p2p_knowledge_hub.services.ingestion_service import (
     MetadataCollector,
 )
 from p2p_knowledge_hub.embeddings.base_embedding import BaseEmbeddingService
+from p2p_knowledge_hub.embeddings.sentence_transformer import (
+    SentenceTransformerEmbedding,
+)
 from p2p_knowledge_hub.vector_store.base_vector_store import BaseVectorStore
 from p2p_knowledge_hub.services.indexing_services import IndexingService
+from rich import print
 
 settings = get_settings()
+
+_log = AppLogger(settings.logs).get_logger(__name__)
 
 
 class DocumentPipelineService:
@@ -50,7 +58,8 @@ class DocumentPipelineService:
             Path(document.source_uri)
         ).load(document)
         chunks: list[DocumentChunk] = self.chunker.chunk(pages)
-        self.index_service.index(self.vector_store.get_all_chunks())
+
+        self.index_service.index(chunks)
 
         return len(chunks)
 
@@ -89,13 +98,31 @@ class DocumentPipelineService:
             source_uri=str(stored_path),
         )
         self.ingestion_service.ingestion_service(document)
-
-        chunks_len = self.document_pipeline(document)
-
-        document_upload_response = DocumentUploadResponse(
-            **document.model_dump(), chunks_length=chunks_len
+        self.ingestion_service.update_status(
+            id=document.document_id, status=DocumentStatus.PROCESSING
         )
-        return document_upload_response
+        try:
+            chunks_len = self.document_pipeline(document)
+
+            self.ingestion_service.update_status(
+                id=document.document_id, status=DocumentStatus.INDEXED
+            )
+            indexed_document = document.model_copy(
+                update={"document_status": DocumentStatus.INDEXED}
+            )
+
+            document_upload_response = DocumentUploadResponse(
+                **indexed_document.model_dump(),
+                chunks_length=chunks_len,
+            )
+            return document_upload_response
+
+        except NoChunksProducedError as exc:
+            self.ingestion_service.update_status(
+                id=document.document_id, status=DocumentStatus.FAILED
+            )
+            _log.error(f"[bold red blink] ERROR: Unable produce chunks. {exc}")
+            raise
 
     def cli_metadata_collector(self, file_path: Path) -> int:
         document: Document = self.metadata_collector.collect_document(file_path)

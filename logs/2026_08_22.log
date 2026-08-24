@@ -1,0 +1,29 @@
+2026-08-22 15:48:11 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: NLP_Hub.md
+2026-08-22 15:48:11 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for audit_new.md
+2026-08-22 15:48:11 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for NLP_Hub.md
+2026-08-22 15:48:11 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=377acd02-b31e-4e27-91d7-664b4063838c units=3
+2026-08-22 15:48:49 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: 2. Decision Tree Regressor.md
+2026-08-22 15:48:49 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for NLP_Hub.md
+2026-08-22 15:48:49 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for 2. Decision Tree Regressor.md
+2026-08-22 15:48:49 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=5a307b76-127b-4678-9885-b362c5327def units=3
+2026-08-22 15:49:31 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: NLP_day_13_RAG_Evaluation.md
+2026-08-22 15:49:31 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:129 | New version found for 2. Decision Tree Regressor.md
+2026-08-22 15:49:31 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:139 | New version metada Injected to the database for NLP_day_13_RAG_Evaluation.md
+2026-08-22 15:49:31 | INFO     | p2p_knowledge_hub.ingestion.markdown_loader:load:103 | Markdown extraction completed: document_id=24770070-1dfc-45cf-9724-58d6753da7c8 units=30
+2026-08-22 15:49:31 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=24770070-1dfc-45cf-9724-58d6753da7c8 section=None page_no=None
+2026-08-22 15:49:31 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=24770070-1dfc-45cf-9724-58d6753da7c8 section=None page_no=None
+2026-08-22 15:49:31 | WARNING  | p2p_knowledge_hub.chunking.recursive_chunker:chunk:22 | No chunks produced: document_id=24770070-1dfc-45cf-9724-58d6753da7c8 section=None page_no=None
+2026-08-22 15:53:46 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx
+2026-08-22 15:53:46 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx
+2026-08-22 15:53:46 | ERROR    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:165 | [bold red blink]Ingestion failed for document 'Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx. 
+
+(psycopg.errors.InvalidTextRepresentation) invalid input value for enum mime_type_enum: "DOCX"
+CONTEXT:  unnamed portal parameter $14 = '...'
+[SQL: INSERT INTO documents (document_id, document_group_id, document_name, department, source_system, source_document_key, business_process, file_hash, document_status, document_version, uploaded_at, file_size_bytes, uploaded_by, mime_type, source_uri) VALUES (%(document_id)s::UUID, %(document_group_id)s::UUID, %(document_name)s::VARCHAR, %(department)s, %(source_system)s, %(source_document_key)s, %(business_process)s, %(file_hash)s::VARCHAR, %(document_status)s, %(document_version)s::INTEGER, %(uploaded_at)s::TIMESTAMP WITH TIME ZONE, %(file_size_bytes)s::INTEGER, %(uploaded_by)s::VARCHAR, %(mime_type)s, %(source_uri)s::VARCHAR)]
+[parameters: {'document_id': UUID('9692b3cc-7da5-48d3-834a-00678423bf34'), 'document_group_id': UUID('4179359c-6fcc-4258-8a88-9b751644210e'), 'document_name': 'Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx', 'department': 'ACCOUNTS_PAYABLE', 'source_system': 'ORACLE', 'source_document_key': 'CONTRACTING_POLICY', 'business_process': 'SOURCING', 'file_hash': '40e9c7e7f0d43e93fb47d5f0a6908ab853e9ebf2102f7db70b688e570162827b', 'document_status': 'UPLOADED', 'document_version': 1, 'uploaded_at': datetime.datetime(2026, 8, 22, 10, 23, 46, 405629, tzinfo=datetime.timezone.utc), 'file_size_bytes': 30900, 'uploaded_by': 'string', 'mime_type': 'DOCX', 'source_uri': '/home/san/Projects/P2P_Knowledge_Hub/data/raw/Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)'
+2026-08-22 16:03:13 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:91 | Ingestion Service started for document: Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx
+2026-08-22 16:03:13 | DEBUG    | p2p_knowledge_hub.services.ingestion_service:ingestion_service:120 | Injecting metadata to the PSQL for Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx
+2026-08-22 16:03:13 | INFO     | p2p_knowledge_hub.services.ingestion_service:ingestion_service:125 | Injected Metadata to PSQL dbfor Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx
+2026-08-22 16:03:13 | INFO     | p2p_knowledge_hub.ingestion.docx_loader:load:72 | Extracting pages from /home/san/Projects/P2P_Knowledge_Hub/data/raw/Santhosh_Kumar_NLP_RAG_Engineer_Resume.docx with id b60d8f07-7384-4b11-aab6-47a3eb801ef3
+2026-08-22 16:03:13 | INFO     | p2p_knowledge_hub.ingestion.docx_loader:load:117 | DOCX extraction completed: document_id=b60d8f07-7384-4b11-aab6-47a3eb801ef3 units=1
