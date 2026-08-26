@@ -1,3 +1,4 @@
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievalSource
 from p2p_knowledge_hub.settings.main import get_settings
 from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
 from p2p_knowledge_hub.retrieval.dense_retriever import DenseRetriever
@@ -34,12 +35,18 @@ class RetrievalPipelineService:
 
     @latency_decorator
     def search(
-        self, query: str, candidate: BaseRetriever, candidate_k: int, top_k: int
+        self, query: str, retriever: RetrievalSource, candidate_k: int, top_k: int
     ) -> list[RetrievedChunk]:
+        if retriever == RetrievalSource.bm25:
+            retrieved = self.bm25_retriever.retrieve(query, candidate_k)
+        elif retriever == RetrievalSource.dense:
+            retrieved = self.dense_retriever.retrieve(query, candidate_k)
+        elif retriever == RetrievalSource.hybrid:
+            retrieved = self.hybrid_retriever.retrieve(query, candidate_k)
+        else:
+            raise ValueError(f"Unsupported retriever reaches this service:{retriever}")
 
-        retrived = candidate.retrieve(query, candidate_k)
-
-        reranked = self.reranker.rerank(query, retrived, top_k)
+        reranked = self.reranker.rerank(query, retrieved, top_k)
 
         return reranked
 

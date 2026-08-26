@@ -1,3 +1,4 @@
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievalSource
 from p2p_knowledge_hub.core.timing import latency_decorator
 from p2p_knowledge_hub.models.generation_result import GenerationResult
 from p2p_knowledge_hub.retrieval.base_retriever import BaseRetriever
@@ -22,10 +23,10 @@ class RAGPipelineService:
 
     @latency_decorator
     def answer(
-        self, query: str, candidate: BaseRetriever, candidate_k: int, top_k: int
+        self, query: str, retriever: RetrievalSource, candidate_k: int, top_k: int
     ) -> GenerationResult:
         reranked_chunks = self.retrieval_service.search(
-            query=query, candidate=candidate, candidate_k=candidate_k, top_k=top_k
+            query=query, retriever=retriever, candidate_k=candidate_k, top_k=top_k
         )
         unique_ids = self.generation_service.unique_documents(
             reranked_documents=reranked_chunks

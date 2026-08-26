@@ -1,3 +1,4 @@
+from p2p_knowledge_hub.models.retrieved_chunk import RetrievalSource
 from fastapi import APIRouter, Depends
 from typing import Annotated
 from p2p_knowledge_hub.models.generation_result import GenerationResult
@@ -21,7 +22,7 @@ async def query_request(
 ) -> GenerationResult:
     return pipeline.answer(
         query=query.query,
-        candidate=pipeline.retrieval_service.hybrid_retriever,
-        candidate_k=20,
-        top_k=3,
+        retriever=query.retriever,
+        candidate_k=query.candidate_k,
+        top_k=query.top_k,
     )
