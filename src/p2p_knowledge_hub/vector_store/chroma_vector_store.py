@@ -105,4 +105,34 @@ class ChromaVectorStore(BaseVectorStore):
             chunk = DocumentChunk(chunk_id=UUID(chunk_id), text=text, **metadata)
             chunks.append(chunk)
 
+        # -O- testing purpose -O- #
+
+        # print("x-O-X" * 50)
+        # for chunk in chunks:
+        #     if chunk.document_id == UUID("5658aef4-8e82-4615-8ca4-e89253cef2b0"):
+        #         print(chunk.chunk_id)
+        #         print(chunk.document_id)
+        #         print(chunk.text)
+        # print("x-O-X" * 50)
+        #
         return chunks
+
+    def reset_collection(self) -> None:
+        self.client.delete_collection("p2p_docs")
+
+    def indexed_chunk_count(self) -> int:
+        return self.collection.count()
+
+
+if __name__ == "__main__":
+    from chromadb.config import Settings as ChromaSettings
+    from pathlib import Path
+    import chromadb
+
+    chroma_client = chromadb.PersistentClient(
+        path=Path(settings.runtime_dir.base_dir / "chroma"),
+        settings=ChromaSettings(anonymized_telemetry=False),
+    )
+
+    clint = ChromaVectorStore(client=chroma_client)
+    clint.reset_collection()

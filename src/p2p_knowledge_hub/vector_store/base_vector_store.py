@@ -12,5 +12,14 @@ class BaseVectorStore(ABC):
     ) -> None:
         raise NotImplementedError
 
+    @abstractmethod
     def search(self, query_embeddings: list[float], top_k: int) -> list[RetrievedChunk]:
+        raise NotImplementedError
+
+    @abstractmethod
+    def indexed_chunk_count(self) -> int:
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_all_chunks(self) -> list[DocumentChunk]:
         raise NotImplementedError

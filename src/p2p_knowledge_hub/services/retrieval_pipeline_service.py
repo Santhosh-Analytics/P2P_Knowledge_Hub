@@ -1,3 +1,4 @@
+from p2p_knowledge_hub.exceptions.chunking_exceptions import NoIndexedChunksError
 from p2p_knowledge_hub.models.retrieved_chunk import RetrievalSource
 from p2p_knowledge_hub.settings.main import get_settings
 from p2p_knowledge_hub.lexical_index.bm25_index import BM25Index
@@ -37,6 +38,10 @@ class RetrievalPipelineService:
     def search(
         self, query: str, retriever: RetrievalSource, candidate_k: int, top_k: int
     ) -> list[RetrievedChunk]:
+        if self.vector_store.indexed_chunk_count() == 0:
+            raise NoIndexedChunksError(
+                "No indexed documents are available for retrieval."
+            )
         if retriever == RetrievalSource.bm25:
             retrieved = self.bm25_retriever.retrieve(query, candidate_k)
         elif retriever == RetrievalSource.dense:
@@ -51,5 +56,6 @@ class RetrievalPipelineService:
         return reranked
 
     def refresh_bm25(self) -> None:
-        chunks = self.vector_store.get_all_chunks()
-        self.bm25_index.build(chunks)
+        if self.vector_store.indexed_chunk_count() > 0:
+            chunks = self.vector_store.get_all_chunks()
+            self.bm25_index.build(chunks)
