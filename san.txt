@@ -1,0 +1,459 @@
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 1 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+STANDARD OPERATING PROCEDURE: 
+2.0 SUPPLIER MANAGEMENT 
+This procedure is in accordance with Procurement and Payment Policy 20.1.11. 
+Introduction 
+ 
+Supplier Management is a set of processes, activities, systems and information management tools that 
+allows Rutgers to manage and have maximum visibility into all activities associated with a supplier. UPS 
+is responsible for ensuring that all suppliers engaged by the university are properly onboarded, 
+maintained, and managed in compliance with university, state, and federal requirements.  
+ 
+Procedure Outline 
+ 
+2.1 
+New Supplier Set Up  
+2.2 
+Supplier Record Maintenance  
+2.3 
+Supplier Ethics 
+2.4 
+Debarred Supplier List 
+2.5 
+Federal Contracting and the Small Business Contracting Plan (SBSP) 
+2.6 
+Sustainability 
+2.7 
+Supplier Management Post Contract Award  
+ 
+Definitions 
+ 
+Corporation: An organization that is recognized as having a legal existence as an entity separate and 
+distinct from its owners. Corporations are owned by their stockholders (shareholders) who share in 
+profits and losses generated through the firm's operations. 
+ 
+Employer Identification Number (EIN):  A unique nine-digit number assigned by the Internal Revenue 
+Service (IRS) to business entities operating in the United States for the purposes of identification.  The 
+EIN is also known as the Federal Tax Identification Number.  
+ 
+Independent Contractor or Employee Determination Form (ICED): This is a prerequisite document for 
+guest lecturer, honorarium, or professional services engagements, that the prospective supplier must 
+complete and must be reviewed and approved by UPS or University Tax Department prior to any start of 
+service. 
+ 
+Individual Tax Identification Number (ITIN): A tax processing number only available for certain non-
+resident and resident aliens, their spouses, and dependents who cannot get a Social Security Number 
+(SSN).  It is a 9-digit number, beginning with the number "9", formatted like an SSN (NNN-NN-NN). 
+ 
+ 
+Limited Liability Company (LLC): A organization whereby the members of the company cannot be held 
+personally liable for the company's debts or liabilities. This is a hybrid entity that combines the 
+characteristics of a corporation and a partnership or sole proprietorship. 
+ 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 2 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+Ownership Declaration Form: A form required to be submitted by all suppliers performing work with 
+RBHS or other Rutgers units that may be Medicare reimbursable. 
+ 
+Partnership: An organization in which two or more individuals pool money, skills, and other resources, 
+and share profit and loss in accordance with terms of the partnership agreement.   
+ 
+PaymentWorks: Self-service supplier data portal for new supplier onboarding and existing supplier 
+maintenance.  
+ 
+Procurement Approver:  Approver within UPS who will perform a general screen and review of 
+invitation requests for a new Supplier or review any updates of a current supplier.  
+RU Marketplace: The university online system that covers all stages of the procurement-to-payment 
+process. This system provides a comprehensive approach to the provider and end user. The tool also 
+allows for data analytics by measuring the effectiveness of contracts, transaction approval cycle times, 
+and use of automated invoice processing. 
+Social Security Number (SSN): A unique 9-digit number in the format 000-00-0000 issued to individuals 
+in the United States to track Social Security benefits and for other identification purposes. 
+ 
+Sole Proprietor: A business that legally has no separate existence from its owner.  A sole proprietorship 
+is the simplest business form under which one can operate a business. The sole proprietorship is not a 
+legal entity. It simply refers to a person who owns the business and is personally responsible for its 
+debts. 
+ 
+Standard Operational Procedure (SOP): A set of instructions that functionally describes the key 
+procedures. 
+ 
+Supplier: Any individual, company, corporation, partnership or sole proprietor that provides goods or 
+services to the University. 
+ 
+Tax Identification Number (TIN): An identification number used by the Internal Revenue Service (IRS) in 
+the administration of tax laws.  The TIN is also known as the Employer Identification Number (EIN). 
+Unit: A Rutgers internal department. 
+University Procurement Services (UPS): The unit that processes all procurement transactions including 
+requisitions and invoices, facilitates the formal bid process, and negotiates and manages contracts. 
+ 
+W-8 Form - The IRS form that certifies foreign status and needs to be completed for any foreign individual 
+(W-8BEN) or company (W-8BEN-E) when the University is making a payment to them. It is also used to 
+validate a tax treaty exemption from, or a reduced rate of, withholding on certain income. 
+ 
+W-9 Form -The IRS form which certifies a domestic taxpayers identification number.  This form is 
+requested from suppliers to conform to IRS regulations.  Rutgers must have a federal tax identification 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 3 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+number or social security number on file for all suppliers and individuals receiving payments from the 
+University and this form is used to certify those numbers. 
+ 
+Procedures 
+ 
+2.1 New Supplier Set-Up Process 
+ 
+Overview 
+Prior to purchasing a good or a service, units should first research and attempt to use contracted 
+suppliers and suppliers already in RU Marketplace to meet their needs, before seeking to enter an 
+additional supplier to the system.  If no existing suppliers can provide the good or service, a new 
+supplier must be invited through PaymentWorks, and approved by UPS.  
+ 
+Any supplier seeking to do business with or receive payment from the University must first be 
+established in PaymentWorks.  
+ 
+PaymentWorks is the University’s supplier onboarding and management platform.  It enables units to 
+invite new or existing (“legacy”) suppliers who have not yet completed the onboarding process. The 
+system securely collects and validates supplier information while providing visibility into the onboarding 
+workflow. Once registered in PaymentWorks, suppliers can maintain their own profile, including 
+address, tax, and contact information, directly within the platform. 
+  
+Inviting A Supplier to Register 
+Before sending an invitation, units should: 
+1. Confirm that no existing supplier can provide the required good or service. 
+2. Search in PaymentWorks to ensure the supplier is not already registered.  
+ 
+Important Notes:  
+• 
+New suppliers for promotional merchandise, apparel, signage, displays, or awards should 
+not be invited or added without prior approval from the Office of Trademark Licensing 
+(trademark@ucm.rutgers.edu) within University Communications & Marketing. 
+• 
+Suppliers performing architectural, engineering, or trade-related work (e.g., electrical, 
+painting, HVAC, plumbing) should not be invited. These requests are managed exclusively 
+through Institutional Planning & Operations (IP&O). 
+• 
+Non-PO transactions that do not involve the purchase of goods or services are not required 
+to register in PaymentWorks. 
+• 
+The following types of payments should be processed through Candex: 
+o 
+Honoraria 
+o 
+Travel – Non-Employee 
+o 
+Athletics – Game Day Services 
+o 
+Patient Actors 
+o 
+Net (Print) Royalties 
+ 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 4 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+ 
+To invite a supplier, the unit — referred to as the “initiator” — must complete the supplier 
+invitation form, which includes the following information (see PaymentWorks Training Videos 
+for instructions): 
+• 
+Supplier name 
+• 
+A valid supplier email address 
+• 
+Good or service provided 
+• 
+Selection of company or individual 
+• 
+Personalized message (optional) – for the supplier  
+• 
+PO or check request supplier 
+ 
+Once submitted, the invitation is routed to UPS for review and approval . 
+ 
+Criteria for supplier invitation approval   
+UPS will approve supplier invitations based on the following criteria: 
+ 
+a) The supplier is not already registered in PaymentWorks.  
+b) The supplier provides a good or service that cannot be sourced from an existing University-
+Contracted Supplier.  
+c) The supplier is not a current Rutgers student.  
+d) The supplier is not a current or recently separated employee  
+a. A 6-month gap is required following their last paycheck with Rutgers. 
+b. The hire date must be a different calendar year. 
+c. The new role cannot be the same job performed prior to leaving the university.  
+e) The supplier does not qualify for a Non-PO Upload transaction.   
+ 
+Supplier Registration Process 
+Once an invitation is approved by UPS, the potential supplier will receive an email with instructions to 
+create an account. After creating their account, they will receive a follow-up email to begin their New 
+Vendor Registration Form.   Suppliers are required to submit the following documentation in order to 
+formally register with PaymentWorks: 
+ 
+• 
+Name as it appears on the W-9 (or W-8 if foreign) 
+• 
+Note: W-9 must be signed and dated within the last 18 months; W-8 must be signed and dated 
+within the last three years. 
+• 
+Address 
+• 
+Email address 
+• 
+Tax ID/SSN number 
+• 
+Phone number 
+• 
+Signed W-9 (US entity) or W-8 (foreign entity) 
+ 
+Any missing information will result in a supplier registration being returned to the supplier for 
+correction and resubmission. It is the Supplier’s responsibility to complete the registration in full and 
+submit all required documentation.  Incomplete registrations will delay the onboarding process. 
+ 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 5 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+New Supplier Screening and Entry  
+Once the potential supplier submits their completed registration, PaymentWorks conducts a general 
+screening to include: 
+ 
+• 
+Confirm the validity of the tax identification number 
+• 
+Confirm that the supplier is not on the debarred supplier list (See SAM.gov) 
+• 
+Confirm supplier’s address is valid 
+• 
+Confirm the supplier record does not already exists in our supplier database   
+ 
+Once the PaymentWorks screening is complete, UPS will also conduct an additional screening that 
+includes: 
+ 
+• 
+Confirming the supplier is not a current employee or student of Rutgers 
+• 
+Addressing any issues identified during the PaymentWorks screening.  
+ 
+Once this process is complete and no issues are discovered, the registration will be approved, and the 
+supplier record will be added to Oracle and RU Marketplace.  Both the invitation initiator and the 
+supplier will receive email notification that the supplier has been established. 
+Units can verify for supplier set-up by entering the supplier name or supplier number in any requisition 
+form in RU Marketplace.  Units must still follow the sourcing process (See 3.0 Sourcing) to complete the 
+purchase.   
+ 
+If an issue is discovered, employees/students, or a supplier appears on the debarred list, a member of 
+the UPS will contact the supplier and invitation initiator.  
+ 
+2.2 Supplier Record Maintenance 
+ 
+From time to time, updates to a supplier record will be required.  For all suppliers not onboarded in 
+PaymentWorks, units should invite that supplier via a PaymentWorks invitation (see 2.1 New Supplier 
+Request Process) so that the supplier goes through a sanctions check.  The old record will be de-
+activated once the registration has been approved and entered.  Any updates to a supplier’s information 
+going forward should be made by the supplier directly via PaymentWorks. 
+ 
+Typical changes include: 
+ 
+• New address 
+• Changes to an existing address or contact information 
+• Change in name 
+• De-activation due to going out of business or purchase by another company 
+• Tax identification change 
+• 
+Note: A change in tax identification requires issuing a new PaymentWorks invitation and 
+a Procurement Help Desk ticket request to inactivate the existing supplier record. 
+ 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 6 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+For suppliers already in the system but who require a change, they will submit the change in the 
+PaymentWorks portal directly.   The change request will be reviewed and either approved or rejected.   
+ 
+The Supplier Maintenance team also performs other regular maintenance activities.  Annually, the team 
+will deactivate suppliers who have not had activity for at least 24 months.  If a supplier needs to be 
+reactivated, the unit can submit a Help Desk ticket. Any reactivation would require the supplier to be 
+registered in PaymentWorks. 
+ 
+2.3 Supplier Ethics 
+Current and prospective suppliers are prohibited from giving money, loans, credits, entertainment, 
+favors, services or gifts to Rutgers employees.  Such gifts and gratuities, even if of seemingly low value, 
+can give rise to a conflict of interest or the appearance of a conflict of interest.  Such gifts will be 
+promptly disposed of.  If it is deemed necessary to visit a supplier site for a demonstration, the 
+university pays all related expenses.  Please see Rutgers policy 40.2.12 - Gratuities, Guests, Gifts and Use 
+of University Resources.  
+ 
+2.4 Debarred Supplier List  
+ 
+Rutgers University complies with Federal regulations that prohibit transacting or making payments to 
+suppliers that are debarred or appear on a prohibited list maintained by the U.S. Federal Contractor 
+Registration, or other federal agency.  This applies to all procurement and disbursement transactions 
+including but not limited to suppliers, individuals, external / independent contractors or consultants, 
+professional services providers, entertainers, performers, one-time lecture fees and construction related 
+goods and services.   
+UPS is responsible for confirming that suppliers are not on the debarred list.  No contract, agreement, 
+purchase order, or payment by Rutgers is allowed at any time to such suppliers or parties. UPS will 
+cancel any contracts, agreements, or purchase orders inadvertently issued, and will return unprocessed 
+any invoices submitted for payment. 
+ 
+If any current suppliers appear on the denied parties/debarred list, the following steps will be taken by 
+UPS: 
+1) Deactivation of the supplier in RU Marketplace/ Oracle. 
+ 
+2) Notification to University Ethics and Compliance.  
+ 
+3) Location of any open transactions with the supplier and notification to the unit responsible for    
+       the transaction.  
+ 
+4) Closure of any open transactions subject to the terms of any existing contracts. 
+ 
+ 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 7 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+2.5 Federal Contracting and the Small Business Contracting Plan (SBSP) 
+ 
+As a recipient of federal funds for sponsored research, the University is required by Federal Acquisition 
+Regulation (FAR 52.219-9) to prepare a Small Business Subcontracting Plan (SBSP) for each contract with 
+an awarded value in excess of $700,000.  Under these plans, prime contractors and subcontractors, such 
+as Rutgers, must agree to purchase a percentage of goods and services from certified Small Business 
+Concerns.  Some federal agencies set specific percentage goals.   
+ 
+The SBSP is developed jointly by the principal investigator, the unit, and the Supplier Management Unit 
+within University Procurement Services. The SBSP specifies which items will be purchased from small 
+business concerns, the total dollars to be spent with each small business concern, and the percentage of 
+dollars budgeted for supplies and services that the purchases represent.  Once the award has been 
+made, the SBSP becomes part of the contract and the principal investigator is expected to meet the 
+goals set in the plan. 
+ 
+As a federal contractor, the University is required to prepare semi-annual reports to the federal 
+government of its purchases from Small Business Concerns for each contract.  The University identifies 
+Small Business Concerns and include them in the performance of these subcontract plans. 
+ 
+2.6 Sustainability 
+ 
+Rutgers is committed to environmental stewardship by promoting the use of environmentally and 
+socially responsible products, whenever possible.  From a supplier management standpoint, UPS 
+collaborates with the University’s existing supplier base to identify and highlight for the campus, their 
+portfolio of environmentally friendly products and services.   
+ 
+For federal awards, UPS:  
+ 
+• 
+Guides units to purchase only items that are in compliance with Environmental Protection 
+Agency (EPA) at 40 CFR part 247 guidelines; 
+ 
+For all awards, including federal awards, UPS: 
+ 
+• 
+Guides units to purchase recycled and environmentally preferable products and services, when 
+practical; 
+ 
+• 
+Meets with the campus units to discuss and explore opportunities to utilize products and 
+services with the greatest amount of recycled, recyclable, and post-consumer content; 
+ 
+• 
+Collaborates with existing suppliers to identify and highlight for the campus their portfolio of 
+environmentally friendly products and services; 
+ 
+• 
+Identifies green and environmentally responsible products made available by our suppliers and 
+pilots them within the University to validate compatibility and practicality; and 
+ 
+                             
+ 
+ 
+ 
+© 2025 
+Rutgers University Procurement Services 
+Page 8 of 8 
+CAUTION:  A printed copy of this document is uncontrolled and may not be the current version. Access current version on the UPS website. 
+• 
+Guides units to participate in the fleet management program that complies with the U.S. 
+Department of Energy’s Alternative Fuel Transportation Program (See Sourcing 3.0). 
+ 
+ 
+2.7 Supplier Management Post Contract Award and Dispute Resolution 
+ 
+UPS monitors selected major contracts to ensure compliance to all pricing, terms and conditions.  In 
+addition, UPS works with these suppliers to continually develop ways to drive costs down and improve 
+services for the Rutgers community.  The approach is dependent on the contract but may include: 
+ 
+• 
+Reports from the supplier regarding key performance indicators (i.e. pricing, delivery data, 
+product return data, etc.) 
+ 
+• 
+Regularly scheduled meetings with the supplier (i.e. quarterly business reviews) 
+ 
+UPS also works with units on resolving any supplier conflicts that may arise, if requested.  Units are 
+encouraged to contact the appropriate Category Manager for assistance in resolving any such issue.    
+ 
+ 
+ 
+References 
+ 
+PaymentWorks 
+Supplier Onboarding System 
+ 
+Campus Instructions  (via Canvas) 
+Supplier Maintenance Request Process Instructions 
+ 
+Process Flowchart  (via Canvas) 
+Supplier Management Process 
+ 
+Revisions 
+ 
+Effective Date 
+Approver 
+Change Reference 
+Issue # 
+11/2025 
+M. Gower  
+ 
+4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -13,7 +13,7 @@ rich_tracebacks = false
 default_error_message = "An unexpected error occured."
 
 [chunking]
-chunk_strategy = "sliding_word"
+chunk_strategy = "recursive"
 max_chunk_size = 70
 chunk_overlap = 7
 

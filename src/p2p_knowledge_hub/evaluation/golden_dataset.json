@@ -1,0 +1,25 @@
+[
+  {
+    "query": "What is Pytorch?",
+    "correct_document_ids": ["284fc90e-2afd-4159-9c4a-0af3f8671b89"],
+    "correct_chunk_ids": ["94874c48-27b9-4e13-98cb-97d40e7064d4"],
+    "reference_answer": " PyTorch is a Python-based scientific computing package serving two broad purposes - A replacement for NumPy to use the power of GPUs and other accelerators. - An automatic differentiation library that is useful to implement neural networks.",
+    "category": "Payment"
+  },
+
+  {
+    "query": "Invoicing and Payment Workfow in SAP Ariba Solutions",
+    "correct_document_ids": ["d1090e27-f0b5-4d35-981b-60e944035eab"],
+    "correct_chunk_ids": ["d7c575a9-785d-4940-9394-4d4d85364ad9"],
+    "reference_answer": "Invoicing and Payment Workflow in SAP Ariba Solutions Although your company's specific invoice workflow depends on your site's configuration and your company's business processes, SAP Ariba invoicing solutions SAP Ariba Buying and Invoicing and SAP Ariba Invoice Management support a common general process. 1. Depending on your site enablement options and the invoice process flow configured for your site, an invoice is created:",
+    "category": "Payment"
+  },
+
+  {
+    "query": "Invoicing and Payment Workfow in SAP Ariba Solutions",
+    "correct_document_ids": ["d1090e27-f0b5-4d35-981b-60e944035eab"],
+    "correct_chunk_ids": ["d7c575a9-785d-4940-9394-4d4d85364ad9"],
+    "reference_answer": "Invoicing and Payment Workflow in SAP Ariba Solutions Although your company's specific invoice workflow depends on your site's configuration and your company's business processes, SAP Ariba invoicing solutions SAP Ariba Buying and Invoicing and SAP Ariba Invoice Management support a common general process. 1. Depending on your site enablement options and the invoice process flow configured for your site, an invoice is created:",
+    "category": "Payment"
+  }
+]
